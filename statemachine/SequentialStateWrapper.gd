@@ -1,0 +1,40 @@
+class_name StateWrapper extends State
+
+var current_sub_state: State
+var sequence_index: int = 0
+var number_of_sub_states: int
+
+func _ready() -> void:
+	current_sub_state = get_child(sequence_index)
+	number_of_sub_states = len(get_children())
+	
+	for state_node: State in find_children("*", "State"):
+		state_node.finished.connect(_transition_to_next_state)
+	
+	get_child(sequence_index).enter("")
+
+func enter(previous_state_path: String, data: Dictionary = {}) -> void:
+	sequence_index = data.get("sequnce_index", sequence_index) % number_of_sub_states
+	current_sub_state = get_child(sequence_index)
+	current_sub_state.enter(previous_state_path, data)
+
+func handle_input(event: InputEvent) -> void:
+	current_sub_state.handle_input(event)
+
+func update(delta) -> void:
+	current_sub_state.update(delta)
+
+func physics_update(delta) -> void:
+	current_sub_state.physics_update(delta)
+
+func _transition_to_next_state(next_state_path: String, data: Dictionary = {}) -> void:
+	current_sub_state.exit()
+	
+	if not next_state_path.is_empty():
+		finished.emit(next_state_path, {"sequence_index": sequence_index})
+		sequence_index = 0
+		return
+
+	sequence_index = (sequence_index + 1) % number_of_sub_states
+	current_sub_state = get_child(sequence_index)
+	current_sub_state.enter("")
