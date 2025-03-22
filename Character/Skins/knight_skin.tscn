@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://ebrebictycwg"]
+[gd_scene load_steps=8 format=3 uid="uid://ebrebictycwg"]
 
 [ext_resource type="PackedScene" uid="uid://dhclrf1sotdb6" path="res://Assets/Characters/gltf/Knight.glb" id="1_jcxha"]
-[ext_resource type="Script" uid="uid://dkyh824pdii50" path="res://Character/knight.gd" id="2_fnrkw"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jcxha"]
 animation = &"Running_A"
@@ -28,13 +27,12 @@ min_space = 0.0
 snap = 0.05
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_jcxha"]
-graph_offset = Vector2(-576.367, 189.517)
+graph_offset = Vector2(-340.99, 79.2805)
 nodes/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_jcxha")
 nodes/BlendSpace1D/position = Vector2(-60, 140)
 node_connections = [&"output", 0, &"BlendSpace1D"]
 
 [node name="Knight" instance=ExtResource("1_jcxha")]
-script = ExtResource("2_fnrkw")
 
 [node name="Skeleton3D" parent="Rig" index="0"]
 bones/1/position = Vector3(0, 0.392064, 0)

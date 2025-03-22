@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://e8mgunypswjq"]
+
+[ext_resource type="PackedScene" uid="uid://ebrebictycwg" path="res://Character/Skins/knight_skin.tscn" id="1_k3002"]
+[ext_resource type="Script" uid="uid://dkyh824pdii50" path="res://Character/Playedr.gd" id="1_nwtvh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k3002"]
+radius = 0.536479
+height = 2.44463
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nwtvh"]
+radius = 0.2
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_nwtvh")
+metadata/_custom_type_script = "uid://dkyh824pdii50"
+
+[node name="Knight" parent="." instance=ExtResource("1_k3002")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20262, 0)
+shape = SubResource("CapsuleShape3D_k3002")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.863396, -0.504528, 0, 0.504528, 0.863396, 0, 1.28695, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+shape = SubResource("SphereShape3D_nwtvh")
+spring_length = 5.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D"]
+unique_name_in_owner = true
