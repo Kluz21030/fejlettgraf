@@ -1,17 +1,18 @@
-class_name StateWrapper extends State
+class_name SequentialStateWrapper extends State
 
 var current_sub_state: State
 var sequence_index: int = 0
 var number_of_sub_states: int
 
-func _ready() -> void:
+func initialize() -> void:
 	current_sub_state = get_child(sequence_index)
 	number_of_sub_states = len(get_children())
 	
 	for state_node: State in find_children("*", "State"):
 		state_node.finished.connect(_transition_to_next_state)
-	
-	get_child(sequence_index).enter("")
+		state_node.animation_player = animation_player
+		state_node.animation_tree = animation_tree
+		state_node.body = body
 
 func enter(previous_state_path: String, data: Dictionary = {}) -> void:
 	sequence_index = data.get("sequnce_index", sequence_index) % number_of_sub_states

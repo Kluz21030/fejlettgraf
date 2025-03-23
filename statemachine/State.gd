@@ -1,5 +1,11 @@
 class_name State extends Node
 
+@export var can_move: bool
+
+var body: CharacterBody3D
+var animation_player: AnimationPlayer
+var animation_tree: AnimationTree
+
 signal finished(next_state_path: String, data: Dictionary)
 
 func enter(previous_state_path:String, data: Dictionary = {}) -> void:

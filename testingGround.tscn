@@ -15,10 +15,11 @@ sky = SubResource("Sky_gq0tu")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_ypqyp"]
-size = Vector2(200, 200)
+[sub_resource type="BoxMesh" id="BoxMesh_ypqyp"]
+size = Vector3(10, 0.2, 10)
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_gq0tu"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_gq0tu"]
+size = Vector3(10, 0.2, 10)
 
 [node name="Node3D" type="Node3D"]
 
@@ -32,9 +33,9 @@ environment = SubResource("Environment_2m3mq")
 [node name="Player" parent="." instance=ExtResource("1_ypqyp")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_ypqyp")
+mesh = SubResource("BoxMesh_ypqyp")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-shape = SubResource("WorldBoundaryShape3D_gq0tu")
+shape = SubResource("BoxShape3D_gq0tu")

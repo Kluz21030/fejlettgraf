@@ -1,6 +1,9 @@
 class_name StateMachine extends Node
 
 @export var initial_state: State = null
+@export var animation_player: AnimationPlayer
+@export var animation_tree: AnimationTree
+@export var body: CharacterBody3D
 
 @onready var current_state: State = (func get_initial_state() -> State: 
 	return initial_state if initial_state else get_child(0)
@@ -8,8 +11,13 @@ class_name StateMachine extends Node
 
 
 func _ready() -> void:
-	for state_node: State in find_children("*", "State"):
+	for state_node: State in find_children("*", "State", false):
 		state_node.finished.connect(_transition_to_next_state)
+		state_node.animation_player = animation_player
+		state_node.animation_tree = animation_tree
+		state_node.body = body
+		if state_node is SequentialStateWrapper:
+			state_node.initialize()
 	
 	await owner.ready
 	initial_state.enter("")

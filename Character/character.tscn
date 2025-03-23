@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://e8mgunypswjq"]
+[gd_scene load_steps=11 format=3 uid="uid://e8mgunypswjq"]
 
 [ext_resource type="PackedScene" uid="uid://ebrebictycwg" path="res://Character/Skins/knight_skin.tscn" id="1_k3002"]
-[ext_resource type="Script" uid="uid://dkyh824pdii50" path="res://Character/Playedr.gd" id="1_nwtvh"]
+[ext_resource type="Script" uid="uid://dkyh824pdii50" path="res://Character/Player.gd" id="1_nwtvh"]
+[ext_resource type="Script" uid="uid://df3ofue5mg5qx" path="res://statemachine/StateMachine.gd" id="3_twwou"]
+[ext_resource type="Script" uid="uid://cvklrtqhdwfbp" path="res://Character/States/idle.gd" id="4_a23tb"]
+[ext_resource type="Script" uid="uid://fjogvsoada71" path="res://Character/States/run.gd" id="5_a23tb"]
+[ext_resource type="Script" uid="uid://7j1kw0y2ixuk" path="res://Character/States/slice.gd" id="6_uerqc"]
+[ext_resource type="Script" uid="uid://bsrllvd6m6k0o" path="res://statemachine/SequentialStateWrapper.gd" id="7_1l6l2"]
+[ext_resource type="Script" uid="uid://c5m4uppe2xy53" path="res://Character/States/stab.gd" id="8_q4sqr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k3002"]
 radius = 0.536479
@@ -15,6 +21,7 @@ script = ExtResource("1_nwtvh")
 metadata/_custom_type_script = "uid://dkyh824pdii50"
 
 [node name="Knight" parent="." instance=ExtResource("1_k3002")]
+unique_name_in_owner = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20262, 0)
@@ -31,3 +38,39 @@ spring_length = 5.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D"]
 unique_name_in_owner = true
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "animation_player", "animation_tree", "body")]
+unique_name_in_owner = true
+script = ExtResource("3_twwou")
+initial_state = NodePath("Idle")
+animation_player = NodePath("../Knight/AnimationPlayer")
+animation_tree = NodePath("../Knight/AnimationTree")
+body = NodePath("..")
+metadata/_custom_type_script = "uid://df3ofue5mg5qx"
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_a23tb")
+can_move = true
+metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[node name="Run" type="Node" parent="StateMachine"]
+script = ExtResource("5_a23tb")
+can_move = true
+metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource("7_1l6l2")
+metadata/_custom_type_script = "uid://bsrllvd6m6k0o"
+
+[node name="Slice" type="Node" parent="StateMachine/Attack"]
+script = ExtResource("6_uerqc")
+metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[node name="ComboTimer" type="Timer" parent="StateMachine/Attack/Slice"]
+one_shot = true
+
+[node name="Stab" type="Node" parent="StateMachine/Attack"]
+script = ExtResource("8_q4sqr")
+metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[editable path="Knight"]
