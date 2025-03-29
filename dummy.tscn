@@ -1,13 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://1kopvhiaf0ol"]
+[gd_scene load_steps=6 format=3 uid="uid://1kopvhiaf0ol"]
+
+[ext_resource type="Script" uid="uid://btxm2taj35ckr" path="res://Components/HurtboxComponent.gd" id="1_xmspm"]
+[ext_resource type="Script" uid="uid://bqolpeb84mvdr" path="res://Components/HealthComponent.gd" id="2_0umox"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmspm"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gcxmu"]
+material = SubResource("StandardMaterial3D_xmspm")
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gtj52"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xmspm"]
 
 [node name="MeshInstance3D" type="MeshInstance3D"]
 mesh = SubResource("CapsuleMesh_gcxmu")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="HurtboxComponet" type="Area3D" parent="." node_paths=PackedStringArray("health_component")]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_xmspm")
+health_component = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://btxm2taj35ckr"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("CapsuleShape3D_gtj52")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponet"]
+shape = SubResource("CapsuleShape3D_xmspm")
+
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("timer")]
+script = ExtResource("2_0umox")
+timer = NodePath("Timer")
+MAX_HEALTH = 800
+metadata/_custom_type_script = "uid://bqolpeb84mvdr"
+
+[node name="Timer" type="Timer" parent="HealthComponent"]
+one_shot = true

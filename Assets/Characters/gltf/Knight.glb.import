@@ -37813,6 +37813,26 @@ _subresources={
 "slice_99/start_frame": 0,
 "slices/amount": 0
 }
+},
+"nodes": {
+"PATH:AnimationPlayer": {
+"import/skip_import": true
+},
+"PATH:Rig/Skeleton3D/1H_Sword_Offhand": {
+"import/skip_import": true
+},
+"PATH:Rig/Skeleton3D/Badge_Shield": {
+"import/skip_import": true
+},
+"PATH:Rig/Skeleton3D/Rectangle_Shield": {
+"import/skip_import": true
+},
+"PATH:Rig/Skeleton3D/Round_Shield": {
+"import/skip_import": true
+},
+"PATH:Rig/Skeleton3D/Spike_Shield": {
+"import/skip_import": true
+}
 }
 }
 gltf/naming_version=1

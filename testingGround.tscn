@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://chr4qtb54rs7m"]
+[gd_scene load_steps=6 format=3 uid="uid://chr4qtb54rs7m"]
 
 [ext_resource type="PackedScene" uid="uid://e8mgunypswjq" path="res://Player/player.tscn" id="1_ypqyp"]
+[ext_resource type="PackedScene" uid="uid://1kopvhiaf0ol" path="res://dummy.tscn" id="2_gq0tu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ypqyp"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -34,3 +35,6 @@ size = Vector3(50, 0.1, 50)
 transform = Transform3D(-1.00485, 0, -4.61731e-07, 0, 0.999657, 0, 8.78471e-08, 0, -5.28158, 12.3895, 0.0433232, 5.10604)
 use_collision = true
 polygon = PackedVector2Array(-4, 2, 0, 2, 3, 0, -4, 0)
+
+[node name="MeshInstance3D" parent="." instance=ExtResource("2_gq0tu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 6.27028)
