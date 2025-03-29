@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	_camera_input_direction = Vector2.ZERO
 	
 	_input_direction = Input.get_vector("move_left", "move_right", "move_forward", "move_back") if state_machine.current_state.can_move else Vector2.ZERO
-		
+	
 	_move_direction = _camera.global_basis.z * _input_direction.y + _camera.global_basis.x * _input_direction.x
 	_move_direction.y = 0.0
 	_move_direction.normalized()
@@ -49,6 +49,7 @@ func _physics_process(delta: float) -> void:
 	velocity.y = 0.0
 	velocity = velocity.move_toward(_move_direction * movement_speed, acceleration * delta)
 	velocity.y = y_velocity + _gravity * delta
+	
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y += jump_impulse

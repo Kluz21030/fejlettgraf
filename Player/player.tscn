@@ -1,0 +1,99 @@
+[gd_scene load_steps=14 format=3 uid="uid://e8mgunypswjq"]
+
+[ext_resource type="PackedScene" uid="uid://ebrebictycwg" path="res://Player/Skins/knight_skin.tscn" id="1_k3002"]
+[ext_resource type="Script" uid="uid://dkyh824pdii50" path="res://Player/Player.gd" id="1_nwtvh"]
+[ext_resource type="Script" uid="uid://df3ofue5mg5qx" path="res://StateMachine/StateMachine.gd" id="3_twwou"]
+[ext_resource type="Script" uid="uid://cvklrtqhdwfbp" path="res://Player/States/idle.gd" id="4_a23tb"]
+[ext_resource type="Script" uid="uid://fjogvsoada71" path="res://Player/States/run.gd" id="5_a23tb"]
+[ext_resource type="Script" uid="uid://7j1kw0y2ixuk" path="res://Player/States/slice.gd" id="6_uerqc"]
+[ext_resource type="Script" uid="uid://bsrllvd6m6k0o" path="res://StateMachine/SequentialStateWrapper.gd" id="7_1l6l2"]
+[ext_resource type="Script" uid="uid://c5m4uppe2xy53" path="res://Player/States/stab.gd" id="8_q4sqr"]
+[ext_resource type="Script" uid="uid://bqolpeb84mvdr" path="res://Components/HealthComponent.gd" id="9_veuuo"]
+[ext_resource type="Script" uid="uid://btxm2taj35ckr" path="res://Components/HurtboxComponent.gd" id="10_rgbux"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k3002"]
+radius = 0.575135
+height = 2.44463
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nwtvh"]
+radius = 0.2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_veuuo"]
+radius = 0.571819
+height = 2.44463
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_nwtvh")
+metadata/_custom_type_script = "uid://dkyh824pdii50"
+
+[node name="Knight" parent="." instance=ExtResource("1_k3002")]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20262, 0)
+shape = SubResource("CapsuleShape3D_k3002")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.863396, -0.504528, 0, 0.504528, 0.863396, 0, 1.28695, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+shape = SubResource("SphereShape3D_nwtvh")
+spring_length = 5.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D"]
+unique_name_in_owner = true
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "animation_player", "animation_tree", "body")]
+unique_name_in_owner = true
+script = ExtResource("3_twwou")
+initial_state = NodePath("Idle")
+animation_player = NodePath("../Knight/AnimationPlayer")
+animation_tree = NodePath("../Knight/AnimationTree")
+body = NodePath("..")
+metadata/_custom_type_script = "uid://df3ofue5mg5qx"
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_a23tb")
+can_move = true
+metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[node name="Run" type="Node" parent="StateMachine"]
+script = ExtResource("5_a23tb")
+can_move = true
+metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource("7_1l6l2")
+metadata/_custom_type_script = "uid://bsrllvd6m6k0o"
+
+[node name="Slice" type="Node" parent="StateMachine/Attack"]
+script = ExtResource("6_uerqc")
+metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[node name="ComboTimer" type="Timer" parent="StateMachine/Attack/Slice"]
+one_shot = true
+
+[node name="Stab" type="Node" parent="StateMachine/Attack"]
+script = ExtResource("8_q4sqr")
+metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("9_veuuo")
+MAX_HEALTH = 500
+metadata/_custom_type_script = "uid://bqolpeb84mvdr"
+
+[node name="HurtboxComponet" type="Area3D" parent="." node_paths=PackedStringArray("health_component")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("10_rgbux")
+health_component = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://btxm2taj35ckr"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20262, 0)
+shape = SubResource("CapsuleShape3D_veuuo")
+debug_color = Color(0.996078, 0, 0.203922, 0.203922)
+
+[editable path="Knight"]
