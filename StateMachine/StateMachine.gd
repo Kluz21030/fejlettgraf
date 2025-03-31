@@ -21,6 +21,8 @@ func _ready() -> void:
 	
 	await owner.ready
 	initial_state.enter("")
+	
+	Events.entity_state_changed.emit(owner, owner.skin)
 
 func _unhandled_input(event: InputEvent) -> void:
 	current_state.handle_input(event)
@@ -40,3 +42,5 @@ func _transition_to_next_state(target_state_path: String, data: Dictionary = {})
 	current_state.exit()
 	current_state = get_node(target_state_path)
 	current_state.enter(previous_state_path, data)
+	
+	Events.entity_state_changed.emit(owner, owner.skin)

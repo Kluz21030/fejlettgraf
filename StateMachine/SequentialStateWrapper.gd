@@ -39,3 +39,5 @@ func _transition_to_next_state(next_state_path: String, data: Dictionary = {}) -
 	sequence_index = (sequence_index + 1) % number_of_sub_states
 	current_sub_state = get_child(sequence_index)
 	current_sub_state.enter("")
+	
+	Events.entity_state_changed.emit(owner, owner.skin)

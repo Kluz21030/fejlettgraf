@@ -1,7 +1,8 @@
 extends State
 
+
 func enter(previous_state_path:String, data: Dictionary = {}) -> void:
-	animation_player.play("2H_Melee_Idle")
+	animation_player.play("player_animations/2H_Melee_Idle")
 
 func exit() -> void:
 	pass

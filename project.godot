@@ -14,6 +14,10 @@ config/name="fejlettgraf"
 run/main_scene="uid://chr4qtb54rs7m"
 config/features=PackedStringArray("4.4")
 
+[autoload]
+
+Events="*res://Singletons/EventBus.gd"
+
 [input]
 
 left_click={

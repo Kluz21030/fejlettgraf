@@ -1,7 +1,7 @@
 extends State
 
 func enter(previous_state_path:String, data: Dictionary = {}) -> void:
-	animation_player.play("Running_A")
+	animation_player.play("player_animations/Running_A")
 	#animation_tree.active = true
 
 func exit() -> void:
