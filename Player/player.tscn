@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://e8mgunypswjq"]
+[gd_scene load_steps=16 format=3 uid="uid://e8mgunypswjq"]
 
 [ext_resource type="PackedScene" uid="uid://ebrebictycwg" path="res://Player/Skins/knight_skin.tscn" id="1_k3002"]
 [ext_resource type="Script" uid="uid://dkyh824pdii50" path="res://Player/Player.gd" id="1_nwtvh"]
@@ -8,7 +8,9 @@
 [ext_resource type="Script" uid="uid://7j1kw0y2ixuk" path="res://Player/States/slice.gd" id="6_uerqc"]
 [ext_resource type="Script" uid="uid://bsrllvd6m6k0o" path="res://StateMachine/SequentialStateWrapper.gd" id="7_1l6l2"]
 [ext_resource type="Script" uid="uid://c5m4uppe2xy53" path="res://Player/States/stab.gd" id="8_q4sqr"]
+[ext_resource type="Script" uid="uid://br5woim4fv6te" path="res://Player/States/dodge.gd" id="9_apopc"]
 [ext_resource type="Script" uid="uid://bqolpeb84mvdr" path="res://Components/HealthComponent.gd" id="9_veuuo"]
+[ext_resource type="Script" uid="uid://bdb8w25wkmctq" path="res://Player/States/jump.gd" id="10_5htga"]
 [ext_resource type="Script" uid="uid://btxm2taj35ckr" path="res://Components/HurtboxComponent.gd" id="10_rgbux"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k3002"]
@@ -64,6 +66,14 @@ script = ExtResource("5_a23tb")
 can_move = true
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
+[node name="Jump" type="Node" parent="StateMachine"]
+script = ExtResource("10_5htga")
+can_move = true
+metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[node name="Buffer" type="Timer" parent="StateMachine/Jump"]
+one_shot = true
+
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("7_1l6l2")
 metadata/_custom_type_script = "uid://bsrllvd6m6k0o"
@@ -77,6 +87,11 @@ one_shot = true
 
 [node name="Stab" type="Node" parent="StateMachine/Attack"]
 script = ExtResource("8_q4sqr")
+metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[node name="Dodge" type="Node" parent="StateMachine" node_paths=PackedStringArray("hurtbox")]
+script = ExtResource("9_apopc")
+hurtbox = NodePath("../../HurtboxComponet")
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
 [node name="HealthComponent" type="Node" parent="."]

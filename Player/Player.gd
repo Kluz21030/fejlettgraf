@@ -50,10 +50,6 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.move_toward(_move_direction * movement_speed, acceleration * delta)
 	velocity.y = y_velocity + _gravity * delta
 	
-	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y += jump_impulse
-	
 	#if is_equal_approx(_move_direction.length(), 0.0) and velocity.length() < stopping_speed:
 		#velocity = Vector3.ZERO
 	
