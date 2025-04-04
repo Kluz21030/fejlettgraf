@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bexucfc8is2sq"
-path="res://.godot/imported/Skeleton_Warrior.glb-5a76b6e9a16714c4efc7df50ca3952e4.scn"
+uid="uid://b8ljnbeuvfon7"
+path="res://.godot/imported/Skeleton_Arrow_Half.gltf-d12030318cf543cc68a5a14918ca0028.scn"
 
 [deps]
 
-source_file="res://Assets/Enemies/gltf/Skeleton_Warrior.glb"
-dest_files=["res://.godot/imported/Skeleton_Warrior.glb-5a76b6e9a16714c4efc7df50ca3952e4.scn"]
+source_file="res://Assets/Weapons/gltf/Skeleton_Arrow_Half.gltf"
+dest_files=["res://.godot/imported/Skeleton_Arrow_Half.gltf-d12030318cf543cc68a5a14918ca0028.scn"]
 
 [params]
 

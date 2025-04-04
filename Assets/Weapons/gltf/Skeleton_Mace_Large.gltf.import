@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bexucfc8is2sq"
-path="res://.godot/imported/Skeleton_Warrior.glb-5a76b6e9a16714c4efc7df50ca3952e4.scn"
+uid="uid://sqajj6kutehn"
+path="res://.godot/imported/Skeleton_Mace_Large.gltf-a110c9d62d7ab4df24d12f6a8ed73ae4.scn"
 
 [deps]
 
-source_file="res://Assets/Enemies/gltf/Skeleton_Warrior.glb"
-dest_files=["res://.godot/imported/Skeleton_Warrior.glb-5a76b6e9a16714c4efc7df50ca3952e4.scn"]
+source_file="res://Assets/Weapons/gltf/Skeleton_Mace_Large.gltf"
+dest_files=["res://.godot/imported/Skeleton_Mace_Large.gltf-a110c9d62d7ab4df24d12f6a8ed73ae4.scn"]
 
 [params]
 

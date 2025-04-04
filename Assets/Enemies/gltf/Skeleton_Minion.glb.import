@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cy4gwjedgfmud"
+uid="uid://jyrpinfa1ale"
 path="res://.godot/imported/Skeleton_Minion.glb-a849fe0f52eb227fd8a3c3b82acbc6dc.scn"
 
 [deps]
@@ -32,6 +32,12 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:AnimationPlayer": {
+"import/skip_import": true
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

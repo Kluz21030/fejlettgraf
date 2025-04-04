@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwx1hmpd76y63"]
+
+[ext_resource type="PackedScene" uid="uid://ggieuleineck" path="res://Enemies/Skins/skeleton_minion_skin.tscn" id="1_islrk"]
+[ext_resource type="Script" uid="uid://df3ofue5mg5qx" path="res://StateMachine/StateMachine.gd" id="2_s5gg0"]
+[ext_resource type="Script" uid="uid://x8wi4uwnm43i" path="res://StateMachine/State.gd" id="3_kkyso"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ial4x"]
+radius = 0.434533
+height = 2.08766
+
+[node name="SkeletonMinionSword" type="CharacterBody3D"]
+
+[node name="Skeleton_Minion" parent="." instance=ExtResource("1_islrk")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07336, 0)
+shape = SubResource("CapsuleShape3D_ial4x")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_s5gg0")
+metadata/_custom_type_script = "uid://df3ofue5mg5qx"
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_kkyso")
+metadata/_custom_type_script = "uid://x8wi4uwnm43i"

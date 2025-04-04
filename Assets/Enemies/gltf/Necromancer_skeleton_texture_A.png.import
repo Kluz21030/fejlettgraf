@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgyayql2wo236"
-path.s3tc="res://.godot/imported/Skeleton_Warrior_skeleton_texture.png-338051c5ece8f32eb679f893552d3132.s3tc.ctex"
+uid="uid://cayjv7hkiattm"
+path.s3tc="res://.godot/imported/Necromancer_skeleton_texture_A.png-a1237b28dfa1279c6245e5fd78abc530.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Enemies/gltf/Skeleton_Warrior_skeleton_texture.png"
-dest_files=["res://.godot/imported/Skeleton_Warrior_skeleton_texture.png-338051c5ece8f32eb679f893552d3132.s3tc.ctex"]
+source_file="res://Assets/Enemies/gltf/Necromancer_skeleton_texture_A.png"
+dest_files=["res://.godot/imported/Necromancer_skeleton_texture_A.png-a1237b28dfa1279c6245e5fd78abc530.s3tc.ctex"]
 
 [params]
 

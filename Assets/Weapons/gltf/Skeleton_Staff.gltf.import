@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bexucfc8is2sq"
-path="res://.godot/imported/Skeleton_Warrior.glb-5a76b6e9a16714c4efc7df50ca3952e4.scn"
+uid="uid://xjfwus01cjn0"
+path="res://.godot/imported/Skeleton_Staff.gltf-9c9e08e5cd69045ca980d83508be25af.scn"
 
 [deps]
 
-source_file="res://Assets/Enemies/gltf/Skeleton_Warrior.glb"
-dest_files=["res://.godot/imported/Skeleton_Warrior.glb-5a76b6e9a16714c4efc7df50ca3952e4.scn"]
+source_file="res://Assets/Weapons/gltf/Skeleton_Staff.gltf"
+dest_files=["res://.godot/imported/Skeleton_Staff.gltf-9c9e08e5cd69045ca980d83508be25af.scn"]
 
 [params]
 
