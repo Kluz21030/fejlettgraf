@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c5cv80xumvqfd"
-path="res://.godot/imported/Barbarian.glb-59ef691052d4507726caba2736240e3a.scn"
+uid="uid://cf4oi2e526lb0"
+path="res://.godot/imported/Rogue.glb-7bf41a32256cb6d4058057e2d36311ea.scn"
 
 [deps]
 
-source_file="res://Assets/Characters/gltf/Barbarian.glb"
-dest_files=["res://.godot/imported/Barbarian.glb-59ef691052d4507726caba2736240e3a.scn"]
+source_file="res://Assets/Player/gltf/Rogue.glb"
+dest_files=["res://.godot/imported/Rogue.glb-7bf41a32256cb6d4058057e2d36311ea.scn"]
 
 [params]
 

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dyfsu5lhpcwe7"
-path="res://.godot/imported/Rogue_Hooded.glb-635868d46bea24827e773b98ec11bd7d.scn"
+uid="uid://60x8ouaqmtv8"
+path="res://.godot/imported/Skeleton_Warrior.glb-5a76b6e9a16714c4efc7df50ca3952e4.scn"
 
 [deps]
 
-source_file="res://Assets/Characters/gltf/Rogue_Hooded.glb"
-dest_files=["res://.godot/imported/Rogue_Hooded.glb-635868d46bea24827e773b98ec11bd7d.scn"]
+source_file="res://Assets/Enemies/gltf/Skeleton_Warrior.glb"
+dest_files=["res://.godot/imported/Skeleton_Warrior.glb-5a76b6e9a16714c4efc7df50ca3952e4.scn"]
 
 [params]
 

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byulcxj83nio7"
-path.s3tc="res://.godot/imported/Rogue_rogue_texture.png-d9a95a5f5a5d83c22b95b44840fceef9.s3tc.ctex"
+uid="uid://blvshhj6sd0ct"
+path.s3tc="res://.godot/imported/Barbarian_barbarian_texture.png-4ab181c2c5792798aaaeda73e7fd06c5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "5b6fbb4d6c67e8c66dd2dffbb40f8812"
+"md5": "267533c91145eeae53d251a78b53814c"
 }
 
 [deps]
 
-source_file="res://Assets/Characters/gltf/Rogue_rogue_texture.png"
-dest_files=["res://.godot/imported/Rogue_rogue_texture.png-d9a95a5f5a5d83c22b95b44840fceef9.s3tc.ctex"]
+source_file="res://Assets/Player/gltf/Barbarian_barbarian_texture.png"
+dest_files=["res://.godot/imported/Barbarian_barbarian_texture.png-4ab181c2c5792798aaaeda73e7fd06c5.s3tc.ctex"]
 
 [params]
 

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3640iejbirrq"
-path.s3tc="res://.godot/imported/Rogue_Hooded_rogue_texture.png-e60bead10579fba24b6507053d728c2e.s3tc.ctex"
+uid="uid://516yk25li16m"
+path.s3tc="res://.godot/imported/Skeleton_Minion_skeleton_texture.png-95ce41e3a9b5caef43ee134002466557.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "5b6fbb4d6c67e8c66dd2dffbb40f8812"
+"md5": "661544b1e8ba10b5a0c98b638eae6d0b"
 }
 
 [deps]
 
-source_file="res://Assets/Characters/gltf/Rogue_Hooded_rogue_texture.png"
-dest_files=["res://.godot/imported/Rogue_Hooded_rogue_texture.png-e60bead10579fba24b6507053d728c2e.s3tc.ctex"]
+source_file="res://Assets/Enemies/gltf/Skeleton_Minion_skeleton_texture.png"
+dest_files=["res://.godot/imported/Skeleton_Minion_skeleton_texture.png-95ce41e3a9b5caef43ee134002466557.s3tc.ctex"]
 
 [params]
 

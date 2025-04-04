@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cf4oi2e526lb0"
-path="res://.godot/imported/Rogue.glb-4b063ae5c0ed9839ae57b2bde98a017f.scn"
+uid="uid://v4by6sn5a70q"
+path="res://.godot/imported/Great Sword Slash.fbx-c53c49a408a438179387e8c1dd06e81a.scn"
 
 [deps]
 
-source_file="res://Assets/Characters/gltf/Rogue.glb"
-dest_files=["res://.godot/imported/Rogue.glb-4b063ae5c0ed9839ae57b2bde98a017f.scn"]
+source_file="res://Assets/Enemies/Great Sword Slash.fbx"
+dest_files=["res://.godot/imported/Great Sword Slash.fbx-c53c49a408a438179387e8c1dd06e81a.scn"]
 
 [params]
 
@@ -28,10 +28,11 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=false
+animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-gltf/naming_version=1
-gltf/embedded_image_handling=1
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
