@@ -42,5 +42,6 @@ func _transition_to_next_state(target_state_path: String, data: Dictionary = {})
 	current_state.exit()
 	current_state = get_node(target_state_path)
 	current_state.enter(previous_state_path, data)
+	print("entered state: " + target_state_path)
 	
 	Events.entity_state_changed.emit(owner, owner.skin)

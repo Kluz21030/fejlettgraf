@@ -70,9 +70,6 @@ _data = {
 
 [node name="Knight" instance=ExtResource("1_jcxha")]
 
-[node name="Rig" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
 [node name="Skeleton3D" parent="Rig" index="0"]
 bones/4/rotation = Quaternion(-0.514122, -0.485468, -0.485468, 0.514122)
 bones/5/rotation = Quaternion(1.64805e-09, -5.95036e-08, -0.0552855, 0.998471)
@@ -107,16 +104,17 @@ bones/48/rotation = Quaternion(-0.707107, -7.27951e-08, -7.27951e-08, 0.707107)
 bones/49/rotation = Quaternion(-0.5, 0.5, 0.5, 0.5)
 
 [node name="1H_Sword" parent="Rig/Skeleton3D" index="0"]
-transform = Transform3D(0.937782, 0.319457, -0.13605, -0.287858, 0.49618, -0.81911, -0.194165, 0.807311, 0.557268, -0.869741, 1.12511, 0.0919319)
+transform = Transform3D(0.937782, 0.319457, -0.13605, -0.287858, 0.49618, -0.81911, -0.194165, 0.807311, 0.557268, -0.869741, 1.12511, 0.0919318)
 visible = false
 
 [node name="2H_Sword" parent="Rig/Skeleton3D" index="1"]
-transform = Transform3D(0.937782, 0.319457, -0.13605, -0.287858, 0.49618, -0.81911, -0.194165, 0.807311, 0.557268, -0.869741, 1.12511, 0.0919319)
+transform = Transform3D(0.937782, 0.319457, -0.13605, -0.287858, 0.49618, -0.81911, -0.194165, 0.807311, 0.557268, -0.869741, 1.12511, 0.0919318)
 
 [node name="Weapon" type="Area3D" parent="Rig/Skeleton3D/2H_Sword/2H_Sword" index="0"]
-collision_layer = 4
+collision_layer = 0
 collision_mask = 4
 monitoring = false
+monitorable = false
 script = ExtResource("2_woq05")
 base_damage = 120
 two_handed = true

@@ -6,12 +6,12 @@ extends State
 
 func enter(previous_state_path:String, data: Dictionary = {}) -> void:
 	body.velocity.y += impulse
-	animation_player.animation_finished.connect(_on_attack_animation_finished)
+	animation_player.animation_finished.connect(_on_animation_finished)
 	animation_player.play("player_animations/Jump_Start")
 	buffer.start(0.05)
 
 func exit() -> void:
-	animation_player.animation_finished.disconnect(_on_attack_animation_finished)
+	animation_player.animation_finished.disconnect(_on_animation_finished)
 
 func handle_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click"):
@@ -29,7 +29,7 @@ func update(_delta: float) -> void:
 func physics_update(_delta: float) -> void:
 	pass
 
-func _on_attack_animation_finished(anim_name: StringName):
+func _on_animation_finished(anim_name: StringName):
 	if anim_name == &"player_animations/Jump_Start":
 		animation_player.play(&"player_animations/Jump_Idle", 0.1)
 	if anim_name == &"player_animations/Jump_Land":

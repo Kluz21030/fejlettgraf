@@ -34,7 +34,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		_camera_input_direction = event.screen_relative * mouse_sensitivity
 	
 func _physics_process(delta: float) -> void:
-	_camera_pivot.rotation.x = clamp(_camera_pivot.rotation.x + _camera_input_direction.y * delta, -PI / 2, PI / 2)
+	_camera_pivot.rotation.x = clamp(_camera_pivot.rotation.x + _camera_input_direction.y * delta, -PI / 2.05, PI / 2.05)
 	_camera_pivot.rotation.y -= _camera_input_direction.x * delta
 	
 	_camera_input_direction = Vector2.ZERO
@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 	
 	_move_direction = _camera.global_basis.z * _input_direction.y + _camera.global_basis.x * _input_direction.x
 	_move_direction.y = 0.0
-	_move_direction.normalized()
+	_move_direction = _move_direction.normalized()
 	
 	var y_velocity = velocity.y
 	velocity.y = 0.0

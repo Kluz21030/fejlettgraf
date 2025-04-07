@@ -1,8 +1,39 @@
 class_name Enemy extends CharacterBody3D
 
-var player: Player
+var _gravity: float = -18
+var _last_movement_direction: Vector3
 
+var player: Player
+var move_direction: Vector3
+
+@export var acceleration: int = 20
 @export var movement_speed: int = 5
+@export var rotate_speed: int = 12
 
 @onready var skin: Node3D = $Skeleton_Minion
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
+@onready var state_machine: StateMachine = $StateMachine
+
+func _ready() -> void:
+	$HealthComponent.died.connect(_on_died)
+
+func _physics_process(delta: float) -> void:
+	if not state_machine.current_state.can_move:
+		move_direction = Vector3.ZERO
+	var y_velocity = velocity.y
+	velocity.y = 0.0
+	velocity = velocity.move_toward(move_direction * movement_speed, acceleration * delta)
+	velocity.y = y_velocity + _gravity * delta
+	
+	if move_direction != Vector3.ZERO:
+		_last_movement_direction = move_direction
+	var target_rotation: float = Vector3.BACK.signed_angle_to(_last_movement_direction, Vector3.UP)
+	skin.rotation.y = lerp_angle(skin.rotation.y, target_rotation, rotate_speed * delta)
+	
+	move_and_slide()
+
+func _on_died(_body: CharacterBody3D):
+	state_machine.current_state.finished.emit("Death")
+	$HurtboxComponet.set_deferred("monitorable", false)
+	set_collision_layer_value(3, false)
+	set_collision_mask_value(2, false)

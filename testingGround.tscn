@@ -4,9 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://bwx1hmpd76y63" path="res://Enemies/skeleton_minion_sword.tscn" id="3_2m3mq"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_2m3mq"]
-vertices = PackedVector3Array(16.75, 0.45, 4.5, 17, 0.45, 6.75, 24.5, 0.45, 6.75, 24.5, 0.45, -24.5, 9.5, 0.45, 4.5, -24.5, 0.45, -24.5, -24.5, 0.45, 5, 9.5, 0.7, 5, 9.5, 0.7, 10, 16, 2.45, 10, 16, 2.45, 5.5, 9.5, 0.7, 5.5, 12.1, 2.45, 10, 12.1, 2.45, 5.5, 9.75, 0.45, 24.5, 9.75, 0.45, 11, -24.5, 0.45, 24.5, 12.5, 0.45, 5.75, 12.5, 0.45, 9.75, 15.75, 0.45, 9.75, 15.75, 0.45, 5.75, 16.75, 0.45, 11, 24.5, 0.45, 24.5)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(6, 5, 4), PackedInt32Array(4, 5, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(4, 7, 6), PackedInt32Array(11, 13, 8), PackedInt32Array(8, 13, 12), PackedInt32Array(12, 13, 10), PackedInt32Array(12, 10, 9), PackedInt32Array(6, 11, 8), PackedInt32Array(15, 14, 8), PackedInt32Array(8, 14, 16), PackedInt32Array(8, 16, 6), PackedInt32Array(6, 7, 11), PackedInt32Array(20, 19, 17), PackedInt32Array(17, 19, 18), PackedInt32Array(21, 1, 2), PackedInt32Array(14, 15, 21), PackedInt32Array(2, 22, 21), PackedInt32Array(21, 22, 14)]
+vertices = PackedVector3Array(16.75, 0.45, 4.5, 17, 0.45, 6.75, 24.5, 0.45, 6.75, 24.5, 0.45, -24.5, 9.5, 0.45, 4.5, -24.5, 0.45, -24.5, -24.5, 0.45, 5, 9.5, 0.7, 5, 9.5, 0.7, 10, 16, 2.45, 10, 16, 2.45, 5.5, 9.5, 0.7, 5.5, 12.1, 2.45, 10, 12.1, 2.45, 5.5, 9.75, 0.45, 24.5, 9.75, 0.45, 11, -24.5, 0.45, 24.5, 16.75, 0.45, 11, 24.5, 0.45, 24.5)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(6, 5, 4), PackedInt32Array(4, 5, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(4, 7, 6), PackedInt32Array(11, 13, 8), PackedInt32Array(8, 13, 12), PackedInt32Array(12, 13, 10), PackedInt32Array(12, 10, 9), PackedInt32Array(6, 11, 8), PackedInt32Array(15, 14, 8), PackedInt32Array(8, 14, 16), PackedInt32Array(8, 16, 6), PackedInt32Array(6, 7, 11), PackedInt32Array(17, 1, 2), PackedInt32Array(14, 15, 17), PackedInt32Array(2, 18, 17), PackedInt32Array(17, 18, 14)]
 geometry_parsed_geometry_type = 1
+agent_height = 2.0
+agent_radius = 0.44
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ypqyp"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -43,4 +45,4 @@ use_collision = true
 polygon = PackedVector2Array(-4, 2, 0, 2, 3, 0, -4, 0)
 
 [node name="SkeletonMinionSword" parent="." instance=ExtResource("3_2m3mq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7929, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7929, 0.02639, 0)
