@@ -17,5 +17,5 @@ func physics_update(_delta: float) -> void:
 	pass
 
 func _on_attack_animation_finished(anim_name: StringName) -> void:
-	if anim_name == &"enemy_animaations/1H_Melee_Attack_Slice_Diagonal":
+	if anim_name == &"enemy_animations/1H_Melee_Attack_Slice_Diagonal":
 		finished.emit("Idle")

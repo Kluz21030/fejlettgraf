@@ -4,6 +4,7 @@ var _gravity: float = -18
 var _last_movement_direction: Vector3
 
 var player: Player
+var player_in_range: bool
 var move_direction: Vector3
 
 @export var acceleration: int = 20
@@ -23,10 +24,12 @@ func _physics_process(delta: float) -> void:
 	var y_velocity = velocity.y
 	velocity.y = 0.0
 	velocity = velocity.move_toward(move_direction * movement_speed, acceleration * delta)
-	velocity.y = y_velocity + _gravity * delta
+	velocity.y = y_velocity + _gravity * delta * int(not is_on_floor())
 	
 	if move_direction != Vector3.ZERO:
 		_last_movement_direction = move_direction
+	if velocity.is_zero_approx() and player:
+		_last_movement_direction = ((player.global_position - global_position) * Vector3(1, 0, 1)).normalized()
 	var target_rotation: float = Vector3.BACK.signed_angle_to(_last_movement_direction, Vector3.UP)
 	skin.rotation.y = lerp_angle(skin.rotation.y, target_rotation, rotate_speed * delta)
 	
@@ -37,3 +40,7 @@ func _on_died(_body: CharacterBody3D):
 	$HurtboxComponet.set_deferred("monitorable", false)
 	set_collision_layer_value(3, false)
 	set_collision_mask_value(2, false)
+
+func _on_player_moved_away(body: Node3D) -> void:
+	if body is Player:
+		player_in_range = false

@@ -22,10 +22,12 @@ func update(_delta: float) -> void:
 	navigation_update_counter += 1
 
 func physics_update(_delta: float) -> void:
-	if navigation_agent.is_navigation_finished():
-		finished.emit("Attack")
-		return
 	var next_point = navigation_agent.get_next_path_position() - body.global_position
 	var direction = (next_point * Vector3(1, 0, 1)).normalized()
 	
 	body.move_direction = direction
+
+func _on_player_in_range(body: Node3D) -> void:
+	if body is Player:
+		owner.player_in_range = true
+		finished.emit("Attack")
