@@ -3,13 +3,17 @@ extends State
 var navigation_agent: NavigationAgent3D
 var navigation_update_counter: int = 0
 
+@onready var attack_range: Area3D = $"../../Attack_Range"
+
 func enter(previous_state_path: String, data: Dictionary = {}) -> void:
+	attack_range.body_entered.connect(_on_player_in_range)
 	navigation_agent = body.navigation_agent
 	navigation_agent.set_target_position(body.player.global_position)
 	animation_player.play("enemy_animations/Running_A")
 
 func exit() -> void:
 	body.move_direction = Vector3.ZERO
+	attack_range.body_entered.disconnect(_on_player_in_range)
 
 func handle_input(_event: InputEvent) -> void:
 	pass

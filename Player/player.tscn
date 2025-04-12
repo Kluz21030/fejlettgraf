@@ -38,10 +38,16 @@ bones/6/rotation = Quaternion(0.0714272, -0.223108, -0.0798645, 0.968887)
 bones/16/rotation = Quaternion(0.11967, 0.275959, 0.110811, 0.947231)
 
 [node name="1H_Sword" parent="Knight/Rig/Skeleton3D" index="0"]
-transform = Transform3D(0.937783, 0.319456, -0.136046, -0.287875, 0.496268, -0.819051, -0.194136, 0.807257, 0.557356, -0.869741, 1.12512, 0.0919302)
+transform = Transform3D(0.937784, 0.319455, -0.136045, -0.287874, 0.496269, -0.819051, -0.194135, 0.807258, 0.557356, -0.869741, 1.12512, 0.0919299)
 
 [node name="2H_Sword" parent="Knight/Rig/Skeleton3D" index="1"]
-transform = Transform3D(0.937783, 0.319456, -0.136046, -0.287875, 0.496268, -0.819051, -0.194136, 0.807257, 0.557356, -0.869741, 1.12512, 0.0919302)
+transform = Transform3D(0.937784, 0.319455, -0.136045, -0.287874, 0.496269, -0.819051, -0.194135, 0.807258, 0.557356, -0.869741, 1.12512, 0.0919299)
+
+[node name="Knight_Helmet" parent="Knight/Rig/Skeleton3D" index="2"]
+transform = Transform3D(1, -2.20965e-22, 1.69407e-21, 2.20965e-22, 1, 0, -1.69407e-21, 3.58732e-43, 1, 4.76837e-07, 1.21589, -1.08542e-07)
+
+[node name="Knight_Cape" parent="Knight/Rig/Skeleton3D" index="3"]
+transform = Transform3D(1, 1.25214e-21, 0, -1.25214e-21, 1, 0, 0, 0, 1, 0, 1.21589, -1.4066e-07)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20262, 0)
