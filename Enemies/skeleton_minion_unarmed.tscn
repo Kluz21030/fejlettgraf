@@ -1,34 +1,177 @@
-[gd_scene load_steps=5 format=3 uid="uid://bp8xr8iv5asfq"]
+[gd_scene load_steps=17 format=3 uid="uid://bp8xr8iv5asfq"]
 
 [ext_resource type="PackedScene" uid="uid://ggieuleineck" path="res://Enemies/Skins/skeleton_minion_skin.tscn" id="1_kn6xq"]
+[ext_resource type="Script" uid="uid://bd0s73t8kx3dv" path="res://Enemies/Enemy.gd" id="1_nep66"]
 [ext_resource type="Script" uid="uid://df3ofue5mg5qx" path="res://StateMachine/StateMachine.gd" id="2_n8amt"]
-[ext_resource type="Script" uid="uid://x8wi4uwnm43i" path="res://StateMachine/State.gd" id="3_wain5"]
+[ext_resource type="Script" uid="uid://do8pamx4kltjx" path="res://Enemies/States/idle.gd" id="3_kn6xq"]
+[ext_resource type="Script" uid="uid://blu31jjtqmlg2" path="res://Enemies/States/inactive.gd" id="3_y5nvf"]
+[ext_resource type="Script" uid="uid://bsrllvd6m6k0o" path="res://StateMachine/SequentialStateWrapper.gd" id="5_wain5"]
+[ext_resource type="Script" uid="uid://bwf15xahfve2k" path="res://Enemies/States/chase.gd" id="5_x47kj"]
+[ext_resource type="Script" uid="uid://cx3crj33rnvdq" path="res://Enemies/punch_1.gd" id="7_x47kj"]
+[ext_resource type="Script" uid="uid://icv7yjfe32nh" path="res://Enemies/States/death.gd" id="8_5uvi3"]
+[ext_resource type="Script" uid="uid://dyalwdpqvdj2f" path="res://Enemies/punch_2.gd" id="8_x47kj"]
+[ext_resource type="Script" uid="uid://btxm2taj35ckr" path="res://Components/HurtboxComponent.gd" id="10_e1fe3"]
+[ext_resource type="Script" uid="uid://bqolpeb84mvdr" path="res://Components/HealthComponent.gd" id="11_nep66"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ial4x"]
 radius = 0.434533
 height = 2.08766
 
-[node name="SkeletonMinionSword" type="CharacterBody3D"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_eejj0"]
+radius = 11.1582
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jqf1n"]
+radius = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kj3gg"]
+radius = 0.434533
+
+[node name="SkeletonMinionUnarmed" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_nep66")
 
 [node name="Skeleton_Minion" parent="." instance=ExtResource("1_kn6xq")]
 
-[node name="BoneAttachment3D" parent="Skeleton_Minion/Rig/Skeleton3D" index="9"]
-transform = Transform3D(-0.287177, -0.0639716, -0.955738, -0.367303, 0.928851, 0.0481948, 0.884656, 0.364886, -0.290241, -0.49106, 0.64103, 0.106595)
+[node name="Skeleton3D" parent="Skeleton_Minion/Rig" index="0"]
+bones/1/position = Vector3(-0.0278006, 0.384249, 0.042289)
+bones/1/rotation = Quaternion(0.0407811, -0.101635, -0.00416989, 0.993977)
+bones/2/rotation = Quaternion(0, 7.10543e-15, 0, 1)
+bones/3/rotation = Quaternion(1.86264e-09, 3.72529e-09, -6.20385e-25, 1)
+bones/4/rotation = Quaternion(-0.872712, -0.322923, -0.365012, 0.0293237)
+bones/5/rotation = Quaternion(2.84944e-08, -1.93153e-08, -0.741821, 0.670598)
+bones/7/rotation = Quaternion(-0.178062, -0.252424, -0.0769881, 0.947971)
+bones/9/position = Vector3(-0.212007, 0.134132, 9.06092e-08)
+bones/9/rotation = Quaternion(-0.674299, 0.346834, 0.632379, 0.158508)
+bones/10/rotation = Quaternion(5.18252e-08, 1.01725e-08, 0.642767, 0.766062)
+bones/12/rotation = Quaternion(-0.144827, 0.282948, 0.14289, 0.937309)
+bones/14/rotation = Quaternion(1.87083e-09, 0.0934669, 5.84636e-09, 0.995622)
+bones/15/position = Vector3(0.170945, 0.113587, 2.61278e-08)
+bones/15/rotation = Quaternion(0.962318, 0.0737579, -0.102564, 0.240801)
+bones/16/rotation = Quaternion(0.343358, 6.73555e-08, -2.34837e-07, 0.939205)
+bones/17/rotation = Quaternion(-0.496573, -0.0726224, 0.0308694, 0.864401)
+bones/18/rotation = Quaternion(6.31671e-06, 0.920305, -0.391203, -1.351e-06)
+bones/19/position = Vector3(-0.170945, 0.113587, 1.02002e-08)
+bones/19/rotation = Quaternion(0.986657, -0.0469047, -0.141133, 0.0662546)
+bones/20/rotation = Quaternion(0.271905, -6.36293e-08, 1.80287e-07, 0.962324)
+bones/21/rotation = Quaternion(-0.529097, 0.405612, 0.00267627, 0.745337)
+bones/22/rotation = Quaternion(-0.000412272, 0.920149, -0.391569, 9.33892e-05)
+bones/25/position = Vector3(-0.0226521, 0.213959, -2.10671e-15)
+bones/25/rotation = Quaternion(6.88339e-15, -2.16842e-17, 1, -8.49023e-23)
+bones/30/position = Vector3(-0.170945, 0.29231, 0.575812)
+bones/32/position = Vector3(1.94581e-08, 0.362833, 2.42861e-15)
+bones/32/rotation = Quaternion(-2.12535e-08, 5.23449e-09, 0.930863, 0.365368)
+bones/37/position = Vector3(1.08655, 0.187603, 0.864882)
+bones/38/position = Vector3(0.394, 1.02501, 0.437764)
+bones/38/rotation = Quaternion(0.301671, 0.656038, 0.356326, 0.592993)
+bones/39/position = Vector3(-0.971873, 0.321973, 0.047419)
+bones/40/position = Vector3(-0.476093, 0.929883, 0.312916)
+bones/40/rotation = Quaternion(-0.396089, 0.565425, 0.517798, -0.505266)
+
+[node name="Sword" parent="Skeleton_Minion/Rig/Skeleton3D" index="9"]
+transform = Transform3D(0.0753351, 0.175639, -0.981567, 0.149998, 0.971168, 0.185292, 0.985811, -0.161193, 0.0468167, -0.435269, 0.935288, 0.475193)
 visible = false
 
-[node name="Skeleton_Blade" parent="Skeleton_Minion/Rig/Skeleton3D/BoneAttachment3D" index="0"]
-monitoring = false
+[node name="Weapon" parent="Skeleton_Minion/Rig/Skeleton3D/Sword" index="0"]
+visible = false
+
+[node name="Fist" parent="Skeleton_Minion/Rig/Skeleton3D" index="10"]
+transform = Transform3D(0.0753351, 0.175639, -0.981567, 0.149998, 0.971168, 0.185292, 0.985811, -0.161193, 0.0468167, -0.435269, 0.935288, 0.475193)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07336, 0)
 shape = SubResource("CapsuleShape3D_ial4x")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "animation_player", "animation_tree", "body")]
 script = ExtResource("2_n8amt")
+initial_state = NodePath("Inactive")
+animation_player = NodePath("../Skeleton_Minion/AnimationPlayer")
+animation_tree = NodePath("../Skeleton_Minion/AnimationTree")
+body = NodePath("..")
 metadata/_custom_type_script = "uid://df3ofue5mg5qx"
 
-[node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource("3_wain5")
+[node name="Inactive" type="Node" parent="StateMachine"]
+script = ExtResource("3_y5nvf")
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_timer")]
+script = ExtResource("3_kn6xq")
+idle_timer = NodePath("IdleTimer")
+animation = &"enemy_animations/Unarmed_Idle"
+metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[node name="IdleTimer" type="Timer" parent="StateMachine/Idle"]
+one_shot = true
+
+[node name="Chase" type="Node" parent="StateMachine"]
+script = ExtResource("5_x47kj")
+can_move = true
+metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource("5_wain5")
+metadata/_custom_type_script = "uid://bsrllvd6m6k0o"
+
+[node name="Punch1" type="Node" parent="StateMachine/Attack" node_paths=PackedStringArray("timer")]
+script = ExtResource("7_x47kj")
+timer = NodePath("Timer")
+animation = &"enemy_animations/Unarmed_Melee_Attack_Punch_A"
+metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[node name="Timer" type="Timer" parent="StateMachine/Attack/Punch1"]
+one_shot = true
+
+[node name="Punch2" type="Node" parent="StateMachine/Attack"]
+script = ExtResource("8_x47kj")
+animation = &"enemy_animations/Unarmed_Melee_Attack_Punch_B"
+metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[node name="Death" type="Node" parent="StateMachine"]
+script = ExtResource("8_5uvi3")
+animation = &"enemy_animations/Death_C_Skeletons"
+metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[node name="Detection_Area" type="Area3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detection_Area"]
+shape = SubResource("CylinderShape3D_eejj0")
+debug_color = Color(1, 1, 0, 0.784314)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 2.0
+debug_enabled = true
+debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="Attack_Range" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Attack_Range"]
+shape = SubResource("CylinderShape3D_jqf1n")
+debug_color = Color(0.0690156, 0.646427, 0.18664, 0.42)
+
+[node name="HurtboxComponet" type="Area3D" parent="." node_paths=PackedStringArray("health_component")]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("10_e1fe3")
+health_component = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://btxm2taj35ckr"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07336, 0)
+shape = SubResource("CapsuleShape3D_kj3gg")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("11_nep66")
+MAX_HEALTH = 200
+metadata/_custom_type_script = "uid://bqolpeb84mvdr"
+
+[connection signal="body_exited" from="Attack_Range" to="." method="_on_player_moved_away"]
 
 [editable path="Skeleton_Minion"]
