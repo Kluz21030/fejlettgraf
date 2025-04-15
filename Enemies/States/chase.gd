@@ -3,7 +3,7 @@ extends State
 var navigation_agent: NavigationAgent3D
 var navigation_update_counter: int = 0
 
-@onready var attack_range: Area3D = $"../../Attack_Range"
+@export var attack_range: Area3D
 
 func enter(previous_state_path: String, data: Dictionary = {}) -> void:
 	attack_range.body_entered.connect(_on_player_in_range)
@@ -34,4 +34,6 @@ func physics_update(_delta: float) -> void:
 func _on_player_in_range(body: Node3D) -> void:
 	if body is Player:
 		owner.player_in_range = true
-		finished.emit("Attack")
+		if randf_range(0.0, 1.0) <= 0.5:
+			finished.emit("Attack")
+		finished.emit("Idle")

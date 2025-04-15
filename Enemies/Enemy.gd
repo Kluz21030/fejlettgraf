@@ -10,8 +10,8 @@ var move_direction: Vector3
 @export var acceleration: int = 20
 @export var movement_speed: int = 5
 @export var rotate_speed: int = 12
+@export var skin: Node3D
 
-@onready var skin: Node3D = $Skeleton_Minion
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var state_machine: StateMachine = $StateMachine
 
