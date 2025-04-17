@@ -4,6 +4,7 @@ extends State
 func enter(previous_state_path:String, data: Dictionary = {}) -> void:
 	animation_player.animation_finished.connect(_on_attack_animation_finished)
 	animation_player.play("player_animations/2H_Melee_Attack_Stab", 0.1)
+	Events.player_attacked.emit()
 
 func exit() -> void:
 	animation_player.animation_finished.disconnect(_on_attack_animation_finished)

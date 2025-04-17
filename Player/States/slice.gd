@@ -6,6 +6,7 @@ func enter(previous_state_path:String, data: Dictionary = {}) -> void:
 	animation_player.animation_finished.connect(_on_attack_animation_finished)
 	animation_player.play("player_animations/2H_Melee_Attack_Slice", 0.15)
 	combot_timer.start(animation_player.current_animation_length / 2.0)
+	Events.player_attacked.emit()
 
 func exit() -> void:
 	animation_player.animation_finished.disconnect(_on_attack_animation_finished)
