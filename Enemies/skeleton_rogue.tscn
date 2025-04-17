@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://be6yrg3ouh4iv"]
+[gd_scene load_steps=21 format=3 uid="uid://be6yrg3ouh4iv"]
 
 [ext_resource type="PackedScene" uid="uid://dt8h0dvvdghy8" path="res://Enemies/Skins/skeleton_rogue_skin.tscn" id="1_dlnss"]
 [ext_resource type="Script" uid="uid://bd0s73t8kx3dv" path="res://Enemies/Enemy.gd" id="1_upn73"]
@@ -12,6 +12,12 @@
 [ext_resource type="Script" uid="uid://bsrllvd6m6k0o" path="res://StateMachine/SequentialStateWrapper.gd" id="8_14jst"]
 [ext_resource type="Script" uid="uid://bwf15xahfve2k" path="res://Enemies/States/chase.gd" id="8_b73ym"]
 [ext_resource type="Script" uid="uid://b1ge3y10xchee" path="res://Enemies/States/dodge.gd" id="11_xpyh6"]
+[ext_resource type="Script" uid="uid://blu7yv3se7wrc" path="res://Enemies/States/kick.gd" id="12_c786b"]
+[ext_resource type="Script" uid="uid://p5pxcrldcf4m" path="res://Enemies/States/stab.gd" id="12_dk5dk"]
+[ext_resource type="Script" uid="uid://drfr2io8ka30l" path="res://Components/KickArea.gd" id="14_wbncp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wbncp"]
+size = Vector3(0.765137, 0.650391, 1.0761)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dlnss"]
 radius = 0.434533
@@ -39,6 +45,17 @@ metadata/_custom_type_script = "uid://bd0s73t8kx3dv"
 libraries = {
 &"enemy_animations": ExtResource("3_ldd14")
 }
+
+[node name="KickArea" type="Area3D" parent="Skeleton_Rogue"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.061, 0.516, 0.5)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("14_wbncp")
+metadata/_custom_type_script = "uid://drfr2io8ka30l"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton_Rogue/KickArea"]
+shape = SubResource("BoxShape3D_wbncp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07336, 0)
@@ -104,9 +121,9 @@ min_idle_time = 0.3
 max_idle_time = 1.0
 idle_timer = NodePath("IdleTimer")
 kick_state = NodePath("../Kick")
+kick_chance = 0.2
 dodge_state = NodePath("../Dodge")
-dodge_chance = 1.0
-intervene_modifier = 1.0
+dodge_chance = 0.1
 animation = &"enemy_animations/Idle_Combat"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
@@ -124,16 +141,23 @@ script = ExtResource("8_14jst")
 metadata/_custom_type_script = "uid://bsrllvd6m6k0o"
 
 [node name="Stab" type="Node" parent="StateMachine/Attack"]
-script = ExtResource("6_f6efm")
+script = ExtResource("12_dk5dk")
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
 [node name="Dual_Stab" type="Node" parent="StateMachine/Attack"]
 script = ExtResource("6_f6efm")
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
-[node name="Kick" type="Node" parent="StateMachine"]
-script = ExtResource("6_f6efm")
+[node name="Kick" type="Node" parent="StateMachine" node_paths=PackedStringArray("kick_area", "kick_delay")]
+script = ExtResource("12_c786b")
+kick_area = NodePath("../../Skeleton_Rogue/KickArea")
+kick_delay = NodePath("KickDelayTimer")
+animation = &"enemy_animations/Unarmed_Melee_Attack_Kick"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[node name="KickDelayTimer" type="Timer" parent="StateMachine/Kick"]
+wait_time = 0.4
+one_shot = true
 
 [node name="Dodge" type="Node" parent="StateMachine" node_paths=PackedStringArray("hurtbox")]
 script = ExtResource("11_xpyh6")
