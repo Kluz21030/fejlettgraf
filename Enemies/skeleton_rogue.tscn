@@ -47,9 +47,7 @@ metadata/_custom_type_script = "uid://bd0s73t8kx3dv"
 [node name="Skeleton3D" parent="Skeleton_Rogue/Rig" index="0"]
 bones/1/position = Vector3(-1.20136e-08, 0.318945, 0.0503889)
 bones/1/rotation = Quaternion(0.0359332, 0.0431298, 0.00155225, 0.998422)
-bones/1/scale = Vector3(1, 1, 1)
 bones/2/rotation = Quaternion(0.16027, -0.0560358, 0.00839185, 0.985446)
-bones/2/scale = Vector3(1, 1, 1)
 bones/3/rotation = Quaternion(0.148474, -0.00148088, 0.00314034, 0.98891)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/position = Vector3(0.214845, 0.167967, 0.0577091)
@@ -71,7 +69,6 @@ bones/13/position = Vector3(-1.5736e-08, 0.0961251, -0.0575)
 bones/13/rotation = Quaternion(-0.0980241, 0.0994937, 0.697533, 0.702809)
 bones/13/scale = Vector3(1, 1, 1)
 bones/14/rotation = Quaternion(-0.218979, 0.000129013, -0.00422482, 0.975721)
-bones/14/scale = Vector3(1, 1, 1)
 bones/17/position = Vector3(0.170945, 0.113587, 1.59941e-08)
 bones/17/rotation = Quaternion(0.970168, 0.045961, 0.0659538, 0.228719)
 bones/18/rotation = Quaternion(0.641706, 5.24543e-08, -4.45235e-07, 0.766951)
@@ -108,13 +105,12 @@ bones/40/rotation = Quaternion(0.708776, 0.148157, 0.685318, -0.0776251)
 bones/41/rotation = Quaternion(-0.707107, -7.27951e-08, -7.27951e-08, 0.707107)
 bones/42/position = Vector3(-0.333105, 0.790226, 0.669991)
 bones/42/rotation = Quaternion(-0.711486, 0.151392, 0.678371, 0.103355)
-bones/42/scale = Vector3(1, 1, 1)
 
 [node name="Skeleton_Rogue_Hood" parent="Skeleton_Rogue/Rig/Skeleton3D" index="0"]
-transform = Transform3D(0.999568, -0.000383232, -0.0293931, -0.00692662, 0.968688, -0.248183, 0.0285678, 0.24828, 0.968267, -0.00839313, 1.03879, 0.373367)
+transform = Transform3D(0.999568, -0.000383277, -0.029393, -0.00692656, 0.968688, -0.248183, 0.0285678, 0.248279, 0.968267, -0.00839315, 1.03879, 0.373367)
 
 [node name="Skeleton_Rogue_Cape" parent="Skeleton_Rogue/Rig/Skeleton3D" index="1"]
-transform = Transform3D(0.999467, -0.0212042, -0.0248126, 0.000483536, 0.769756, -0.638338, 0.0326351, 0.637985, 0.769357, -0.00786492, 1.04388, 0.363409)
+transform = Transform3D(0.999467, -0.0212042, -0.0248125, 0.000483595, 0.769756, -0.638338, 0.032635, 0.637985, 0.769357, -0.00786494, 1.04388, 0.363409)
 
 [node name="KickArea" type="Area3D" parent="Skeleton_Rogue"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.061, 0.516, 0.5)
@@ -179,7 +175,7 @@ shape = SubResource("CapsuleShape3D_3n527")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("3_upn73")
-MAX_HEALTH = 200
+MAX_HEALTH = 20000
 metadata/_custom_type_script = "uid://bqolpeb84mvdr"
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "animation_player", "body")]
@@ -199,9 +195,10 @@ min_idle_time = 0.3
 max_idle_time = 1.0
 idle_timer = NodePath("IdleTimer")
 kick_state = NodePath("../Kick")
-kick_chance = 0.2
+kick_chance = 0.08
 dodge_state = NodePath("../Dodge")
-dodge_chance = 0.1
+dodge_chance = 0.02
+intervene_modifier = 0.3
 animation = &"enemy_animations/Idle_Combat"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
@@ -221,14 +218,12 @@ metadata/_custom_type_script = "uid://bsrllvd6m6k0o"
 [node name="Stab" type="Node" parent="StateMachine/Attack" node_paths=PackedStringArray("timer")]
 script = ExtResource("13_mxavo")
 timer = NodePath("../WaitTimer")
-attack_again_chance = 0.8
 animation = &"enemy_animations/1H_Melee_Attack_Stab"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
 [node name="DualStab" type="Node" parent="StateMachine/Attack" node_paths=PackedStringArray("timer")]
 script = ExtResource("13_mxavo")
 timer = NodePath("../WaitTimer")
-attack_again_chance = 1.0
 animation = &"enemy_animations/Dualwield_Melee_Attack_Stab"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
@@ -274,7 +269,7 @@ animation = &"enemy_animations/Death_C_Skeletons"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
 [node name="DaggerMainhand" type="BoneAttachment3D" parent="."]
-transform = Transform3D(-0.0833117, -0.0374597, -0.995818, -0.994401, 0.0682992, 0.0806247, 0.0649933, 0.99696, -0.0429399, -0.295052, 0.668967, 0.749549)
+transform = Transform3D(-0.0833125, -0.0374598, -0.995818, -0.994401, 0.0682999, 0.0806251, 0.0649938, 0.99696, -0.0429398, -0.295052, 0.668967, 0.749548)
 bone_name = "handslot.r"
 bone_idx = 13
 use_external_skeleton = true
@@ -282,15 +277,19 @@ external_skeleton = NodePath("../Skeleton_Rogue/Rig/Skeleton3D")
 
 [node name="Skeleton_Dagger" parent="DaggerMainhand" instance=ExtResource("17_gqg5d")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+collision_layer = 0
+collision_mask = 2
 
 [node name="DaggerOffhand" type="BoneAttachment3D" parent="."]
-transform = Transform3D(-0.219145, 0.0211303, 0.975462, 0.970874, 0.10395, 0.215863, -0.0968379, 0.994357, -0.043295, 0.277346, 0.690308, 0.784486)
+transform = Transform3D(-0.219146, 0.0211325, 0.975462, 0.970874, 0.103951, 0.215864, -0.0968388, 0.994357, -0.0432969, 0.277347, 0.690309, 0.784486)
 bone_name = "handslot.l"
 bone_idx = 8
 use_external_skeleton = true
 external_skeleton = NodePath("../Skeleton_Rogue/Rig/Skeleton3D")
 
 [node name="Skeleton_Dagger" parent="DaggerOffhand" instance=ExtResource("17_gqg5d")]
+collision_layer = 0
+collision_mask = 2
 
 [connection signal="body_exited" from="Attack_Range" to="." method="_on_player_moved_away"]
 
