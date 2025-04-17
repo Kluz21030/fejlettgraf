@@ -16,7 +16,8 @@ func enter(previous_state_path:String, data: Dictionary = {}) -> void:
 	for target in kick_area.targets:
 		var character: CharacterBody3D = target as CharacterBody3D
 		var object: RigidBody3D = target as RigidBody3D
-		if character:
+		if character and character.state_machine.current_state.interruptable:
+			character.state_machine.current_state.interrupt()
 			character.velocity += impulse * kick_direction
 		if object:
 			object.apply_impulse(impulse * kick_direction)

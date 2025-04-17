@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bwx1hmpd76y63"]
+[gd_scene load_steps=17 format=3 uid="uid://bwx1hmpd76y63"]
 
 [ext_resource type="PackedScene" uid="uid://ggieuleineck" path="res://Enemies/Skins/skeleton_minion_skin.tscn" id="1_islrk"]
 [ext_resource type="Script" uid="uid://bd0s73t8kx3dv" path="res://Enemies/Enemy.gd" id="1_s5gg0"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://icv7yjfe32nh" path="res://Enemies/States/death.gd" id="8_3f22u"]
 [ext_resource type="Script" uid="uid://btxm2taj35ckr" path="res://Components/HurtboxComponent.gd" id="8_4adni"]
 [ext_resource type="Script" uid="uid://bqolpeb84mvdr" path="res://Components/HealthComponent.gd" id="9_4msrm"]
+[ext_resource type="Script" uid="uid://cohdy2fhq8lmq" path="res://Enemies/States/interrupted.gd" id="10_kkor7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ial4x"]
 radius = 0.434533
@@ -151,7 +152,14 @@ metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 [node name="Death" type="Node" parent="StateMachine"]
 process_mode = 4
 script = ExtResource("8_3f22u")
+interruptable = false
 animation = &"enemy_animations/Death_C_Skeletons"
+metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[node name="Interrupted" type="Node" parent="StateMachine"]
+script = ExtResource("10_kkor7")
+interruptable = false
+animation = &"enemy_animations/Hit_A"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
 [node name="Detection_Area" type="Area3D" parent="."]

@@ -20,7 +20,7 @@ func enter(previous_state_path:String, data: Dictionary = {}) -> void:
 	hurtbox.set_deferred('monitorable', false)
 
 func exit() -> void:
-	hurtbox.monitorable = true
+	hurtbox.set_deferred('monitorable', true)
 	dodge_direction = Vector3.FORWARD
 	animation_player.animation_finished.disconnect(_on_animation_finished)
 

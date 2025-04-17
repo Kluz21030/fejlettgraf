@@ -7,10 +7,10 @@
 [ext_resource type="Script" uid="uid://blu31jjtqmlg2" path="res://Enemies/States/inactive.gd" id="3_y5nvf"]
 [ext_resource type="Script" uid="uid://bsrllvd6m6k0o" path="res://StateMachine/SequentialStateWrapper.gd" id="5_wain5"]
 [ext_resource type="Script" uid="uid://bwf15xahfve2k" path="res://Enemies/States/chase.gd" id="5_x47kj"]
-[ext_resource type="Script" uid="uid://cx3crj33rnvdq" path="res://Enemies/States/punch_1.gd" id="7_x47kj"]
+[ext_resource type="Script" uid="uid://cx3crj33rnvdq" path="res://Enemies/States/combo_step.gd" id="7_x47kj"]
 [ext_resource type="Script" uid="uid://icv7yjfe32nh" path="res://Enemies/States/death.gd" id="8_5uvi3"]
-[ext_resource type="Script" uid="uid://dyalwdpqvdj2f" path="res://Enemies/States/punch_2.gd" id="8_x47kj"]
 [ext_resource type="Script" uid="uid://btxm2taj35ckr" path="res://Components/HurtboxComponent.gd" id="10_e1fe3"]
+[ext_resource type="Script" uid="uid://cohdy2fhq8lmq" path="res://Enemies/States/interrupted.gd" id="11_eejj0"]
 [ext_resource type="Script" uid="uid://bqolpeb84mvdr" path="res://Components/HealthComponent.gd" id="11_nep66"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ial4x"]
@@ -124,13 +124,22 @@ metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 one_shot = true
 
 [node name="Punch2" type="Node" parent="StateMachine/Attack"]
-script = ExtResource("8_x47kj")
+script = ExtResource("7_x47kj")
+attack_again_chance = 0.0
 animation = &"enemy_animations/Unarmed_Melee_Attack_Punch_B"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
 [node name="Death" type="Node" parent="StateMachine"]
+process_mode = 4
 script = ExtResource("8_5uvi3")
+interruptable = false
 animation = &"enemy_animations/Death_C_Skeletons"
+metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[node name="Interrupted" type="Node" parent="StateMachine"]
+script = ExtResource("11_eejj0")
+interruptable = false
+animation = &"enemy_animations/Hit_A"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
 [node name="Detection_Area" type="Area3D" parent="."]

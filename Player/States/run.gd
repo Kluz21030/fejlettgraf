@@ -18,6 +18,8 @@ func handle_input(event: InputEvent) -> void:
 		finished.emit("Dodge")
 	if event.is_action_pressed("jump"):
 		finished.emit("Jump")
+	if event.is_action_pressed("kick"):
+		finished.emit("Kick")
 
 func update(_delta: float) -> void:
 	if body.velocity.is_equal_approx(Vector3.ZERO):

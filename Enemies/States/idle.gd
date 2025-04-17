@@ -14,6 +14,9 @@ var frame_counter: int = 0
 
 func enter(previous_state_path: String, data: Dictionary = {}) -> void:
 	animation_player.play(animation, .3 if previous_state_path == "Attack" else -1)
+	if previous_state_path == &"Dodge":
+		idle_timer.start(1)
+		await idle_timer.timeout
 	if dodge_state:
 		Events.player_attacked.connect(roll_to_dodge)
 	if body.player_in_range:
@@ -35,7 +38,7 @@ func handle_input(_event: InputEvent) -> void:
 	pass
 
 func update(_delta: float) -> void:
-	if not owner.player_in_range:
+	if idle_timer.is_stopped() and not owner.player_in_range:
 		finished.emit("Chase")
 
 func physics_update(_delta: float) -> void:
