@@ -97,16 +97,13 @@ bones/40/position = Vector3(-0.581728, 0.235071, -1.4908)
 bones/40/rotation = Quaternion(-0.897657, 0.114713, 0.419492, -0.0712699)
 
 [node name="Sword" parent="Skeleton_Minion/Rig/Skeleton3D" index="9"]
-transform = Transform3D(0.237162, -0.829886, -0.505016, -0.850088, 0.0743365, -0.521366, 0.470217, 0.552956, -0.687847, -0.607057, 0.155218, -2.0932)
+transform = Transform3D(0.237162, -0.829887, -0.505016, -0.850088, 0.0743364, -0.521367, 0.470217, 0.552956, -0.687848, -0.607057, 0.155218, -2.0932)
 
 [node name="Weapon" parent="Skeleton_Minion/Rig/Skeleton3D/Sword" index="0"]
 weapon_name = &"Skeleton"
 
 [node name="Fist" parent="Skeleton_Minion/Rig/Skeleton3D" index="10"]
-transform = Transform3D(0.237162, -0.829886, -0.505016, -0.850088, 0.0743365, -0.521366, 0.470217, 0.552956, -0.687847, -0.607057, 0.155218, -2.0932)
-
-[node name="AnimationPlayer" parent="Skeleton_Minion" index="1"]
-playback_default_blend_time = 0.2
+transform = Transform3D(0.237162, -0.829887, -0.505016, -0.850088, 0.0743364, -0.521367, 0.470217, 0.552956, -0.687848, -0.607057, 0.155218, -2.0932)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07336, 0)
@@ -115,7 +112,7 @@ shape = SubResource("CapsuleShape3D_ial4x")
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "animation_player", "animation_tree", "body")]
 script = ExtResource("2_s5gg0")
 initial_state = NodePath("Inactive")
-animation_player = NodePath("../Skeleton_Minion/AnimationPlayer")
+animation_player = NodePath("../Skeleton_Minion/CharacterAnimationPlayer")
 animation_tree = NodePath("../Skeleton_Minion/AnimationTree")
 body = NodePath("..")
 metadata/_custom_type_script = "uid://df3ofue5mg5qx"
@@ -167,6 +164,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 0
 collision_mask = 2
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Detection_Area"]
 shape = SubResource("CylinderShape3D_s5gg0")
@@ -181,6 +179,7 @@ debug_path_custom_color = Color(1, 0, 0, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 0
 collision_mask = 2
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Attack_Range"]
 shape = SubResource("CylinderShape3D_kkor7")

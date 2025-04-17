@@ -1,0 +1,3 @@
+class_name CharacterAnimationPlayer extends AnimationPlayer
+
+signal can_attack

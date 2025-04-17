@@ -70,14 +70,14 @@ bones/40/position = Vector3(-0.476093, 0.929883, 0.312916)
 bones/40/rotation = Quaternion(-0.396089, 0.565425, 0.517798, -0.505266)
 
 [node name="Sword" parent="Skeleton_Minion/Rig/Skeleton3D" index="9"]
-transform = Transform3D(0.0753351, 0.175639, -0.981567, 0.149998, 0.971168, 0.185292, 0.985811, -0.161193, 0.0468167, -0.435269, 0.935288, 0.475193)
+transform = Transform3D(0.0753352, 0.17564, -0.981568, 0.149999, 0.971167, 0.185291, 0.985811, -0.161193, 0.0468168, -0.435269, 0.935288, 0.475193)
 visible = false
 
 [node name="Weapon" parent="Skeleton_Minion/Rig/Skeleton3D/Sword" index="0"]
 visible = false
 
 [node name="Fist" parent="Skeleton_Minion/Rig/Skeleton3D" index="10"]
-transform = Transform3D(0.0753351, 0.175639, -0.981567, 0.149998, 0.971168, 0.185292, 0.985811, -0.161193, 0.0468167, -0.435269, 0.935288, 0.475193)
+transform = Transform3D(0.0753352, 0.17564, -0.981568, 0.149999, 0.971167, 0.185291, 0.985811, -0.161193, 0.0468168, -0.435269, 0.935288, 0.475193)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07336, 0)
@@ -86,7 +86,7 @@ shape = SubResource("CapsuleShape3D_ial4x")
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "animation_player", "animation_tree", "body")]
 script = ExtResource("2_n8amt")
 initial_state = NodePath("Inactive")
-animation_player = NodePath("../Skeleton_Minion/AnimationPlayer")
+animation_player = NodePath("../Skeleton_Minion/CharacterAnimationPlayer")
 animation_tree = NodePath("../Skeleton_Minion/AnimationTree")
 body = NodePath("..")
 metadata/_custom_type_script = "uid://df3ofue5mg5qx"

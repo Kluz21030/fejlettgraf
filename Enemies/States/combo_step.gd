@@ -6,10 +6,12 @@ extends State
 func enter(previous_state_path:String, data: Dictionary = {}) -> void:
 	print("entered from state:%s" % previous_state_path)
 	animation_player.animation_finished.connect(_on_attack_animation_finished)
+	animation_player.can_attack.connect(roll_to_attack)
 	animation_player.play(animation, 0.1)
 
 func exit() -> void:
 	animation_player.animation_finished.disconnect(_on_attack_animation_finished)
+	animation_player.can_attack.disconnect(roll_to_attack)
 
 func handle_input(_event: InputEvent) -> void:
 	pass

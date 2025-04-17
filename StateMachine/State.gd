@@ -5,7 +5,7 @@ class_name State extends Node
 @export var animation: StringName
 
 var body: CharacterBody3D
-var animation_player: AnimationPlayer
+var animation_player: CharacterAnimationPlayer
 var animation_tree: AnimationTree
 
 signal finished(next_state_path: String, data: Dictionary)

@@ -1,7 +1,7 @@
 class_name StateMachine extends Node
 
 @export var initial_state: State = null
-@export var animation_player: AnimationPlayer
+@export var animation_player: CharacterAnimationPlayer
 @export var animation_tree: AnimationTree
 @export var body: CharacterBody3D
 
