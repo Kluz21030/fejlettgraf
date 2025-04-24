@@ -11,18 +11,20 @@ var move_direction: Vector3
 @export var movement_speed: int = 5
 @export var rotate_speed: int = 12
 @export var skin: Node3D
+@export var animation_player: CharacterAnimationPlayer
 
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var state_machine: StateMachine = $StateMachine
+
 
 func _ready() -> void:
 	$HealthComponent.died.connect(_on_died)
 
 func _physics_process(delta: float) -> void:
-	if not state_machine.current_state.can_move:
-		move_direction = Vector3.ZERO
 	var y_velocity = velocity.y
 	velocity.y = 0.0
+	if not state_machine.current_state.can_move:
+		move_direction = Vector3.ZERO
 	velocity = velocity.move_toward(move_direction * movement_speed, acceleration * delta)
 	velocity.y = y_velocity + _gravity * delta * int(not is_on_floor())
 	

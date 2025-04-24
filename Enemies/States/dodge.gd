@@ -14,8 +14,7 @@ func enter(previous_state_path:String, data: Dictionary = {}) -> void:
 	
 	var direction: Vector3 = body.skin.global_basis.z * dodge_direction.z + body.skin.global_basis.x * dodge_direction.x
 	direction = direction.normalized()
-	
-	body.velocity += impulse * direction
+	#body.velocity += impulse * direction
 	
 	hurtbox.set_deferred('monitorable', false)
 
@@ -30,8 +29,8 @@ func handle_input(_event: InputEvent) -> void:
 func update(_delta: float) -> void:
 	pass
 
-func physics_update(_delta: float) -> void:
-	pass
+func physics_update(delta: float) -> void:
+	body.velocity = body.skin.get_quaternion() * animation_player.get_root_motion_position() / delta * 20
 
 func _on_animation_finished(anim_name) -> void:
 	if anim_name == animation:

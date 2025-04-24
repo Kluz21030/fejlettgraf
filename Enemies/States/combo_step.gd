@@ -4,7 +4,6 @@ extends State
 @export_range(0.0, 1.0, 0.1) var attack_again_chance: float = 0.5
 
 func enter(previous_state_path:String, data: Dictionary = {}) -> void:
-	print("entered from state:%s" % previous_state_path)
 	animation_player.animation_finished.connect(_on_attack_animation_finished)
 	animation_player.can_attack.connect(roll_to_attack)
 	animation_player.play(animation, 0.1)
