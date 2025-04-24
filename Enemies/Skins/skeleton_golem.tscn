@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxrcmjcod0i4a"]
-
-[ext_resource type="PackedScene" uid="uid://cg5jwgojqxsto" path="res://Assets/Enemies/gltf/Skeleton_Golem.glb" id="1_j0nih"]
-
-[node name="Skeleton_Golem" instance=ExtResource("1_j0nih")]
