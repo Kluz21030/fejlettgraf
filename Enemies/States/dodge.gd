@@ -30,7 +30,7 @@ func update(_delta: float) -> void:
 	pass
 
 func physics_update(delta: float) -> void:
-	body.velocity = body.skin.get_quaternion() * animation_player.get_root_motion_position() / delta * 20
+	body.velocity = body.skin.get_quaternion() * animation_player.get_root_motion_position() / delta * impulse
 
 func _on_animation_finished(anim_name) -> void:
 	if anim_name == animation:

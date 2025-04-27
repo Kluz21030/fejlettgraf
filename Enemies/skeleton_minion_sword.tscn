@@ -48,9 +48,7 @@ bones/8/position = Vector3(-0.250389, 0.2919, 0.355821)
 bones/8/rotation = Quaternion(0.756844, -0.422452, -0.385225, 0.316739)
 bones/9/position = Vector3(-0.212007, 0.134132, 2.45179e-08)
 bones/9/rotation = Quaternion(-0.609794, 0.0587138, 0.522316, 0.593204)
-bones/9/scale = Vector3(0.999999, 0.999999, 1)
 bones/10/rotation = Quaternion(3.38893e-08, 3.70456e-08, 0.474936, 0.88002)
-bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(1.50964e-08, 1.10731e-08, -0.0266581, 0.999645)
 bones/12/rotation = Quaternion(-0.219523, 0.125743, -0.629508, 0.734655)
 bones/13/position = Vector3(2.37584e-07, 0.0961251, -0.0574999)
@@ -61,12 +59,10 @@ bones/15/rotation = Quaternion(0.710874, 0.21567, 0.460128, 0.486237)
 bones/16/rotation = Quaternion(0.00206897, 3.84094e-08, 3.22575e-09, 0.999998)
 bones/17/rotation = Quaternion(0.00702036, -0.690152, -0.0719866, 0.720041)
 bones/18/rotation = Quaternion(0.0306683, 0.971693, -0.231739, -0.0342029)
-bones/18/scale = Vector3(1, 0.999997, 1)
 bones/19/position = Vector3(-0.528442, -0.823121, 1.67247)
 bones/19/rotation = Quaternion(0.519358, -0.848558, -0.064974, 0.0774356)
 bones/20/rotation = Quaternion(0.714163, -6.28551e-08, 5.41067e-07, 0.699979)
 bones/21/rotation = Quaternion(-0.421767, -0.139731, -0.552186, 0.705463)
-bones/21/scale = Vector3(1, 1, 0.999999)
 bones/22/rotation = Quaternion(0.0897018, 0.945003, -0.234443, -0.209666)
 bones/22/scale = Vector3(1, 0.999997, 1)
 bones/23/position = Vector3(0.202725, 0.29231, 0.875812)
@@ -97,13 +93,13 @@ bones/40/position = Vector3(-0.581728, 0.235071, -1.4908)
 bones/40/rotation = Quaternion(-0.897657, 0.114713, 0.419492, -0.0712699)
 
 [node name="Sword" parent="Skeleton_Minion/Rig/Skeleton3D" index="9"]
-transform = Transform3D(0.237162, -0.829887, -0.505016, -0.850088, 0.0743364, -0.521367, 0.470217, 0.552956, -0.687848, -0.607057, 0.155218, -2.0932)
+transform = Transform3D(0.237162, -0.829886, -0.505016, -0.850088, 0.0743365, -0.521366, 0.470217, 0.552956, -0.687847, -0.607057, 0.155218, -2.0932)
 
 [node name="Weapon" parent="Skeleton_Minion/Rig/Skeleton3D/Sword" index="0"]
 weapon_name = &"Skeleton"
 
 [node name="Fist" parent="Skeleton_Minion/Rig/Skeleton3D" index="10"]
-transform = Transform3D(0.237162, -0.829887, -0.505016, -0.850088, 0.0743364, -0.521367, 0.470217, 0.552956, -0.687848, -0.607057, 0.155218, -2.0932)
+transform = Transform3D(0.237162, -0.829886, -0.505016, -0.850088, 0.0743365, -0.521366, 0.470217, 0.552956, -0.687847, -0.607057, 0.155218, -2.0932)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07336, 0)
@@ -119,7 +115,8 @@ metadata/_custom_type_script = "uid://df3ofue5mg5qx"
 
 [node name="Inactive" type="Node" parent="StateMachine"]
 script = ExtResource("3_islrk")
-can_move = true
+awaken_animation = &"enemy_animations/Skeletons_Awaken_Floor"
+animation = &"enemy_animations/Skeletons_Inactive_Floor_Pose"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
 [node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_timer")]
@@ -135,6 +132,7 @@ one_shot = true
 script = ExtResource("5_kkyso")
 attack_range = NodePath("../../Attack_Range")
 can_move = true
+animation = &"enemy_animations/Running_A"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
 [node name="Attack" type="Node" parent="StateMachine"]

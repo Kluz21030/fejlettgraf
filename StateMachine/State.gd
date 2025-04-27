@@ -1,6 +1,7 @@
 class_name State extends Node
 
 @export var can_move: bool
+@export var root_motion_movement: bool = false
 @export var interruptable: bool = true
 @export var animation: StringName
 

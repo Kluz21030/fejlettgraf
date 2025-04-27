@@ -21,12 +21,13 @@ func _ready() -> void:
 	$HealthComponent.died.connect(_on_died)
 
 func _physics_process(delta: float) -> void:
-	var y_velocity = velocity.y
-	velocity.y = 0.0
 	if not state_machine.current_state.can_move:
 		move_direction = Vector3.ZERO
-	velocity = velocity.move_toward(move_direction * movement_speed, acceleration * delta)
-	velocity.y = y_velocity + _gravity * delta * int(not is_on_floor())
+	if not state_machine.current_state.root_motion_movement:
+		var y_velocity = velocity.y
+		velocity.y = 0.0
+		velocity = velocity.move_toward(move_direction * movement_speed, acceleration * delta)
+		velocity.y = y_velocity + _gravity * delta * int(not is_on_floor())
 	
 	if move_direction != Vector3.ZERO:
 		_last_movement_direction = move_direction
