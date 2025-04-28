@@ -2,6 +2,7 @@ extends State
 
 @export var impulse: int = 15
 var enter_loc: Vector3
+var actual_impulse: float = impulse
 var impulse_modifier: float = 1.0
 
 func enter(previous_state_path:String, data: Dictionary = {}) -> void:
@@ -20,7 +21,7 @@ func update(_delta: float) -> void:
 	pass
 
 func physics_update(delta: float) -> void:
-	var actual_impulse: float = impulse * impulse_modifier
+	actual_impulse = impulse * impulse_modifier
 	body.velocity = body.skin.get_quaternion() * animation_player.get_root_motion_position() * Vector3(1, .25, 1) * actual_impulse / delta
 
 func calculate_impulse_modifier():
@@ -28,4 +29,4 @@ func calculate_impulse_modifier():
 
 func _on_animation_finished(anim_name) -> void:
 	if anim_name == animation:
-		finished.emit("Inactive")
+		finished.emit("Chase")

@@ -4,6 +4,7 @@ class_name State extends Node
 @export var root_motion_movement: bool = false
 @export var interruptable: bool = true
 @export var animation: StringName
+@export var transition_mapping: Dictionary[StringName, float]
 
 var body: CharacterBody3D
 var animation_player: CharacterAnimationPlayer

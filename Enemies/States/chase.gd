@@ -5,7 +5,7 @@ var navigation_update_counter: int = 0
 var gap_close_counter: int 
 
 @export var attack_range: Area3D
-@export var gap_close_roll_frequency: int = 60
+@export var gap_close_roll_frequency: int = 120
 @export var gap_closers: Array[State]
 @export_range(0.0, 1.0, 0.01) var gap_close_chance: float
 
@@ -23,15 +23,16 @@ func handle_input(_event: InputEvent) -> void:
 	pass
 
 func update(_delta: float) -> void:
-	if gap_close_counter == gap_close_roll_frequency:
-		roll_to_gap_close()
-		gap_close_counter = 0
 	if navigation_update_counter == 20:
 		navigation_agent.set_target_position(body.player.global_position)
 		navigation_update_counter = 0
-		return
-	navigation_update_counter += 1
-	gap_close_counter += 1
+	else:
+		navigation_update_counter += 1
+	if gap_close_counter == gap_close_roll_frequency:
+		roll_to_gap_close()
+		gap_close_counter = 0
+	else:
+		gap_close_counter += 1
 
 func physics_update(_delta: float) -> void:
 	var next_point = navigation_agent.get_next_path_position() - body.global_position

@@ -1,15 +1,19 @@
-[gd_scene load_steps=15 format=3 uid="uid://b010pfkb1vof7"]
+[gd_scene load_steps=19 format=3 uid="uid://b010pfkb1vof7"]
 
 [ext_resource type="Script" uid="uid://bd0s73t8kx3dv" path="res://Enemies/Enemy.gd" id="1_2pcuu"]
 [ext_resource type="AnimationLibrary" uid="uid://cxstej2hkt3vd" path="res://Animations/golem_animations.res" id="2_duqcm"]
 [ext_resource type="PackedScene" uid="uid://53slh4kc0hpm" path="res://Enemies/Skins/skeleton_golem.tscn" id="2_uc4ni"]
 [ext_resource type="Script" uid="uid://dhkw86bie4tyf" path="res://Animations/CharacterAnimationPlayer.gd" id="4_uc4ni"]
 [ext_resource type="Script" uid="uid://df3ofue5mg5qx" path="res://StateMachine/StateMachine.gd" id="5_qp8fx"]
+[ext_resource type="Script" uid="uid://do8pamx4kltjx" path="res://Enemies/States/idle.gd" id="7_1gbbc"]
 [ext_resource type="Script" uid="uid://bwf15xahfve2k" path="res://Enemies/States/chase.gd" id="7_gdjsp"]
 [ext_resource type="Script" uid="uid://blu31jjtqmlg2" path="res://Enemies/States/inactive.gd" id="7_j2ltw"]
 [ext_resource type="Script" uid="uid://btxm2taj35ckr" path="res://Components/HurtboxComponent.gd" id="7_khavv"]
 [ext_resource type="Script" uid="uid://i4s21u7qc1ps" path="res://Enemies/States/jump_attack.gd" id="8_gdjsp"]
 [ext_resource type="Script" uid="uid://bqolpeb84mvdr" path="res://Components/HealthComponent.gd" id="9_1vmrx"]
+[ext_resource type="Script" uid="uid://coorp2yquxr32" path="res://StateMachine/RandomizedStateWrapper.gd" id="10_ivkhs"]
+[ext_resource type="Script" uid="uid://bsrllvd6m6k0o" path="res://StateMachine/SequentialStateWrapper.gd" id="11_jsrkh"]
+[ext_resource type="Script" uid="uid://x8wi4uwnm43i" path="res://StateMachine/State.gd" id="12_jsrkh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j2ltw"]
 
@@ -21,12 +25,13 @@ height = 3.80667
 radius = 11.1582
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gdjsp"]
-radius = 1.0
+radius = 6.0
 
 [node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("skin", "animation_player")]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_2pcuu")
+movement_speed = 8
 skin = NodePath("Skeleton_Golem")
 animation_player = NodePath("CharacterAnimationPlayer")
 metadata/_custom_type_script = "uid://bd0s73t8kx3dv"
@@ -34,7 +39,7 @@ metadata/_custom_type_script = "uid://bd0s73t8kx3dv"
 [node name="Skeleton_Golem" parent="." instance=ExtResource("2_uc4ni")]
 
 [node name="Rig" parent="Skeleton_Golem" index="0"]
-transform = Transform3D(1.99948, 0.0378706, -0.0255573, -0.037761, 1.99962, 0.00880217, 0.0257192, -0.00831731, 1.99982, -0.0225679, -0.215495, 0.0331215)
+transform = Transform3D(3.99896, 0.0757414, -0.0511146, -0.0755219, 3.99925, 0.0176043, 0.0514384, -0.0166347, 3.99963, -0.0225679, -0.215495, 0.0331215)
 
 [node name="Skeleton3D" parent="Skeleton_Golem/Rig" index="0"]
 bones/1/position = Vector3(0, 0.507064, 0)
@@ -140,15 +145,25 @@ metadata/_custom_type_script = "uid://df3ofue5mg5qx"
 
 [node name="Inactive" type="Node" parent="StateMachine"]
 script = ExtResource("7_j2ltw")
+awaken_animation = &"golem_animations/Skeletons_Awaken_Floor"
+animation = &"golem_animations/Skeletons_Inactive_Floor_Pose"
+metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_timer")]
+script = ExtResource("7_1gbbc")
+idle_timer = NodePath("IdleTimer")
 animation = &"golem_animations/Idle_Combat"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[node name="IdleTimer" type="Timer" parent="StateMachine/Idle"]
+one_shot = true
 
 [node name="Chase" type="Node" parent="StateMachine" node_paths=PackedStringArray("attack_range", "gap_closers")]
 script = ExtResource("7_gdjsp")
 attack_range = NodePath("../../Attack_Range")
-gap_close_roll_frequency = 120
 gap_closers = [NodePath("../JumpAttack")]
-gap_close_chance = 0.5
+gap_close_chance = 0.25
+can_move = true
 animation = &"golem_animations/Running_A"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
@@ -158,6 +173,18 @@ impulse = 1000
 root_motion_movement = true
 interruptable = false
 animation = &"golem_animations/Golem_Jump_Attack"
+metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[node name="Combat" type="Node" parent="StateMachine"]
+script = ExtResource("10_ivkhs")
+metadata/_custom_type_script = "uid://coorp2yquxr32"
+
+[node name="Combo" type="Node" parent="StateMachine/Combat"]
+script = ExtResource("11_jsrkh")
+metadata/_custom_type_script = "uid://bsrllvd6m6k0o"
+
+[node name="State" type="Node" parent="StateMachine/Combat/Combo"]
+script = ExtResource("12_jsrkh")
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
 [node name="HurtboxComponet" type="Area3D" parent="." node_paths=PackedStringArray("health_component")]
@@ -191,6 +218,8 @@ MAX_HEALTH = 150000
 metadata/_custom_type_script = "uid://bqolpeb84mvdr"
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true
+debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="Attack_Range" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
