@@ -1,6 +1,7 @@
 extends State
 
 @export var impulse: int = 15
+var actual_impulse: Vector3 = Vector3(1, .25, 1) * impulse
 var enter_loc: Vector3
 var impulse_modifier: float = 1.0
 
@@ -21,12 +22,13 @@ func update(_delta: float) -> void:
 	pass
 
 func physics_update(delta: float) -> void:
-	var actual_impulse = impulse * impulse_modifier
-	print("actual impulse: %s" % actual_impulse)
-	body.velocity = body.skin.get_quaternion() * (animation_player.get_root_motion_position() / delta * actual_impulse * Vector3(1, 0.25, 1))
+	actual_impulse = impulse * impulse_modifier * Vector3(1, .25, 1)
+	#body.velocity = body.skin.get_quaternion() * animation_player.get_root_motion_position() * Vector3(1, .25, 1) * impulse / delta
+	#var temp: Quaternion = body.skin.get_quaternion() * animation_player.get_root_motion_rotation()
+	#body.velocity = (animation_player.get_root_motion_rotation_accumulator().inverse() * body.skin.get_quaternion()) * animation_player.get_root_motion_position()
 
 func calculate_impulse_modifier():
-	impulse_modifier = body.global_position.distance_to(body.player.global_position) / 9.35
+	impulse_modifier = body.global_position.distance_to(body.player.global_position) / 23
 	print(impulse_modifier)
 
 func _on_animation_finished(anim_name) -> void:
