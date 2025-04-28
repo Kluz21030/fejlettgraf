@@ -23,9 +23,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not state_machine.current_state.can_move:
 		move_direction = Vector3.ZERO
-	if state_machine.current_state.root_motion_movement:
-			velocity = skin.get_quaternion() * animation_player.get_root_motion_position() * state_machine.current_state.actual_impulse / delta
-	else:
+	if not state_machine.current_state.root_motion_movement:
 		var y_velocity = velocity.y
 		velocity.y = 0.0
 		velocity = velocity.move_toward(move_direction * movement_speed, acceleration * delta)
