@@ -16,7 +16,7 @@ func _ready() -> void:
 		state_node.animation_player = animation_player
 		state_node.animation_tree = animation_tree
 		state_node.body = body
-		if state_node is SequentialStateWrapper:
+		if state_node is SequentialStateWrapper or state_node is RandomizedStateWrapper:
 			state_node.initialize()
 	
 	await owner.ready
