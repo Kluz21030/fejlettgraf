@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b010pfkb1vof7"]
+[gd_scene load_steps=22 format=3 uid="uid://b010pfkb1vof7"]
 
 [ext_resource type="Script" uid="uid://bd0s73t8kx3dv" path="res://Enemies/Enemy.gd" id="1_2pcuu"]
 [ext_resource type="AnimationLibrary" uid="uid://cxstej2hkt3vd" path="res://Animations/golem_animations.res" id="2_duqcm"]
@@ -15,6 +15,8 @@
 [ext_resource type="Script" uid="uid://bsrllvd6m6k0o" path="res://StateMachine/SequentialStateWrapper.gd" id="11_jsrkh"]
 [ext_resource type="Script" uid="uid://x8wi4uwnm43i" path="res://StateMachine/State.gd" id="12_jsrkh"]
 [ext_resource type="Script" uid="uid://5whkmrn8bivx" path="res://StateMachine/ChooseOneStateWrapper.gd" id="12_ohwb7"]
+[ext_resource type="Script" uid="uid://dhev126vnu6gv" path="res://Enemies/States/golem_attack.gd" id="13_abt4j"]
+[ext_resource type="Script" uid="uid://cf1g884o7wwrd" path="res://Enemies/States/stomp.gd" id="14_jgsh3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j2ltw"]
 
@@ -40,51 +42,43 @@ metadata/_custom_type_script = "uid://bd0s73t8kx3dv"
 [node name="Skeleton_Golem" parent="." instance=ExtResource("2_uc4ni")]
 
 [node name="Rig" parent="Skeleton_Golem" index="0"]
-transform = Transform3D(3.85405, -0.0249678, -1.07037, -0.0683706, 3.98501, -0.339136, 1.06847, 0.345058, 3.83917, 0.00647637, -0.104727, -0.139895)
+transform = Transform3D(3.99897, 0.085113, 0.031042, -0.0852976, 3.99902, 0.0236451, -0.0305314, -0.024301, 3.9998, -0.0242325, -0.213796, 0.0359163)
 
 [node name="Skeleton3D" parent="Skeleton_Golem/Rig" index="0"]
 bones/1/position = Vector3(0.00841076, 0.493046, 1.21849e-10)
 bones/1/rotation = Quaternion(0, -1.19209e-07, 0, 1)
-bones/2/rotation = Quaternion(-0.0605995, -0.130282, -0.00797807, 0.989591)
-bones/2/scale = Vector3(1, 1, 1)
-bones/3/rotation = Quaternion(1.86264e-09, -1.11587e-07, -4.62267e-10, 1)
-bones/4/position = Vector3(-0.406682, 0.226703, 0.0891542)
-bones/4/rotation = Quaternion(-0.271894, 0.396966, 0.803309, 0.35098)
-bones/4/scale = Vector3(1, 1, 1)
-bones/5/rotation = Quaternion(7.20153e-09, 3.22272e-08, 0.516012, 0.856582)
-bones/6/rotation = Quaternion(7.53933e-09, 1.14401e-08, -0.0266581, 0.999645)
+bones/2/rotation = Quaternion(0.143995, 0.00183925, 0.00709829, 0.989551)
+bones/3/rotation = Quaternion(0.284397, 0.00297244, 0.0143943, 0.958594)
+bones/4/rotation = Quaternion(-0.50827, 0.412708, 0.738041, 0.163186)
+bones/5/rotation = Quaternion(-0.125004, 0.109452, 0.5431, 0.823065)
+bones/6/rotation = Quaternion(0.0389771, 0.135449, -0.0123769, 0.98994)
 bones/7/rotation = Quaternion(-0.315923, 0.222643, -0.0370327, 0.921548)
 bones/8/position = Vector3(2.90425e-08, 0.11535, -0.0689999)
 bones/8/rotation = Quaternion(0.155711, -0.189455, 0.670289, 0.700409)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/rotation = Quaternion(0.0854265, 0.130441, 0.00470451, 0.987758)
 bones/9/scale = Vector3(1, 1, 1)
-bones/10/position = Vector3(0.478043, 0.225857, 0.0825816)
-bones/10/rotation = Quaternion(-0.639334, -0.158276, -0.617336, 0.430228)
-bones/10/scale = Vector3(1, 1, 1)
-bones/11/rotation = Quaternion(2.43403e-08, -3.40042e-08, -0.712756, 0.701412)
-bones/12/rotation = Quaternion(3.71605e-09, -7.8155e-09, 0.0266581, 0.999645)
+bones/10/rotation = Quaternion(-0.424666, -0.486836, -0.752069, 0.130547)
+bones/11/rotation = Quaternion(-0.146817, 0.0654034, -0.438884, 0.884052)
+bones/12/rotation = Quaternion(0.0576413, -0.18633, 0.107064, 0.974934)
 bones/13/rotation = Quaternion(-0.246062, -0.695793, -0.0358223, 0.673827)
 bones/14/position = Vector3(7.59865e-10, 0.11535, -0.0689999)
 bones/14/rotation = Quaternion(9.2126e-09, -1.32411e-09, -0.707107, 0.707107)
 bones/14/scale = Vector3(1, 1, 1)
-bones/15/position = Vector3(0.170945, 0.113587, 1.39233e-08)
-bones/15/rotation = Quaternion(0.994355, 0.0545086, 0.0375349, 0.0829319)
-bones/16/rotation = Quaternion(0.312311, 5.2466e-08, -2.25714e-07, 0.94998)
-bones/17/rotation = Quaternion(-0.557481, -0.212637, 0.025383, 0.802095)
+bones/15/rotation = Quaternion(0.916031, 0.262845, -0.0675915, 0.295348)
+bones/16/rotation = Quaternion(0.527937, 0.0338735, 0.108551, 0.841636)
+bones/17/rotation = Quaternion(-0.574609, 0.0358893, 0.120251, 0.80875)
 bones/18/rotation = Quaternion(0.000116808, 0.920179, -0.391498, -2.66879e-05)
-bones/19/position = Vector3(-0.170945, 0.113587, 1.39233e-08)
-bones/19/rotation = Quaternion(0.992184, -0.0294109, -0.00989122, 0.120862)
-bones/20/rotation = Quaternion(0.337796, -5.23468e-08, 2.46163e-07, 0.941219)
-bones/21/rotation = Quaternion(-0.56395, 0.111344, -0.0127067, 0.818169)
+bones/19/rotation = Quaternion(0.921062, -0.204187, 0.154653, 0.293317)
+bones/20/rotation = Quaternion(0.519361, -0.0882125, -0.0185369, 0.849788)
+bones/21/rotation = Quaternion(-0.569181, 0.0140559, -0.144352, 0.80932)
 bones/22/rotation = Quaternion(-6.27944e-05, 0.920191, -0.39147, 1.45994e-05)
 bones/23/rotation = Quaternion(0.707107, -2.29302e-07, -4.60552e-08, 0.707107)
 bones/24/position = Vector3(0.170945, 0.0259903, 0.245789)
 bones/24/rotation = Quaternion(-0.707107, -7.05285e-08, -7.05285e-08, 0.707107)
 bones/25/position = Vector3(0.0308395, 0.382458, -2.86687e-15)
 bones/25/rotation = Quaternion(1.00138e-08, 1.91522e-09, 0.984639, -0.174603)
-bones/26/position = Vector3(3.75295e-09, 0.213436, -1.0343e-08)
-bones/26/rotation = Quaternion(-9.99889e-08, 0.391084, 0.920355, -3.39507e-08)
+bones/26/rotation = Quaternion(7.10543e-15, 0.391085, 0.920355, 0)
 bones/27/position = Vector3(2.3491e-08, 0.16565, -5.09136e-09)
 bones/27/rotation = Quaternion(-0.391084, -6.59362e-08, -5.87716e-08, 0.920355)
 bones/27/scale = Vector3(1, 1, 1)
@@ -93,8 +87,7 @@ bones/29/rotation = Quaternion(-6.93878e-18, -9.55588e-16, -1.20164e-08, 1)
 bones/30/rotation = Quaternion(0.707107, -3.82385e-08, 1.45009e-07, 0.707107)
 bones/31/rotation = Quaternion(-0.707107, -7.05285e-08, -7.05285e-08, 0.707107)
 bones/32/rotation = Quaternion(-5.83589e-09, 6.43837e-10, 0.994809, 0.101756)
-bones/33/position = Vector3(-1.11482e-08, 0.213436, -2.50942e-15)
-bones/33/rotation = Quaternion(-1.05796e-07, 0.391084, 0.920355, -2.58643e-08)
+bones/33/rotation = Quaternion(0, 0.391085, 0.920355, 8.88178e-16)
 bones/34/position = Vector3(-6.31128e-09, 0.16565, 2.70695e-09)
 bones/34/rotation = Quaternion(-0.391084, -6.73931e-08, -6.22002e-08, 0.920355)
 bones/34/scale = Vector3(1, 1, 1)
@@ -161,8 +154,11 @@ interruptable = false
 animation = &"golem_animations/Golem_Jump_Attack"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
-[node name="Combat" type="Node" parent="StateMachine"]
+[node name="Combat" type="Node" parent="StateMachine" node_paths=PackedStringArray("exit_to_pool")]
 script = ExtResource("10_ivkhs")
+exit_chance = 0.33
+exit_to_pool = [NodePath("../Idle")]
+interruptable = false
 metadata/_custom_type_script = "uid://coorp2yquxr32"
 
 [node name="Combo" type="Node" parent="StateMachine/Combat"]
@@ -176,21 +172,33 @@ interruptable = false
 metadata/_custom_type_script = "uid://5whkmrn8bivx"
 
 [node name="Slice" type="Node" parent="StateMachine/Combat/Combo/ChoseOneStateWrapper"]
-script = ExtResource("12_jsrkh")
+script = ExtResource("13_abt4j")
 interruptable = false
 animation = &"golem_animations/2H_Melee_Attack_Slice"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
 [node name="Chop" type="Node" parent="StateMachine/Combat/Combo/ChoseOneStateWrapper"]
-script = ExtResource("12_jsrkh")
+script = ExtResource("13_abt4j")
 interruptable = false
 animation = &"golem_animations/2H_Melee_Attack_Chop"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
 [node name="Stab" type="Node" parent="StateMachine/Combat/Combo"]
-script = ExtResource("12_jsrkh")
+script = ExtResource("13_abt4j")
 interruptable = false
 animation = &"golem_animations/2H_Melee_Attack_Stab"
+metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[node name="Stomp" type="Node" parent="StateMachine/Combat"]
+script = ExtResource("14_jgsh3")
+interruptable = false
+animation = &"golem_animations/Golem_Stomp"
+metadata/_custom_type_script = "uid://x8wi4uwnm43i"
+
+[node name="Death" type="Node" parent="StateMachine"]
+script = ExtResource("12_jsrkh")
+interruptable = false
+animation = &"golem_animations/Golem_Death"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
 [node name="HurtboxComponet" type="Area3D" parent="." node_paths=PackedStringArray("health_component")]

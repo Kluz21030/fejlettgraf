@@ -1,6 +1,8 @@
 class_name RandomizedStateWrapper extends State
 
 @export var initial_state: State
+@export_range(0.0, 1.0, 0.01) var exit_chance: float
+@export var exit_to_pool: Array[State]
 var current_sub_state: State
 var sub_state_index: int = 0
 
@@ -28,13 +30,21 @@ func update(delta) -> void:
 func physics_update(delta) -> void:
 	current_sub_state.physics_update(delta)
 
+func roll_to_exit() -> void:
+	if randf_range(0.0, 1.0) >= exit_chance:
+		return
+	finished.emit(exit_to_pool.pick_random().name)
+
 func _transition_to_next_state(next_state_path: String, data: Dictionary = {}) -> void:
 	current_sub_state.exit()
 	
 	if not next_state_path.is_empty():
 		finished.emit(next_state_path)
 		return
-
+	
+	if exit_to_pool:
+		roll_to_exit()
+	
 	if data.get("mapping"):
 		var sum: float = 0.0
 		var roll: float = randf_range(0.0, 1.0)
