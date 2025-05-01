@@ -46,7 +46,6 @@ func roll_to_gap_close() -> void:
 
 func _on_player_in_range(body: Node3D) -> void:
 	if body is Player:
-		owner.player_in_range = true
 		if randf_range(0.0, 1.0) <= 0.5:
 			finished.emit("Attack")
 			return

@@ -8,16 +8,21 @@ func initialize() -> void:
 	current_sub_state = get_child(sequence_index)
 	number_of_sub_states = get_child_count()
 	
-	for state_node: State in find_children("*", "State"):
+	for state_node: State in find_children("*", "State", false):
 		state_node.finished.connect(_transition_to_next_state)
 		state_node.animation_player = animation_player
 		state_node.animation_tree = animation_tree
 		state_node.body = body
+		if state_node is SequentialStateWrapper or state_node is RandomizedStateWrapper or state_node is ChooseOneStateWrapper:
+			state_node.initialize()
 
 func enter(previous_state_path: String, data: Dictionary = {}) -> void:
 	sequence_index = data.get("sequnce_index", sequence_index) % number_of_sub_states
 	current_sub_state = get_child(sequence_index)
 	current_sub_state.enter(previous_state_path, data)
+
+func exit() -> void:
+	sequence_index = 0
 
 func handle_input(event: InputEvent) -> void:
 	current_sub_state.handle_input(event)
@@ -31,9 +36,16 @@ func physics_update(delta) -> void:
 func _transition_to_next_state(next_state_path: String, data: Dictionary = {}) -> void:
 	current_sub_state.exit()
 	
+	if body is Enemy and not body.player_in_range:
+		finished.emit("Chase")
+		return
+	
 	if not next_state_path.is_empty():
 		finished.emit(next_state_path, {"sequence_index": sequence_index})
-		sequence_index = 0
+		return
+
+	if sequence_index + 1 == number_of_sub_states:
+		finished.emit("Idle")
 		return
 
 	sequence_index = (sequence_index + 1) % number_of_sub_states

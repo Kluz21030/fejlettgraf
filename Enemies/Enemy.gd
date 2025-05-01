@@ -47,3 +47,7 @@ func _on_died(_body: CharacterBody3D):
 func _on_player_moved_away(body: Node3D) -> void:
 	if body is Player:
 		player_in_range = false
+
+func _on_player_in_range(body: Node3D) -> void:
+	if body is Player:
+		player_in_range = true

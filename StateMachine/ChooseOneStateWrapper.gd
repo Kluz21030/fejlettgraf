@@ -3,11 +3,13 @@ class_name ChooseOneStateWrapper extends State
 var sub_state: State
 
 func initialize() -> void:
-	for state_node: State in find_children("*", "State"):
+	for state_node: State in find_children("*", "State", false):
 		state_node.finished.connect(_transition_to_next_state)
 		state_node.animation_player = animation_player
 		state_node.animation_tree = animation_tree
 		state_node.body = body
+		if state_node is SequentialStateWrapper or state_node is RandomizedStateWrapper or state_node is ChooseOneStateWrapper:
+			state_node.initialize()
 
 func enter(previous_state_path: String, data: Dictionary = {}) -> void:
 	sub_state = get_children().pick_random()
