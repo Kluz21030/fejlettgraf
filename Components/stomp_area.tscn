@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dh1bomjevb5kp"]
 
-[ext_resource type="Script" uid="uid://vuv5qvyhqaos" path="res://StompArea.gd" id="1_k24x2"]
+[ext_resource type="Script" uid="uid://vuv5qvyhqaos" path="res://Components/StompArea.gd" id="1_k24x2"]
 [ext_resource type="Texture2D" uid="uid://pkweikc637ah" path="res://Assets/Effects/Smoke30Frames.png" id="1_knur4"]
 
 [sub_resource type="Gradient" id="Gradient_k24x2"]
