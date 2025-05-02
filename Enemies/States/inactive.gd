@@ -25,4 +25,7 @@ func _on_enemy_player_detected(body: Node3D) -> void:
 		if awaken_animation:
 			animation_player.play(awaken_animation)
 			await animation_player.animation_finished
-		finished.emit("Chase")
+		if self.body.player_in_range:
+			finished.emit("Idle")
+		else:
+			finished.emit("Chase")

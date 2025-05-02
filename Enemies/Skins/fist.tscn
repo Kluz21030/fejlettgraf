@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv8bkvlq2mgem"]
+
+[ext_resource type="Script" uid="uid://cwx42b37qhp0b" path="res://Components/Weapon.gd" id="1_dn2o2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dn2o2"]
+
+[node name="Fist" type="Area3D"]
+monitoring = false
+monitorable = false
+script = ExtResource("1_dn2o2")
+base_damage = 50
+metadata/_custom_type_script = "uid://cwx42b37qhp0b"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_dn2o2")

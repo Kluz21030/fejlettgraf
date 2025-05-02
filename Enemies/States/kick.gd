@@ -3,8 +3,13 @@ extends State
 @export var impulse: int = 15
 @export var kick_area: KickArea
 @export var kick_delay: Timer
+@export var gap_close_state: State
+@export_range(0.0, 1.0, 0.01) var gap_close_chance: float
+
+var character_hit: bool = false
 
 func enter(previous_state_path:String, data: Dictionary = {}) -> void:
+	character_hit = false
 	animation_player.animation_finished.connect(_on_animation_finished)
 	animation_player.play(animation, 0.4)
 	
@@ -19,6 +24,7 @@ func enter(previous_state_path:String, data: Dictionary = {}) -> void:
 		if character and character.state_machine.current_state.interruptable:
 			character.state_machine.current_state.interrupt()
 			character.velocity += impulse * kick_direction
+			character_hit = true
 		if object:
 			object.apply_impulse(impulse * kick_direction)
 
@@ -36,4 +42,7 @@ func physics_update(_delta: float) -> void:
 
 func _on_animation_finished(anim_name: StringName) -> void:
 	if anim_name == animation:
-		finished.emit("Idle")
+		if character_hit and randf_range(0.0, 1.0) <= gap_close_chance:
+			finished.emit(gap_close_state.name)
+		else:
+			finished.emit("Idle")

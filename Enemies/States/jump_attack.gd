@@ -39,7 +39,6 @@ func _on_area_entered(area: Area3D) -> void:
 
 func _on_animation_finished(anim_name) -> void:
 	if anim_name == animation:
-		print(body.player_in_range)
 		if body.player_in_range:
 			finished.emit("Idle")
 		else:

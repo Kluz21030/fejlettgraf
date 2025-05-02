@@ -33,8 +33,9 @@ func _physics_process(delta: float) -> void:
 		_last_movement_direction = move_direction
 	if velocity.is_zero_approx() and player:
 		_last_movement_direction = ((player.global_position - global_position) * Vector3(1, 0, 1)).normalized()
-	var target_rotation: float = Vector3.BACK.signed_angle_to(_last_movement_direction, Vector3.UP)
-	skin.rotation.y = lerp_angle(skin.rotation.y, target_rotation, rotate_speed * delta)
+	if state_machine.current_state.can_move:
+		var target_rotation: float = Vector3.BACK.signed_angle_to(_last_movement_direction, Vector3.UP)
+		skin.rotation.y = lerp_angle(skin.rotation.y, target_rotation, rotate_speed * delta)
 	
 	move_and_slide()
 

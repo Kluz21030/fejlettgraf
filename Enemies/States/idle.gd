@@ -63,4 +63,7 @@ func roll_to_dodge(being_attacked: bool = false) -> bool:
 	return false
 
 func _on_idle_timeout() -> void:
-	finished.emit("Attack")
+	if body.player_in_range:
+		finished.emit("Attack")
+	else:
+		finished.emit("Chase")

@@ -6,13 +6,14 @@ var number_of_sub_states: int
 
 func initialize() -> void:
 	current_sub_state = get_child(sequence_index)
-	number_of_sub_states = get_child_count()
+	number_of_sub_states = 0
 	
 	for state_node: State in find_children("*", "State", false):
 		state_node.finished.connect(_transition_to_next_state)
 		state_node.animation_player = animation_player
 		state_node.animation_tree = animation_tree
 		state_node.body = body
+		number_of_sub_states += 1
 		if state_node is SequentialStateWrapper or state_node is RandomizedStateWrapper or state_node is ChooseOneStateWrapper:
 			state_node.initialize()
 

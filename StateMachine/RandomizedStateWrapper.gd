@@ -32,11 +32,6 @@ func update(delta) -> void:
 func physics_update(delta) -> void:
 	current_sub_state.physics_update(delta)
 
-func roll_to_exit() -> void:
-	if randf_range(0.0, 1.0) >= exit_chance:
-		return
-	finished.emit(exit_to_pool.pick_random().name)
-
 func _transition_to_next_state(next_state_path: String, data: Dictionary = {}) -> void:
 	current_sub_state.exit()
 	
@@ -48,8 +43,9 @@ func _transition_to_next_state(next_state_path: String, data: Dictionary = {}) -
 		finished.emit(next_state_path)
 		return
 	
-	if exit_to_pool:
-		roll_to_exit()
+	if exit_to_pool and randf_range(0.0, 1.0) <= exit_chance:
+		finished.emit(exit_to_pool.pick_random().name)
+		return
 	
 	if data.get("mapping"):
 		var sum: float = 0.0
