@@ -22,6 +22,10 @@ config/features=PackedStringArray("4.4")
 
 Events="*res://Singletons/EventBus.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 left_click={

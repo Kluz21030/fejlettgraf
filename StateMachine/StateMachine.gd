@@ -24,7 +24,7 @@ func _ready() -> void:
 	
 	Events.entity_state_changed.emit(owner, owner.skin)
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	current_state.handle_input(event)
 
 func _process(delta: float) -> void:

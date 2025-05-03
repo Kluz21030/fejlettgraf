@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://xgqyd34boq05"]
+
+[ext_resource type="Script" uid="uid://clubl3wffngrq" path="res://GUI/ResourceBar.gd" id="1_k2lod"]
+
+[node name="ResourceBar" type="ProgressBar"]
+custom_minimum_size = Vector2(100, 20)
+offset_right = 100.0
+offset_bottom = 20.0
+value = 40.0
+show_percentage = false
+script = ExtResource("1_k2lod")

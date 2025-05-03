@@ -28,11 +28,9 @@ func _input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if event.is_action_pressed("jump"):
 		pass
-
-func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		_camera_input_direction = event.screen_relative * mouse_sensitivity
-	
+
 func _physics_process(delta: float) -> void:
 	_camera_pivot.rotation.x = clamp(_camera_pivot.rotation.x + _camera_input_direction.y * delta, -PI / 2.05, PI / 2.05)
 	_camera_pivot.rotation.y -= _camera_input_direction.x * delta

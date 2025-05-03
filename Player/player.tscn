@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://e8mgunypswjq"]
+[gd_scene load_steps=21 format=3 uid="uid://e8mgunypswjq"]
 
 [ext_resource type="PackedScene" uid="uid://ebrebictycwg" path="res://Player/Skins/knight_skin.tscn" id="1_k3002"]
 [ext_resource type="Script" uid="uid://dkyh824pdii50" path="res://Player/Player.gd" id="1_nwtvh"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://cohdy2fhq8lmq" path="res://Enemies/States/interrupted.gd" id="11_p5o4e"]
 [ext_resource type="Script" uid="uid://blu7yv3se7wrc" path="res://Enemies/States/kick.gd" id="12_gu6f8"]
 [ext_resource type="Script" uid="uid://drfr2io8ka30l" path="res://Components/KickArea.gd" id="15_dkpta"]
+[ext_resource type="PackedScene" uid="uid://1u5a6g7d3ef" path="res://GUI/HUD.tscn" id="16_lfmf2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lfmf2"]
 size = Vector3(0.810425, 0.705811, 1.06705)
@@ -164,8 +165,9 @@ metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 [node name="KickDelayTimer" type="Timer" parent="StateMachine/Kick"]
 wait_time = 0.3
 
+[node name="GolemHpBar" parent="." instance=ExtResource("16_lfmf2")]
+
 [node name="HealthComponent" type="Node" parent="."]
-process_mode = 4
 script = ExtResource("9_veuuo")
 MAX_HEALTH = 500
 metadata/_custom_type_script = "uid://bqolpeb84mvdr"
