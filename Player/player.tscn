@@ -169,7 +169,8 @@ wait_time = 0.3
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("9_veuuo")
-MAX_HEALTH = 500
+resource_name = &"Health"
+max_value = 500
 metadata/_custom_type_script = "uid://bqolpeb84mvdr"
 
 [node name="HurtboxComponet" type="Area3D" parent="." node_paths=PackedStringArray("health_component")]
@@ -184,5 +185,11 @@ metadata/_custom_type_script = "uid://btxm2taj35ckr"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20262, 0)
 shape = SubResource("CapsuleShape3D_veuuo")
 debug_color = Color(0.996078, 0, 0.203922, 0.203922)
+
+[node name="StaminaComponent" type="Node" parent="."]
+script = ExtResource("9_veuuo")
+resource_name = &"Stamina"
+max_value = 250
+metadata/_custom_type_script = "uid://bqolpeb84mvdr"
 
 [editable path="Knight"]

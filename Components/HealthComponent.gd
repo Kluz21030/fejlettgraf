@@ -1,23 +1,24 @@
-class_name HealthComponent extends Node
+class_name ResourceComponent extends Node
 
 signal died(owner: CharacterBody3D)
-@export var MAX_HEALTH: int:
+@export var resource_name: StringName
+@export var max_value: int:
 	set(value):
-		MAX_HEALTH = value
+		max_value = value
 		if owner is Player:
-			Events.player_resource_changed.emit(&"Health", health, MAX_HEALTH)
+			Events.player_resource_changed.emit(resource_name, health, max_value)
 
 var health: int:
 	set(value):
-		health = clampi(value, 0, MAX_HEALTH)
+		health = clampi(value, 0, max_value)
 		print(health)
 		if health == 0:
 			died.emit(owner)
 		if owner is Player:
-			Events.player_resource_changed.emit(&"Health", health, MAX_HEALTH)
+			Events.player_resource_changed.emit(resource_name, health, max_value)
 
 func _ready() -> void:
-	health = MAX_HEALTH
+	health = max_value
 
 func take_damage(damage: int):
 	health -= damage

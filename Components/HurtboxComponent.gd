@@ -1,6 +1,6 @@
 class_name HurtboxComponet extends Area3D
 
-@export var health_component: HealthComponent
+@export var health_component: ResourceComponent
 
 func damage(attack: Attack):
 	if health_component:
