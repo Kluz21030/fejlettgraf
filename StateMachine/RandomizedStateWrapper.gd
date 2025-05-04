@@ -23,6 +23,11 @@ func enter(previous_state_path: String, data: Dictionary = {}) -> void:
 	current_sub_state = get_child(sub_state_index)
 	current_sub_state.enter(previous_state_path, data)
 
+func exit() -> void:
+	print("attack")
+	if current_sub_state:
+		current_sub_state.exit()
+
 func handle_input(event: InputEvent) -> void:
 	current_sub_state.handle_input(event)
 
@@ -40,6 +45,7 @@ func _transition_to_next_state(next_state_path: String, data: Dictionary = {}) -
 		return
 	
 	if not next_state_path.is_empty():
+		current_sub_state = null
 		finished.emit(next_state_path)
 		return
 	
@@ -55,6 +61,7 @@ func _transition_to_next_state(next_state_path: String, data: Dictionary = {}) -
 			if roll <= sum:
 				current_sub_state = find_child(key)
 				sub_state_index = current_sub_state.get_index()
+				current_sub_state.enter("")
 				break
 	else:
 		var possible_indices: Array = range(0, sub_state_index) + range(sub_state_index, get_child_count())

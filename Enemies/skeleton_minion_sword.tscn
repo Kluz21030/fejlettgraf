@@ -203,5 +203,6 @@ metadata/_custom_type_script = "uid://bqolpeb84mvdr"
 
 [connection signal="body_entered" from="Attack_Range" to="." method="_on_player_in_range"]
 [connection signal="body_exited" from="Attack_Range" to="." method="_on_player_moved_away"]
+[connection signal="died" from="HealthComponent" to="." method="_on_died"]
 
 [editable path="Skeleton_Minion"]

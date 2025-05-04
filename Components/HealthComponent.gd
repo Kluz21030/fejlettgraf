@@ -16,12 +16,13 @@ signal died(owner: CharacterBody3D)
 var current_value: float:
 	set(value):
 		current_value = clampf(value, 0, max_value)
-		print(current_value)
 		if resource_name == &"Health" and current_value == 0:
 			died.emit(owner)
 		if owner is Player:
 			Events.player_resource_changed.emit(resource_name, current_value, max_value)
-		if owner is Enemy:
+		if owner is Boss:
+			Events.boss_health_changed.emit(current_value, max_value)
+		elif owner is Enemy:
 			resource_changed.emit(current_value, max_value)
 
 func _ready() -> void:

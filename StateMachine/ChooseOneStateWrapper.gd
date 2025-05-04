@@ -15,6 +15,10 @@ func enter(previous_state_path: String, data: Dictionary = {}) -> void:
 	sub_state = get_children().pick_random()
 	sub_state.enter(previous_state_path, data)
 
+func exit() -> void:
+	if sub_state:
+		sub_state.exit()
+
 func handle_input(event: InputEvent) -> void:
 	sub_state.handle_input(event)
 
@@ -26,6 +30,8 @@ func physics_update(delta) -> void:
 
 func _transition_to_next_state(next_state_path: String, data: Dictionary = {}) -> void:
 	sub_state.exit()
+	
+	sub_state = null
 	
 	finished.emit(next_state_path)
 	

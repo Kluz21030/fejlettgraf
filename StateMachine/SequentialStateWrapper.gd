@@ -24,6 +24,9 @@ func enter(previous_state_path: String, data: Dictionary = {}) -> void:
 
 func exit() -> void:
 	sequence_index = 0
+	if current_sub_state:
+		print("combo")
+		current_sub_state.exit()
 
 func handle_input(event: InputEvent) -> void:
 	current_sub_state.handle_input(event)
@@ -34,7 +37,7 @@ func update(delta) -> void:
 func physics_update(delta) -> void:
 	current_sub_state.physics_update(delta)
 
-func _transition_to_next_state(next_state_path: String, data: Dictionary = {}) -> void:
+func _transition_to_next_state(next_state_path: String, data: Dictionary = {}) -> void:	
 	current_sub_state.exit()
 	
 	if body is Enemy and not body.player_in_range:
@@ -42,10 +45,12 @@ func _transition_to_next_state(next_state_path: String, data: Dictionary = {}) -
 		return
 	
 	if not next_state_path.is_empty():
+		current_sub_state = null
 		finished.emit(next_state_path, {"sequence_index": sequence_index})
 		return
 
 	if sequence_index + 1 == number_of_sub_states:
+		current_sub_state = null
 		finished.emit("Idle")
 		return
 

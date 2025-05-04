@@ -15,6 +15,7 @@ func enter(previous_state_path:String, data: Dictionary = {}) -> void:
 	Events.player_attacked.emit()
 
 func exit() -> void:
+	print("called")
 	animation_player.animation_finished.disconnect(_on_attack_animation_finished)
 
 func handle_input(_event: InputEvent) -> void:

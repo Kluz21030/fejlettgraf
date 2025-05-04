@@ -37,7 +37,8 @@ func _transition_to_next_state(target_state_path: String, data: Dictionary = {})
 	if not has_node(target_state_path):
 		printerr(owner.name + ": Trying to transition to state " + target_state_path + " but it does not exist.")
 		return
-
+	if body is Boss:
+		print(target_state_path)
 	var previous_state_path := current_state.name
 	current_state.exit()
 	current_state = get_node(target_state_path)

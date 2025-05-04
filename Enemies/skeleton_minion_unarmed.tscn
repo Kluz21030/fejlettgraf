@@ -160,6 +160,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.37561, 0)
 
 [connection signal="body_entered" from="Attack_Range" to="." method="_on_player_in_range"]
 [connection signal="body_exited" from="Attack_Range" to="." method="_on_player_moved_away"]
+[connection signal="died" from="HealthComponent" to="." method="_on_died"]
 [connection signal="died" from="HealthComponent" to="HealthBar" method="_on_death"]
 [connection signal="resource_changed" from="HealthComponent" to="HealthBar" method="_on_resource_changed"]
 

@@ -18,7 +18,7 @@ var move_direction: Vector3
 
 
 func _ready() -> void:
-	$HealthComponent.died.connect(_on_died)
+	pass
 
 func _physics_process(delta: float) -> void:
 	if not state_machine.current_state.can_move:

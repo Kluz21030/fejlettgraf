@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bj248ifviyxd7" path="res://GUI/golerm_hp_bar.tscn" id="1_3w8el"]
 [ext_resource type="PackedScene" uid="uid://xgqyd34boq05" path="res://GUI/resource_bar.tscn" id="1_5qcxp"]
 
-[node name="GolemHpBar" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer"]
 
 [node name="VSplitContainer" type="VSplitContainer" parent="."]
 anchors_preset = 15
@@ -61,5 +61,5 @@ theme_override_constants/margin_bottom = 50
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ProgressBar" parent="VSplitContainer/MarginContainer/CenterContainer" instance=ExtResource("1_3w8el")]
+[node name="BossHPBar" parent="VSplitContainer/MarginContainer/CenterContainer" instance=ExtResource("1_3w8el")]
 layout_mode = 2

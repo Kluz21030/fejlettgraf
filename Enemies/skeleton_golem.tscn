@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=3 uid="uid://b010pfkb1vof7"]
 
-[ext_resource type="Script" uid="uid://bd0s73t8kx3dv" path="res://Enemies/Enemy.gd" id="1_2pcuu"]
+[ext_resource type="Script" uid="uid://4wueio2ekyci" path="res://Enemies/Boss.gd" id="1_j7csq"]
 [ext_resource type="AnimationLibrary" uid="uid://cxstej2hkt3vd" path="res://Animations/golem_animations.res" id="2_duqcm"]
 [ext_resource type="PackedScene" uid="uid://53slh4kc0hpm" path="res://Enemies/Skins/skeleton_golem_skin.tscn" id="2_uc4ni"]
 [ext_resource type="Script" uid="uid://drfr2io8ka30l" path="res://Components/KickArea.gd" id="3_jao7y"]
@@ -14,11 +14,11 @@
 [ext_resource type="Script" uid="uid://bqolpeb84mvdr" path="res://Components/HealthComponent.gd" id="9_1vmrx"]
 [ext_resource type="Script" uid="uid://coorp2yquxr32" path="res://StateMachine/RandomizedStateWrapper.gd" id="10_ivkhs"]
 [ext_resource type="Script" uid="uid://bsrllvd6m6k0o" path="res://StateMachine/SequentialStateWrapper.gd" id="11_jsrkh"]
-[ext_resource type="Script" uid="uid://x8wi4uwnm43i" path="res://StateMachine/State.gd" id="12_jsrkh"]
 [ext_resource type="Script" uid="uid://5whkmrn8bivx" path="res://StateMachine/ChooseOneStateWrapper.gd" id="12_ohwb7"]
 [ext_resource type="Script" uid="uid://dhev126vnu6gv" path="res://Enemies/States/golem_attack.gd" id="13_abt4j"]
 [ext_resource type="Script" uid="uid://cf1g884o7wwrd" path="res://Enemies/States/stomp.gd" id="14_jgsh3"]
 [ext_resource type="Script" uid="uid://blu7yv3se7wrc" path="res://Enemies/States/kick.gd" id="16_j7csq"]
+[ext_resource type="Script" uid="uid://icv7yjfe32nh" path="res://Enemies/States/death.gd" id="17_j7csq"]
 [ext_resource type="PackedScene" uid="uid://dh1bomjevb5kp" path="res://Components/stomp_area.tscn" id="18_wr8vp"]
 [ext_resource type="PackedScene" uid="uid://bp2u4gvwyk5we" path="res://Enemies/Skins/golem_axe.tscn" id="19_7xqj0"]
 [ext_resource type="PackedScene" uid="uid://dv8bkvlq2mgem" path="res://Enemies/Skins/fist.tscn" id="20_qqksy"]
@@ -90,6 +90,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j2ltw"]
+radius = 1.0
+height = 4.90828
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_khavv"]
 radius = 0.956411
@@ -104,7 +106,7 @@ radius = 5.0
 [node name="Golem" type="CharacterBody3D" node_paths=PackedStringArray("skin", "animation_player")]
 collision_layer = 4
 collision_mask = 7
-script = ExtResource("1_2pcuu")
+script = ExtResource("1_j7csq")
 movement_speed = 8
 skin = NodePath("Skeleton_Golem")
 animation_player = NodePath("CharacterAnimationPlayer")
@@ -129,8 +131,9 @@ bones/5/scale = Vector3(1, 0.999999, 1)
 bones/6/rotation = Quaternion(2.38782e-09, -7.05555e-09, -0.0266581, 0.999645)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(-0.217314, 0.299338, 0.157788, 0.915573)
-bones/8/position = Vector3(1.18449e-07, 0.11535, -0.0689999)
+bones/8/position = Vector3(-7.59855e-10, 0.11535, -0.069)
 bones/8/rotation = Quaternion(0, 0, 0, 1)
+bones/8/scale = Vector3(1, 1, 1)
 bones/9/rotation = Quaternion(-1.87083e-09, 0.0934669, 5.87559e-09, 0.995622)
 bones/10/position = Vector3(0.450212, 0.249132, 0.0397036)
 bones/10/rotation = Quaternion(-0.944984, -0.272145, -0.178278, -0.0340502)
@@ -337,12 +340,13 @@ wait_time = 0.4
 one_shot = true
 
 [node name="Death" type="Node" parent="StateMachine"]
-script = ExtResource("12_jsrkh")
+script = ExtResource("17_j7csq")
 interruptable = false
 animation = &"golem_animations/Golem_Death"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
 [node name="HurtboxComponet" type="Area3D" parent="." node_paths=PackedStringArray("health_component")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35365, 0.327584)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("7_khavv")
@@ -350,13 +354,13 @@ health_component = NodePath("../HealthComponent")
 metadata/_custom_type_script = "uid://btxm2taj35ckr"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponet"]
-visible = false
 shape = SubResource("CapsuleShape3D_j2ltw")
+debug_color = Color(0.996661, 0, 0.1823, 0.42)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0598179, 1.84689, 0.296438)
 shape = SubResource("CapsuleShape3D_khavv")
-debug_color = Color(0.992157, 0, 0, 0.419608)
+debug_color = Color(0.287334, 0.492154, 0.992914, 0.419608)
 
 [node name="Detection_Area" type="Area3D" parent="."]
 unique_name_in_owner = true
@@ -395,7 +399,7 @@ collision_mask = 2
 damage = 50
 
 [node name="GolemAxe" type="BoneAttachment3D" parent="."]
-transform = Transform3D(-0.4391, 0.188337, -2.45392, -2.42792, 0.374993, 0.463228, 0.402978, 2.46453, 0.117041, -1.89845, 2.71051, 1.28958)
+transform = Transform3D(-0.439099, 0.188337, -2.45392, -2.42792, 0.374993, 0.463228, 0.402978, 2.46453, 0.117041, -1.89845, 2.71051, 1.28958)
 bone_name = "handslot.r"
 bone_idx = 8
 use_external_skeleton = true
@@ -418,6 +422,7 @@ transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 collision_layer = 0
 collision_mask = 2
 
+[connection signal="died" from="HealthComponent" to="." method="_on_died"]
 [connection signal="body_entered" from="Attack_Range" to="." method="_on_player_in_range"]
 [connection signal="body_exited" from="Attack_Range" to="." method="_on_player_moved_away"]
 

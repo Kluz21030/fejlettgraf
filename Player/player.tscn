@@ -174,7 +174,7 @@ metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 [node name="KickDelayTimer" type="Timer" parent="StateMachine/Kick"]
 wait_time = 0.3
 
-[node name="GolemHpBar" parent="." instance=ExtResource("16_lfmf2")]
+[node name="HUD" parent="." instance=ExtResource("16_lfmf2")]
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("9_veuuo")
