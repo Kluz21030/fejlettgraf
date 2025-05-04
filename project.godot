@@ -26,6 +26,10 @@ Events="*res://Singletons/EventBus.gd"
 
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+PlayerCamera=""
+
 [input]
 
 left_click={

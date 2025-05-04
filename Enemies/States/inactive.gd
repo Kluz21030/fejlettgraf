@@ -5,6 +5,7 @@ extends State
 
 func enter(previous_state_path: String, data: Dictionary = {}) -> void:
 	detection_area.body_entered.connect(_on_enemy_player_detected)
+	animation_player.animation_finished.connect(_on_animation_finished)
 	animation_player.play(animation)
 
 func exit() -> void:
@@ -24,8 +25,10 @@ func _on_enemy_player_detected(body: Node3D) -> void:
 		owner.player = body
 		if awaken_animation:
 			animation_player.play(awaken_animation)
-			await animation_player.animation_finished
-		if self.body.player_in_range:
-			finished.emit("Idle")
-		else:
-			finished.emit("Chase")
+
+func _on_animation_finished(anim_name: StringName) -> void:
+		if awaken_animation == anim_name:
+			if self.body.player_in_range:
+				finished.emit("Idle")
+			else:
+				finished.emit("Chase")

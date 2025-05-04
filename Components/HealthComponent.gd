@@ -1,6 +1,8 @@
 class_name ResourceComponent extends Node
 
+signal resource_changed(current_value: int, max_value: int)
 signal died(owner: CharacterBody3D)
+
 @export var regenerate: bool = false
 @export var regen_rate: int
 @export var regen_timer: Timer
@@ -19,6 +21,8 @@ var current_value: float:
 			died.emit(owner)
 		if owner is Player:
 			Events.player_resource_changed.emit(resource_name, current_value, max_value)
+		if owner is Enemy:
+			resource_changed.emit(current_value, max_value)
 
 func _ready() -> void:
 	current_value = max_value
