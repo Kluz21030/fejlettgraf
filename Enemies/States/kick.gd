@@ -3,14 +3,22 @@ extends State
 @export var impulse: int = 15
 @export var kick_area: KickArea
 @export var kick_delay: Timer
+@export var stamina_cost: int
+@export var stamina_component: ResourceComponent
 @export var gap_close_state: State
 @export_range(0.0, 1.0, 0.01) var gap_close_chance: float
 
 var character_hit: bool = false
 
 func enter(previous_state_path:String, data: Dictionary = {}) -> void:
-	character_hit = false
 	animation_player.animation_finished.connect(_on_animation_finished)
+	if stamina_component:
+		if stamina_cost > stamina_component.current_value:
+			finished.emit(previous_state_path)
+			return
+		stamina_component.take_damage(stamina_cost)
+	
+	character_hit = false
 	animation_player.play(animation, 0.4)
 	
 	kick_delay.start()

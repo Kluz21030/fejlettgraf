@@ -371,7 +371,8 @@ debug_color = Color(1, 1, 0, 0.784314)
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("9_1vmrx")
-MAX_HEALTH = 5000
+resource_name = &"Health"
+max_value = 1000.0
 metadata/_custom_type_script = "uid://bqolpeb84mvdr"
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

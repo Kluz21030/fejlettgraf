@@ -4,11 +4,9 @@ func enter(previous_state_path:String, data: Dictionary = {}) -> void:
 	var transition_time: float = 0.2
 	if previous_state_path == "Jump":
 		transition_time = 0.15
-	animation_player.play("player_animations/Running_A", transition_time)
-	#animation_tree.active = true
+	animation_player.play(animation, transition_time)
 
 func exit() -> void:
-	#animation_tree.active = false
 	pass
 
 func handle_input(event: InputEvent) -> void:
@@ -22,7 +20,9 @@ func handle_input(event: InputEvent) -> void:
 		finished.emit("Kick")
 
 func update(_delta: float) -> void:
-	if body.velocity.is_equal_approx(Vector3.ZERO):
+	if not body.is_on_floor():
+		finished.emit("Jump", {"falling": true})
+	elif body.velocity.is_equal_approx(Vector3.ZERO):
 		finished.emit("Idle")
 
 func physics_update(_delta: float) -> void:

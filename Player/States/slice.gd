@@ -1,9 +1,16 @@
 extends State
 
 @onready var combot_timer: Timer = get_child(0)
+@export var stamina_cost: int
+@export var stamina_component: ResourceComponent
 
-func enter(previous_state_path:String, data: Dictionary = {}) -> void:
+func enter(previous_state_path: String, data: Dictionary = {}) -> void:
 	animation_player.animation_finished.connect(_on_attack_animation_finished)
+	if stamina_cost > stamina_component.current_value:
+		finished.emit(previous_state_path if previous_state_path != "Jump" else "Idle")
+		return
+	stamina_component.take_damage(stamina_cost)
+	
 	animation_player.play("player_animations/2H_Melee_Attack_Slice", 0.15)
 	combot_timer.start(animation_player.current_animation_length / 2.0)
 	Events.player_attacked.emit()

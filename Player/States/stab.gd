@@ -1,8 +1,16 @@
 extends State
 
+@export var stamina_cost: int
+@export var stamina_component: ResourceComponent
 
 func enter(previous_state_path:String, data: Dictionary = {}) -> void:
 	animation_player.animation_finished.connect(_on_attack_animation_finished)
+	
+	if stamina_cost > stamina_component.current_value:
+		finished.emit("Idle")
+		return
+	stamina_component.take_damage(stamina_cost)
+	
 	animation_player.play("player_animations/2H_Melee_Attack_Stab", 0.1)
 	Events.player_attacked.emit()
 

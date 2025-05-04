@@ -212,7 +212,8 @@ shape = SubResource("CapsuleShape3D_3n527")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("3_upn73")
-MAX_HEALTH = 20000
+resource_name = &"Health"
+max_value = 300.0
 metadata/_custom_type_script = "uid://bqolpeb84mvdr"
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "animation_player", "body")]

@@ -5,9 +5,12 @@ extends State
 @onready var buffer: Timer = get_child(0)
 
 func enter(previous_state_path:String, data: Dictionary = {}) -> void:
-	body.velocity.y += impulse
 	animation_player.animation_finished.connect(_on_animation_finished)
-	animation_player.play("player_animations/Jump_Start")
+	if data.get("falling"):
+		animation_player.play(&"player_animations/Jump_Idle")
+		return
+	body.velocity.y += impulse
+	animation_player.play(animation)
 	buffer.start(0.05)
 
 func exit() -> void:

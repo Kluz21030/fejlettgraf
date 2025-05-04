@@ -2,6 +2,8 @@ extends State
 
 @export var hurtbox: HurtboxComponet
 @export var impulse: int = 15
+@export var stamina_cost: int
+@export var stamina_component: ResourceComponent
 
 var input_direction: Vector3 = Vector3.FORWARD:
 	set(value):
@@ -15,6 +17,11 @@ const animation_mapping : Dictionary[Vector3, StringName] = {
 
 func enter(previous_state_path:String, data: Dictionary = {}) -> void:
 	animation_player.animation_finished.connect(_on_attack_animation_finished)
+	if stamina_cost > stamina_component.current_value:
+		finished.emit(previous_state_path if previous_state_path != "Jump" else "Idle")
+		return
+	stamina_component.take_damage(stamina_cost)
+	
 	
 	input_direction = Vector3.BACK if body._input_direction != Vector2.ZERO else Vector3.FORWARD
 	

@@ -197,7 +197,8 @@ shape = SubResource("CapsuleShape3D_3f22u")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("9_4msrm")
-MAX_HEALTH = 200
+resource_name = &"Health"
+max_value = 200.0
 metadata/_custom_type_script = "uid://bqolpeb84mvdr"
 
 [connection signal="body_entered" from="Attack_Range" to="." method="_on_player_in_range"]

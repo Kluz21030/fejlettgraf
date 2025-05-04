@@ -107,20 +107,21 @@ body = NodePath("..")
 metadata/_custom_type_script = "uid://df3ofue5mg5qx"
 
 [node name="Idle" type="Node" parent="StateMachine"]
-process_mode = 4
 script = ExtResource("4_a23tb")
 can_move = true
+animation = &"player_animations/2H_Melee_Idle"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
 [node name="Run" type="Node" parent="StateMachine"]
-process_mode = 4
 script = ExtResource("5_a23tb")
 can_move = true
+animation = &"player_animations/Running_A"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
 [node name="Jump" type="Node" parent="StateMachine"]
 script = ExtResource("10_5htga")
 can_move = true
+animation = &"player_animations/Jump_Start"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
 [node name="Buffer" type="Timer" parent="StateMachine/Jump"]
@@ -130,21 +131,27 @@ one_shot = true
 script = ExtResource("7_1l6l2")
 metadata/_custom_type_script = "uid://bsrllvd6m6k0o"
 
-[node name="Slice" type="Node" parent="StateMachine/Attack"]
+[node name="Slice" type="Node" parent="StateMachine/Attack" node_paths=PackedStringArray("stamina_component")]
 script = ExtResource("6_uerqc")
+stamina_cost = 20
+stamina_component = NodePath("../../../StaminaComponent")
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
 [node name="ComboTimer" type="Timer" parent="StateMachine/Attack/Slice"]
 one_shot = true
 
-[node name="Stab" type="Node" parent="StateMachine/Attack"]
+[node name="Stab" type="Node" parent="StateMachine/Attack" node_paths=PackedStringArray("stamina_component")]
 script = ExtResource("8_q4sqr")
+stamina_cost = 20
+stamina_component = NodePath("../../../StaminaComponent")
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
-[node name="Dodge" type="Node" parent="StateMachine" node_paths=PackedStringArray("hurtbox")]
+[node name="Dodge" type="Node" parent="StateMachine" node_paths=PackedStringArray("hurtbox", "stamina_component")]
 script = ExtResource("9_apopc")
 hurtbox = NodePath("../../HurtboxComponet")
 impulse = 10
+stamina_cost = 20
+stamina_component = NodePath("../../StaminaComponent")
 interruptable = false
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
@@ -154,11 +161,13 @@ interruptable = false
 animation = &"player_animations/Hit_A"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
-[node name="Kick" type="Node" parent="StateMachine" node_paths=PackedStringArray("kick_area", "kick_delay")]
+[node name="Kick" type="Node" parent="StateMachine" node_paths=PackedStringArray("kick_area", "kick_delay", "stamina_component")]
 script = ExtResource("12_gu6f8")
 impulse = 8
 kick_area = NodePath("../../Knight/KickArea")
 kick_delay = NodePath("KickDelayTimer")
+stamina_cost = 10
+stamina_component = NodePath("../../StaminaComponent")
 animation = &"player_animations/Unarmed_Melee_Attack_Kick"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
@@ -170,7 +179,7 @@ wait_time = 0.3
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("9_veuuo")
 resource_name = &"Health"
-max_value = 500
+max_value = 500.0
 metadata/_custom_type_script = "uid://bqolpeb84mvdr"
 
 [node name="HurtboxComponet" type="Area3D" parent="." node_paths=PackedStringArray("health_component")]
@@ -186,10 +195,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20262, 0)
 shape = SubResource("CapsuleShape3D_veuuo")
 debug_color = Color(0.996078, 0, 0.203922, 0.203922)
 
-[node name="StaminaComponent" type="Node" parent="."]
+[node name="StaminaComponent" type="Node" parent="." node_paths=PackedStringArray("regen_timer")]
 script = ExtResource("9_veuuo")
+regenerate = true
+regen_rate = 50
+regen_timer = NodePath("RegenTimer")
 resource_name = &"Stamina"
-max_value = 250
+max_value = 250.0
 metadata/_custom_type_script = "uid://bqolpeb84mvdr"
+
+[node name="RegenTimer" type="Timer" parent="StaminaComponent"]
+wait_time = 2.5
+one_shot = true
 
 [editable path="Knight"]
