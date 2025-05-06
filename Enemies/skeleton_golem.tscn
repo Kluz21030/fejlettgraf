@@ -133,7 +133,6 @@ bones/6/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(-0.217314, 0.299338, 0.157788, 0.915573)
 bones/8/position = Vector3(-7.59855e-10, 0.11535, -0.069)
 bones/8/rotation = Quaternion(0, 0, 0, 1)
-bones/8/scale = Vector3(1, 1, 1)
 bones/9/rotation = Quaternion(-1.87083e-09, 0.0934669, 5.87559e-09, 0.995622)
 bones/10/position = Vector3(0.450212, 0.249132, 0.0397036)
 bones/10/rotation = Quaternion(-0.944984, -0.272145, -0.178278, -0.0340502)
@@ -399,7 +398,7 @@ collision_mask = 2
 damage = 50
 
 [node name="GolemAxe" type="BoneAttachment3D" parent="."]
-transform = Transform3D(-0.439099, 0.188337, -2.45392, -2.42792, 0.374993, 0.463228, 0.402978, 2.46453, 0.117041, -1.89845, 2.71051, 1.28958)
+transform = Transform3D(-0.4391, 0.188337, -2.45392, -2.42792, 0.374993, 0.463228, 0.402978, 2.46453, 0.117041, -1.89845, 2.71051, 1.28958)
 bone_name = "handslot.r"
 bone_idx = 8
 use_external_skeleton = true

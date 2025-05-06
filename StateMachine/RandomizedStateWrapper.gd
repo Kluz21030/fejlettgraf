@@ -41,6 +41,7 @@ func _transition_to_next_state(next_state_path: String, data: Dictionary = {}) -
 	current_sub_state.exit()
 	
 	if body is Enemy and not body.player_in_range:
+		current_sub_state = null
 		finished.emit("Chase")
 		return
 	
@@ -50,6 +51,7 @@ func _transition_to_next_state(next_state_path: String, data: Dictionary = {}) -
 		return
 	
 	if exit_to_pool and randf_range(0.0, 1.0) <= exit_chance:
+		current_sub_state = null
 		finished.emit(exit_to_pool.pick_random().name)
 		return
 	
