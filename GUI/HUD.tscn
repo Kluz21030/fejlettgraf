@@ -12,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+dragging_enabled = false
 
 [node name="VSplitContainer" type="VSplitContainer" parent="VSplitContainer"]
 layout_mode = 2
@@ -62,5 +63,4 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="BossHPBar" parent="VSplitContainer/MarginContainer/CenterContainer" instance=ExtResource("1_3w8el")]
-self_modulate = Color(1, 0, 0, 0)
 layout_mode = 2

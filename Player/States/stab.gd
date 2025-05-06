@@ -5,6 +5,7 @@ extends State
 
 func enter(previous_state_path:String, data: Dictionary = {}) -> void:
 	animation_player.animation_finished.connect(_on_attack_animation_finished)
+	animation_player.can_attack.connect(_on_can_transition)
 	
 	if stamina_cost > stamina_component.current_value:
 		finished.emit("Idle")
@@ -15,8 +16,8 @@ func enter(previous_state_path:String, data: Dictionary = {}) -> void:
 	Events.player_attacked.emit()
 
 func exit() -> void:
-	print("called")
 	animation_player.animation_finished.disconnect(_on_attack_animation_finished)
+	animation_player.can_attack.disconnect(_on_can_transition)
 
 func handle_input(_event: InputEvent) -> void:
 	pass
@@ -28,5 +29,9 @@ func physics_update(_delta: float) -> void:
 	pass
 
 func _on_attack_animation_finished(anim_name: StringName):
-	if anim_name == &"player_animations/2H_Melee_Attack_Stab":
-		finished.emit("Idle")
+	#if anim_name == &"player_animations/2H_Melee_Attack_Stab":
+		#finished.emit("Idle")
+		pass
+
+func _on_can_transition():
+	finished.emit("Idle")

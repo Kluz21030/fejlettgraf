@@ -7,6 +7,7 @@ shadow_size = 5
 shadow_color = Color(0, 0, 0, 1)
 
 [node name="BossHPBar" type="ProgressBar"]
+modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 0, 0, 1)
 custom_minimum_size = Vector2(1000, 20)
 anchors_preset = 8
