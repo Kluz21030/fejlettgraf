@@ -23,6 +23,8 @@ func physics_update(_delta: float) -> void:
 func _on_enemy_player_detected(body: Node3D) -> void:
 	if body is Player:
 		owner.player = body
+		if self.body is Boss:
+			Events.boss_engaged.emit()
 		if awaken_animation:
 			animation_player.play(awaken_animation)
 

@@ -41,6 +41,7 @@ func _transition_to_next_state(next_state_path: String, data: Dictionary = {}) -
 	current_sub_state.exit()
 	
 	if body is Enemy and not body.player_in_range:
+		current_sub_state = null
 		finished.emit("Chase")
 		return
 	

@@ -16,11 +16,12 @@ cull_mode = 2
 shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_ww1w3")
 
-[node name="HealthBar" type="Node3D" node_paths=PackedStringArray("progress_bar")]
+[node name="HealthBar" type="Node3D" node_paths=PackedStringArray("progress_bar", "timer")]
 process_mode = 3
 script = ExtResource("1_hi7qf")
 resource_name = &"Health"
 progress_bar = NodePath("SubViewport/ProgressBar")
+timer = NodePath("Timer")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
@@ -41,3 +42,6 @@ show_percentage = false
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("QuadMesh_hi7qf")
 surface_material_override/0 = SubResource("StandardMaterial3D_hi7qf")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
