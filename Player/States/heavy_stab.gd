@@ -6,13 +6,13 @@ extends State
 func enter(previous_state_path:String, data: Dictionary = {}) -> void:
 	animation_player.animation_finished.connect(_on_attack_animation_finished)
 	animation_player.can_attack.connect(_on_can_transition)
-	
+
 	if stamina_cost > stamina_component.current_value:
 		finished.emit("Idle")
 		return
 	stamina_component.take_damage(stamina_cost)
 	
-	animation_player.play(animation, 0.1)
+	animation_player.play(animation, 0.1, 0.6)
 	Events.player_attacked.emit()
 
 func exit() -> void:

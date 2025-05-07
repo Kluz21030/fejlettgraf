@@ -19,6 +19,8 @@ func exit() -> void:
 func handle_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click"):
 		finished.emit("Attack")
+	if event.is_action_pressed("right_click"):
+		finished.emit("HeavyAttack")
 	if event.is_action_pressed("dodge"):
 		finished.emit("Dodge")
 

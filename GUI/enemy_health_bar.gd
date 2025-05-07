@@ -21,7 +21,6 @@ func _on_resource_changed(current_value: int, max_value: int):
 	if not is_equal_approx(progress_bar.self_modulate.a, 1.0):
 		tween.tween_property(progress_bar, "self_modulate:a", 1.0, 0.25)
 	tween.tween_property(progress_bar, "value", current_value, 0.3)
-	print("%s health changed" % owner.name)
 	timer.start()
 	await timer.timeout
 	tween = create_tween().set_ease(Tween.EASE_OUT)

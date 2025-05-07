@@ -11,8 +11,8 @@ func enter(previous_state_path: String, data: Dictionary = {}) -> void:
 		return
 	stamina_component.take_damage(stamina_cost)
 	
+	combot_timer.start()
 	animation_player.play(animation, 0.15)
-	combot_timer.start(animation_player.current_animation_length / 2.0)
 	Events.player_attacked.emit()
 
 func exit() -> void:
@@ -20,10 +20,10 @@ func exit() -> void:
 
 func handle_input(event: InputEvent) -> void:
 	if combot_timer.is_stopped():
-		if event.is_action_pressed("left_click"):
-			finished.emit("")
 		if event.is_action_pressed("right_click"):
-			finished.emit("HeavyAttack")
+			finished.emit("")
+		if event.is_action_pressed("left_click"):
+			finished.emit("Attack")
 
 func update(_delta: float) -> void:
 	pass
