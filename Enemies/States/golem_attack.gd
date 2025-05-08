@@ -1,13 +1,20 @@
 extends State
 
 @export var damage_modifier: float = 1.0
+@export var weapons: Array[Weapon]
 
 func enter(previous_state_path:String, data: Dictionary = {}) -> void:
 	animation_player.animation_finished.connect(_on_animation_finished)
+	
+	for weapon in weapons:
+		weapon.update_damage(damage_modifier)
+	
 	animation_player.play(animation)
 
 func exit() -> void:
 	animation_player.animation_finished.disconnect(_on_animation_finished)
+	for weapon in weapons:
+		weapon.update_damage()
 
 func handle_input(_event: InputEvent) -> void:
 	pass

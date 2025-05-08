@@ -31,8 +31,8 @@ func physics_update(delta) -> void:
 func _transition_to_next_state(next_state_path: String, data: Dictionary = {}) -> void:
 	current_sub_state.exit()
 	
+	Events.entity_state_changed.emit(owner, owner.skin)
+	
 	current_sub_state = null
 	
 	finished.emit(next_state_path)
-	
-	Events.entity_state_changed.emit(owner, owner.skin)

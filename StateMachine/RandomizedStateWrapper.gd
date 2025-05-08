@@ -55,6 +55,8 @@ func _transition_to_next_state(next_state_path: String, data: Dictionary = {}) -
 		finished.emit(exit_to_pool.pick_random().name)
 		return
 	
+	Events.entity_state_changed.emit(owner, owner.skin)
+	
 	if data.get("mapping"):
 		var sum: float = 0.0
 		var roll: float = randf_range(0.0, 1.0)
@@ -69,5 +71,3 @@ func _transition_to_next_state(next_state_path: String, data: Dictionary = {}) -
 		var possible_indices: Array = range(0, sub_state_index) + range(sub_state_index, get_child_count())
 		current_sub_state = get_child(possible_indices.pick_random())
 		current_sub_state.enter("")
-	
-	Events.entity_state_changed.emit(owner, owner.skin)

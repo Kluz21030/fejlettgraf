@@ -278,20 +278,23 @@ script = ExtResource("12_ohwb7")
 interruptable = false
 metadata/_custom_type_script = "uid://5whkmrn8bivx"
 
-[node name="Slice" type="Node" parent="StateMachine/Attack/Combo/ChoseOneStateWrapper"]
+[node name="Slice" type="Node" parent="StateMachine/Attack/Combo/ChoseOneStateWrapper" node_paths=PackedStringArray("weapons")]
 script = ExtResource("13_abt4j")
+weapons = [NodePath("../../../../../GolemAxe/GolemAxe")]
 interruptable = false
 animation = &"golem_animations/2H_Melee_Attack_Slice"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
-[node name="Chop" type="Node" parent="StateMachine/Attack/Combo/ChoseOneStateWrapper"]
+[node name="Chop" type="Node" parent="StateMachine/Attack/Combo/ChoseOneStateWrapper" node_paths=PackedStringArray("weapons")]
 script = ExtResource("13_abt4j")
+weapons = [NodePath("../../../../../GolemAxe/GolemAxe")]
 interruptable = false
 animation = &"golem_animations/2H_Melee_Attack_Chop"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
-[node name="Stab" type="Node" parent="StateMachine/Attack/Combo"]
+[node name="Stab" type="Node" parent="StateMachine/Attack/Combo" node_paths=PackedStringArray("weapons")]
 script = ExtResource("13_abt4j")
+weapons = [NodePath("../../../../GolemAxe/GolemAxe")]
 interruptable = false
 animation = &"golem_animations/2H_Melee_Attack_Stab"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
@@ -305,20 +308,23 @@ interruptable = false
 animation = &"golem_animations/Golem_Stomp"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
-[node name="Punch" type="Node" parent="StateMachine/Attack"]
+[node name="Punch" type="Node" parent="StateMachine/Attack" node_paths=PackedStringArray("weapons")]
 script = ExtResource("13_abt4j")
+weapons = [NodePath("../../../GolemFist/Fist")]
 interruptable = false
 animation = &"golem_animations/Golem_Punch"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
-[node name="Slice" type="Node" parent="StateMachine/Attack"]
+[node name="Slice" type="Node" parent="StateMachine/Attack" node_paths=PackedStringArray("weapons")]
 script = ExtResource("13_abt4j")
+weapons = [NodePath("../../../GolemAxe/GolemAxe")]
 interruptable = false
 animation = &"golem_animations/2H_Melee_Attack_Slice"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
-[node name="Chop" type="Node" parent="StateMachine/Attack"]
+[node name="Chop" type="Node" parent="StateMachine/Attack" node_paths=PackedStringArray("weapons")]
 script = ExtResource("13_abt4j")
+weapons = [NodePath("../../../GolemAxe/GolemAxe")]
 interruptable = false
 animation = &"golem_animations/2H_Melee_Attack_Chop"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"

@@ -86,8 +86,9 @@ metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 script = ExtResource("6_s1chp")
 metadata/_custom_type_script = "uid://bsrllvd6m6k0o"
 
-[node name="Slice_Diagonal" type="Node" parent="StateMachine/Attack"]
+[node name="Slice_Diagonal" type="Node" parent="StateMachine/Attack" node_paths=PackedStringArray("weapons")]
 script = ExtResource("7_kf5b2")
+weapons = [NodePath("../../../Skeleton_Minion/Rig/Skeleton3D/Sword/Weapon")]
 animation = &"enemy_animations/1H_Melee_Attack_Slice_Diagonal"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 

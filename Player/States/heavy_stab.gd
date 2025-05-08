@@ -3,6 +3,7 @@ extends State
 @export var stamina_cost: int
 @export var stamina_component: ResourceComponent
 @export var damage_modifier: float
+@export var weapons: Array[Weapon]
 
 func enter(previous_state_path:String, data: Dictionary = {}) -> void:
 	animation_player.animation_finished.connect(_on_attack_animation_finished)
@@ -13,12 +14,17 @@ func enter(previous_state_path:String, data: Dictionary = {}) -> void:
 		return
 	stamina_component.take_damage(stamina_cost)
 	
+	for weapon in weapons:
+		weapon.update_damage(damage_modifier)
+	
 	animation_player.play(animation, 0.1, 0.6)
 	Events.player_attacked.emit()
 
 func exit() -> void:
 	animation_player.animation_finished.disconnect(_on_attack_animation_finished)
 	animation_player.can_attack.disconnect(_on_can_transition)
+	for weapon in weapons:
+		weapon.update_damage()
 
 func handle_input(_event: InputEvent) -> void:
 	pass
