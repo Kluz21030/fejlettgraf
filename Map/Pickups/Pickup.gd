@@ -15,6 +15,7 @@ func _on_area_entered(area: HurtboxComponet) -> void:
 	set_deferred("monitoring", false)
 	if type == &"Health":
 		area.health_component.change_max_value(value)
+		Events.popup_info.emit("Maximum health increased")
 	if type == &"Stamina":
 		area.owner.find_child("StaminaComponent").change_max_value(value)
 	

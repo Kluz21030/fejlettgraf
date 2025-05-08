@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkb8kjhta7ugq"]
+
+[ext_resource type="Script" uid="uid://b43wrqoi7k3f" path="res://GUI/popup_info_panel.gd" id="1_rqyp8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1xci4"]
+font_size = 20
+
+[node name="InfoPanel" type="Panel" node_paths=PackedStringArray("label")]
+custom_minimum_size = Vector2(400, 100)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -50.0
+offset_right = 200.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(200, 50)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_rqyp8")
+label = NodePath("VBoxContainer/CenterContainer/RichTextLabel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(350, 50)
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Press F"
+label_settings = SubResource("LabelSettings_1xci4")
+horizontal_alignment = 1
+vertical_alignment = 1

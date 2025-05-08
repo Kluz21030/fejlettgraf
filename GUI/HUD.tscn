@@ -1,66 +1,71 @@
-[gd_scene load_steps=3 format=3 uid="uid://1u5a6g7d3ef"]
+[gd_scene load_steps=4 format=3 uid="uid://1u5a6g7d3ef"]
 
 [ext_resource type="PackedScene" uid="uid://bj248ifviyxd7" path="res://GUI/golerm_hp_bar.tscn" id="1_3w8el"]
 [ext_resource type="PackedScene" uid="uid://xgqyd34boq05" path="res://GUI/resource_bar.tscn" id="1_5qcxp"]
+[ext_resource type="PackedScene" uid="uid://bkb8kjhta7ugq" path="res://GUI/popup_info_panel.tscn" id="2_v44ap"]
 
 [node name="HUD" type="CanvasLayer"]
 
-[node name="VSplitContainer" type="VSplitContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-dragging_enabled = false
 
-[node name="VSplitContainer" type="VSplitContainer" parent="VSplitContainer"]
+[node name="UpperHalf" type="VSplitContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer/VSplitContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/UpperHalf"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VSplitContainer/VSplitContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/UpperHalf/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 5
 
-[node name="HealthBar" parent="VSplitContainer/VSplitContainer/VBoxContainer/MarginContainer" instance=ExtResource("1_5qcxp")]
+[node name="HealthBar" parent="VBoxContainer/UpperHalf/VBoxContainer/MarginContainer" instance=ExtResource("1_5qcxp")]
 modulate = Color(1, 0, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 0
 mouse_filter = 2
 resource_name = &"Health"
 
-[node name="MarginContainer2" type="MarginContainer" parent="VSplitContainer/VSplitContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/UpperHalf/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 10
 
-[node name="StaminaBar" parent="VSplitContainer/VSplitContainer/VBoxContainer/MarginContainer2" instance=ExtResource("1_5qcxp")]
+[node name="StaminaBar" parent="VBoxContainer/UpperHalf/VBoxContainer/MarginContainer2" instance=ExtResource("1_5qcxp")]
 modulate = Color(5.77569e-06, 0.818051, 3.85046e-07, 1)
 layout_mode = 2
 size_flags_horizontal = 0
 mouse_filter = 2
 resource_name = &"Stamina"
 
-[node name="MarginContainer" type="MarginContainer" parent="VSplitContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-mouse_filter = 2
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_bottom = 50
-
-[node name="CenterContainer" type="CenterContainer" parent="VSplitContainer/MarginContainer"]
+[node name="LowerHalf" type="VSplitContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="BossHPBar" parent="VSplitContainer/MarginContainer/CenterContainer" instance=ExtResource("1_3w8el")]
+[node name="Control" type="Control" parent="VBoxContainer/LowerHalf"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="InfoPanel" parent="VBoxContainer/LowerHalf/Control" instance=ExtResource("2_v44ap")]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer/LowerHalf"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BossHPBar" parent="VBoxContainer/LowerHalf/CenterContainer2" instance=ExtResource("1_3w8el")]
 layout_mode = 2
