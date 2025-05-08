@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://be6yrg3ouh4iv"]
+[gd_scene load_steps=27 format=3 uid="uid://be6yrg3ouh4iv"]
 
 [ext_resource type="PackedScene" uid="uid://dt8h0dvvdghy8" path="res://Enemies/Skins/skeleton_rogue_skin.tscn" id="1_dlnss"]
 [ext_resource type="Script" uid="uid://bd0s73t8kx3dv" path="res://Enemies/Enemy.gd" id="1_upn73"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://cohdy2fhq8lmq" path="res://Enemies/States/interrupted.gd" id="16_mxavo"]
 [ext_resource type="PackedScene" uid="uid://cr318tf61td87" path="res://Enemies/Skins/skeleton_dagger.tscn" id="17_gqg5d"]
 [ext_resource type="Script" uid="uid://icv7yjfe32nh" path="res://Enemies/States/death.gd" id="17_htveq"]
+[ext_resource type="PackedScene" uid="uid://m8bu81jwjueo" path="res://GUI/enemy_health_bar.tscn" id="19_l2t3a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wbncp"]
 size = Vector3(0.765137, 0.650391, 1.0761)
@@ -172,50 +173,6 @@ metadata/_custom_type_script = "uid://dhkw86bie4tyf"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07336, 0)
 shape = SubResource("CapsuleShape3D_dlnss")
 
-[node name="Detection_Area" type="Area3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-collision_layer = 0
-collision_mask = 2
-monitorable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Detection_Area"]
-shape = SubResource("CylinderShape3D_pvpdn")
-debug_color = Color(1, 1, 0, 0.784314)
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-target_desired_distance = 2.0
-debug_enabled = true
-debug_path_custom_color = Color(1, 0, 0, 1)
-
-[node name="Attack_Range" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-collision_layer = 0
-collision_mask = 2
-monitorable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Attack_Range"]
-shape = SubResource("CylinderShape3D_qw4xf")
-debug_color = Color(0.0690156, 0.646427, 0.18664, 0.42)
-
-[node name="HurtboxComponet" type="Area3D" parent="." node_paths=PackedStringArray("health_component")]
-collision_layer = 4
-collision_mask = 0
-monitoring = false
-script = ExtResource("2_3n527")
-health_component = NodePath("../HealthComponent")
-metadata/_custom_type_script = "uid://btxm2taj35ckr"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponet"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07336, 0)
-shape = SubResource("CapsuleShape3D_3n527")
-
-[node name="HealthComponent" type="Node" parent="."]
-script = ExtResource("3_upn73")
-resource_name = &"Health"
-max_value = 300.0
-metadata/_custom_type_script = "uid://bqolpeb84mvdr"
-
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "animation_player", "body")]
 script = ExtResource("5_qw4xf")
 initial_state = NodePath("Inactive")
@@ -311,6 +268,48 @@ interruptable = false
 animation = &"enemy_animations/Death_C_Skeletons"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
+[node name="Detection_Area" type="Area3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detection_Area"]
+shape = SubResource("CylinderShape3D_pvpdn")
+debug_color = Color(1, 1, 0, 0.784314)
+
+[node name="Attack_Range" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Attack_Range"]
+shape = SubResource("CylinderShape3D_qw4xf")
+debug_color = Color(0.0690156, 0.646427, 0.18664, 0.42)
+
+[node name="HurtboxComponet" type="Area3D" parent="." node_paths=PackedStringArray("health_component")]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("2_3n527")
+health_component = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://btxm2taj35ckr"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07336, 0)
+shape = SubResource("CapsuleShape3D_3n527")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("3_upn73")
+resource_name = &"Health"
+max_value = 300.0
+metadata/_custom_type_script = "uid://bqolpeb84mvdr"
+
+[node name="HealthBar" parent="." instance=ExtResource("19_l2t3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+
 [node name="DaggerMainhand" type="BoneAttachment3D" parent="."]
 transform = Transform3D(-0.530335, 0.668509, -0.521382, 0.0153074, 0.622442, 0.782516, 0.847649, 0.407015, -0.340336, -0.483987, 0.945537, 0.697043)
 bone_name = "handslot.r"
@@ -336,8 +335,15 @@ collision_layer = 0
 collision_mask = 2
 monitoring = true
 
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 2.0
+debug_enabled = true
+debug_path_custom_color = Color(1, 0, 0, 1)
+
 [connection signal="body_entered" from="Attack_Range" to="." method="_on_player_in_range"]
 [connection signal="body_exited" from="Attack_Range" to="." method="_on_player_moved_away"]
 [connection signal="died" from="HealthComponent" to="." method="_on_died"]
+[connection signal="died" from="HealthComponent" to="HealthBar" method="_on_death"]
+[connection signal="resource_changed" from="HealthComponent" to="HealthBar" method="_on_resource_changed"]
 
 [editable path="Skeleton_Rogue"]

@@ -156,7 +156,7 @@ max_value = 200.0
 metadata/_custom_type_script = "uid://bqolpeb84mvdr"
 
 [node name="HealthBar" parent="." instance=ExtResource("13_eejj0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.37561, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
 
 [connection signal="body_entered" from="Attack_Range" to="." method="_on_player_in_range"]
 [connection signal="body_exited" from="Attack_Range" to="." method="_on_player_moved_away"]
