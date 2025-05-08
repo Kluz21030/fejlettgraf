@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://chr4qtb54rs7m"]
+[gd_scene load_steps=12 format=3 uid="uid://chr4qtb54rs7m"]
 
 [ext_resource type="PackedScene" uid="uid://e8mgunypswjq" path="res://Player/player.tscn" id="1_bmk2s"]
 [ext_resource type="PackedScene" uid="uid://bwx1hmpd76y63" path="res://Enemies/skeleton_minion_sword.tscn" id="2_vnnrm"]
 [ext_resource type="PackedScene" uid="uid://bp8xr8iv5asfq" path="res://Enemies/skeleton_minion_unarmed.tscn" id="3_fomxa"]
 [ext_resource type="PackedScene" uid="uid://be6yrg3ouh4iv" path="res://Enemies/skeleton_rogue.tscn" id="4_2mtle"]
 [ext_resource type="PackedScene" uid="uid://b010pfkb1vof7" path="res://Enemies/skeleton_golem.tscn" id="5_j6d6g"]
+[ext_resource type="PackedScene" uid="uid://db6ggdcba8pq5" path="res://Map/Pickups/HealthPickup.tscn" id="6_vbg7w"]
+[ext_resource type="PackedScene" uid="uid://bf663e0d7x1mw" path="res://Map/Pickups/StaminaPickup.tscn" id="7_gq5jp"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_2m3mq"]
 vertices = PackedVector3Array(16.7903, 0.45, 4.4506, 17.0403, 0.45, 6.2006, 39.7903, 0.45, 5.9506, 39.7903, 0.45, -67.2994, -45.7097, 0.45, 4.9506, 9.54026, 0.7, 4.9506, 9.54026, 0.45, 4.4506, -45.7097, 0.45, -67.2994, 9.54026, 0.7, 9.9506, 16.0403, 2.45, 9.9506, 16.0403, 2.45, 5.4506, 9.54026, 0.7, 5.4506, 12.1403, 2.45, 9.9506, 12.1403, 2.45, 5.4506, 9.54026, 0.45, 10.9506, -45.7097, 0.45, 36.9506, 11.5403, 0.45, 36.9506, 11.5403, 0.45, 10.9506, 17.0403, 0.45, 9.2006, 39.7903, 0.45, 9.4506, 16.7903, 0.45, 10.9506, 14.7903, 0.45, 36.9506, 39.7903, 0.45, 36.9506, 14.7903, 0.45, 10.9506)
@@ -59,3 +61,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.5289, 0, 4.78809)
 
 [node name="Golem" parent="." instance=ExtResource("5_j6d6g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -35)
+
+[node name="HealthPickup" parent="." instance=ExtResource("6_vbg7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.63023, 3.49133, -7.04157)
+value = 500
+
+[node name="Pickup" parent="." instance=ExtResource("7_gq5jp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19396, -12.4397)

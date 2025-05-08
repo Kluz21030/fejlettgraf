@@ -9,6 +9,8 @@ signal died(owner: CharacterBody3D)
 @export var resource_name: StringName
 @export var max_value: float:
 	set(value):
+		if value < max_value and value < current_value:
+			current_value = value
 		max_value = value
 		if owner is Player:
 			Events.player_resource_changed.emit(resource_name, current_value, max_value)
@@ -36,3 +38,8 @@ func take_damage(damage: int):
 	current_value -= damage
 	if regenerate:
 		regen_timer.start()
+
+func change_max_value(max_value: int, heal: bool = true) -> void:
+	self.max_value += max_value
+	if heal:
+		current_value = self.max_value

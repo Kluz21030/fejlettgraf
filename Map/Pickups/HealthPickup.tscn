@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://db6ggdcba8pq5"]
+
+[ext_resource type="Script" uid="uid://cdvbx2vm7r7rj" path="res://Map/Pickups/Pickup.gd" id="1_mnflr"]
+[ext_resource type="PackedScene" uid="uid://bkgxr4ae12wby" path="res://Assets/Map/Pickups/heart_red.gltf" id="2_fj3bx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mnflr"]
+size = Vector3(1.08715, 0.847107, 0.539742)
+
+[node name="HealthPickup" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_mnflr")
+type = &"Health"
+metadata/_custom_type_script = "uid://cdvbx2vm7r7rj"
+
+[node name="heart_red" parent="." instance=ExtResource("2_fj3bx")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000682831, 0.052887, -0.000553131)
+shape = SubResource("BoxShape3D_mnflr")
+debug_color = Color(1.58831e-06, 0.63745, 0.391916, 0.42)

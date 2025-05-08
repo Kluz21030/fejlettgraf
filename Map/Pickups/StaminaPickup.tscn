@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bf663e0d7x1mw"]
+
+[ext_resource type="Script" uid="uid://cdvbx2vm7r7rj" path="res://Map/Pickups/Pickup.gd" id="1_0monv"]
+[ext_resource type="PackedScene" uid="uid://47s8irusf2u3" path="res://Assets/Map/Pickups/power_green.gltf" id="2_3g8eh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3g8eh"]
+size = Vector3(0.903442, 1.21234, 0.418518)
+
+[node name="Pickup" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_0monv")
+type = &"Stamina"
+value = 500
+metadata/_custom_type_script = "uid://cdvbx2vm7r7rj"
+
+[node name="power_green2" parent="." instance=ExtResource("2_3g8eh")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0254517, 0.0138245, 0.00375366)
+shape = SubResource("BoxShape3D_3g8eh")
