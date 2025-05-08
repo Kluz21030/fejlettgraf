@@ -46,3 +46,9 @@ func _transition_to_next_state(target_state_path: String, data: Dictionary = {})
 	#print("entered state: " + target_state_path)
 	
 	Events.entity_state_changed.emit(owner, owner.skin)
+
+func get_current_leaf_state() -> State:
+	var state = current_state
+	while state is SequentialStateWrapper or state is RandomizedStateWrapper or state is ChooseOneStateWrapper:
+		state = state.current_sub_state
+	return state

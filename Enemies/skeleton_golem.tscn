@@ -404,10 +404,11 @@ bone_idx = 8
 use_external_skeleton = true
 external_skeleton = NodePath("../Skeleton_Golem/Rig/Skeleton3D")
 
-[node name="GolemAxe" parent="GolemAxe" instance=ExtResource("19_7xqj0")]
+[node name="GolemAxe" parent="GolemAxe" node_paths=PackedStringArray("state_machine") instance=ExtResource("19_7xqj0")]
 transform = Transform3D(-0.75, 0, -6.55671e-08, 0, 0.75, 0, 6.55671e-08, 0, -0.75, 0, 0, 0)
 collision_layer = 0
 collision_mask = 2
+state_machine = NodePath("../../StateMachine")
 
 [node name="GolemFist" type="BoneAttachment3D" parent="."]
 transform = Transform3D(0.0669569, -0.286767, 2.4826, -1.41013, 2.04603, 0.274371, -2.06326, -1.40767, -0.106953, 1.79574, 3.20279, 1.47889)
@@ -416,10 +417,11 @@ bone_idx = 14
 use_external_skeleton = true
 external_skeleton = NodePath("../Skeleton_Golem/Rig/Skeleton3D")
 
-[node name="Fist" parent="GolemFist" instance=ExtResource("20_qqksy")]
+[node name="Fist" parent="GolemFist" node_paths=PackedStringArray("state_machine") instance=ExtResource("20_qqksy")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 collision_layer = 0
 collision_mask = 2
+state_machine = NodePath("../../StateMachine")
 
 [connection signal="died" from="HealthComponent" to="." method="_on_died"]
 [connection signal="body_entered" from="Attack_Range" to="." method="_on_player_in_range"]

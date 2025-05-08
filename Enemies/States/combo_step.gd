@@ -2,6 +2,7 @@ extends State
 
 @export var timer: Timer
 @export_range(0.0, 1.0, 0.1) var attack_again_chance: float = 0.5
+@export var damage_modifier: float = 1.0
 
 func enter(previous_state_path:String, data: Dictionary = {}) -> void:
 	animation_player.animation_finished.connect(_on_attack_animation_finished)

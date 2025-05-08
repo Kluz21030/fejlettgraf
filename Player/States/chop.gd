@@ -3,6 +3,7 @@ extends State
 @onready var combot_timer: Timer = get_child(0)
 @export var stamina_cost: int
 @export var stamina_component: ResourceComponent
+@export var damage_modifier: float
 
 func enter(previous_state_path: String, data: Dictionary = {}) -> void:
 	animation_player.animation_finished.connect(_on_attack_animation_finished)

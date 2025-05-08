@@ -3,6 +3,7 @@ class_name Weapon extends Area3D
 @export var weapon_name: StringName
 @export var base_damage: int
 @export var two_handed: bool
+@export var state_machine: StateMachine
 
 var already_hit: Array[HurtboxComponet]
 
@@ -16,7 +17,7 @@ func _ready() -> void:
 func _on_hit(area: Area3D) -> void:
 	if area is HurtboxComponet and area not in already_hit:
 		var attack: Attack = Attack.new()
-		attack.damage = base_damage
+		attack.damage = base_damage * state_machine.get_current_leaf_state().damage_modifier
 		area.damage(attack)
 		already_hit.append(area)
 
