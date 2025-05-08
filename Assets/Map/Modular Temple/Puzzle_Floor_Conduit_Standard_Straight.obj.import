@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dxpaan6uoe5id"
+path="res://.godot/imported/Puzzle_Floor_Conduit_Standard_Straight.obj-288d9e4b3d3910e114a640889bde612f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Puzzle_Floor_Conduit_Standard_Straight.obj-288d9e4b3d3910e114a640889bde612f.mesh"]
+
+source_file="res://Assets/Map/Modular Temple/Puzzle_Floor_Conduit_Standard_Straight.obj"
+dest_files=["res://.godot/imported/Puzzle_Floor_Conduit_Standard_Straight.obj-288d9e4b3d3910e114a640889bde612f.mesh", "res://.godot/imported/Puzzle_Floor_Conduit_Standard_Straight.obj-288d9e4b3d3910e114a640889bde612f.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

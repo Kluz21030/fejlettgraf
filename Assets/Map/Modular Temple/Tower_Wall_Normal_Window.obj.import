@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bjw4r2khh84sy"
+path="res://.godot/imported/Tower_Wall_Normal_Window.obj-157ef31bce4f87f780cd7540c8bd6028.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Tower_Wall_Normal_Window.obj-157ef31bce4f87f780cd7540c8bd6028.mesh"]
+
+source_file="res://Assets/Map/Modular Temple/Tower_Wall_Normal_Window.obj"
+dest_files=["res://.godot/imported/Tower_Wall_Normal_Window.obj-157ef31bce4f87f780cd7540c8bd6028.mesh", "res://.godot/imported/Tower_Wall_Normal_Window.obj-157ef31bce4f87f780cd7540c8bd6028.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

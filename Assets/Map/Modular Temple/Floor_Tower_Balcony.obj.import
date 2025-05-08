@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ed7ddi2rs7ee"
+path="res://.godot/imported/Floor_Tower_Balcony.obj-c521ad3c3fdbe2e4fc743fc0320c0d86.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Floor_Tower_Balcony.obj-c521ad3c3fdbe2e4fc743fc0320c0d86.mesh"]
+
+source_file="res://Assets/Map/Modular Temple/Floor_Tower_Balcony.obj"
+dest_files=["res://.godot/imported/Floor_Tower_Balcony.obj-c521ad3c3fdbe2e4fc743fc0320c0d86.mesh", "res://.godot/imported/Floor_Tower_Balcony.obj-c521ad3c3fdbe2e4fc743fc0320c0d86.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://8j11b4aepfr"
+path="res://.godot/imported/Wall_Ruined_Half_1.obj-e68197b646b9a820df06ac9a1a38ce0a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Wall_Ruined_Half_1.obj-e68197b646b9a820df06ac9a1a38ce0a.mesh"]
+
+source_file="res://Assets/Map/Modular Temple/Wall_Ruined_Half_1.obj"
+dest_files=["res://.godot/imported/Wall_Ruined_Half_1.obj-e68197b646b9a820df06ac9a1a38ce0a.mesh", "res://.godot/imported/Wall_Ruined_Half_1.obj-e68197b646b9a820df06ac9a1a38ce0a.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dew06ejfguwlf"
+path="res://.godot/imported/Tower_Wall_Tall_Doorway_Base.obj-de41ba966e04d92067833a92226af14a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Tower_Wall_Tall_Doorway_Base.obj-de41ba966e04d92067833a92226af14a.mesh"]
+
+source_file="res://Assets/Map/Modular Temple/Tower_Wall_Tall_Doorway_Base.obj"
+dest_files=["res://.godot/imported/Tower_Wall_Tall_Doorway_Base.obj-de41ba966e04d92067833a92226af14a.mesh", "res://.godot/imported/Tower_Wall_Tall_Doorway_Base.obj-de41ba966e04d92067833a92226af14a.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
