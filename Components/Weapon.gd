@@ -26,7 +26,6 @@ func reset_hit_list() -> void:
 	already_hit = []
 
 func update_damage(modifier: float = 1.0) -> void:
-	print("%s damage updated, modifier %s" % [name, modifier])
 	damage = base_damage * modifier
 
 func _on_state_changed(state_owner: Node, skin: Node3D) -> void:
