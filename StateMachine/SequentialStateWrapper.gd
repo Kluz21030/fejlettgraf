@@ -25,7 +25,6 @@ func enter(previous_state_path: String, data: Dictionary = {}) -> void:
 func exit() -> void:
 	sequence_index = 0
 	if current_sub_state:
-		print("combo")
 		current_sub_state.exit()
 
 func handle_input(event: InputEvent) -> void:
@@ -55,8 +54,8 @@ func _transition_to_next_state(next_state_path: String, data: Dictionary = {}) -
 		finished.emit("Idle")
 		return
 
+	Events.entity_state_changed.emit(owner, owner.skin)
+	
 	sequence_index = (sequence_index + 1) % number_of_sub_states
 	current_sub_state = get_child(sequence_index)
 	current_sub_state.enter("")
-	
-	Events.entity_state_changed.emit(owner, owner.skin)

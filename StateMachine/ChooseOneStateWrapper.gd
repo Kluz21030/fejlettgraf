@@ -1,6 +1,6 @@
 class_name ChooseOneStateWrapper extends State
 
-var sub_state: State
+var current_sub_state: State
 
 func initialize() -> void:
 	for state_node: State in find_children("*", "State", false):
@@ -12,27 +12,27 @@ func initialize() -> void:
 			state_node.initialize()
 
 func enter(previous_state_path: String, data: Dictionary = {}) -> void:
-	sub_state = get_children().pick_random()
-	sub_state.enter(previous_state_path, data)
+	current_sub_state = get_children().pick_random()
+	current_sub_state.enter(previous_state_path, data)
 
 func exit() -> void:
-	if sub_state:
-		sub_state.exit()
+	if current_sub_state:
+		current_sub_state.exit()
 
 func handle_input(event: InputEvent) -> void:
-	sub_state.handle_input(event)
+	current_sub_state.handle_input(event)
 
 func update(delta) -> void:
-	sub_state.update(delta)
+	current_sub_state.update(delta)
 
 func physics_update(delta) -> void:
-	sub_state.physics_update(delta)
+	current_sub_state.physics_update(delta)
 
 func _transition_to_next_state(next_state_path: String, data: Dictionary = {}) -> void:
-	sub_state.exit()
-	
-	sub_state = null
-	
-	finished.emit(next_state_path)
+	current_sub_state.exit()
 	
 	Events.entity_state_changed.emit(owner, owner.skin)
+	
+	current_sub_state = null
+	
+	finished.emit(next_state_path)

@@ -39,11 +39,15 @@ skin = NodePath("Skeleton_Minion")
 transform = Transform3D(-1.53513e-07, -0.149894, -0.988701, -0.999999, -5.36442e-07, 1.19665e-06, -1.10337e-06, 0.988701, -0.149894, -0.49106, 0.64103, 0.106595)
 visible = false
 
-[node name="Weapon" parent="Skeleton_Minion/Rig/Skeleton3D/Sword" index="0"]
+[node name="Weapon" parent="Skeleton_Minion/Rig/Skeleton3D/Sword" index="0" node_paths=PackedStringArray("state_machine")]
 visible = false
+state_machine = NodePath("../../../../../StateMachine")
 
 [node name="Fist" parent="Skeleton_Minion/Rig/Skeleton3D" index="10"]
 transform = Transform3D(-1.53513e-07, -0.149894, -0.988701, -0.999999, -5.36442e-07, 1.19665e-06, -1.10337e-06, 0.988701, -0.149894, -0.49106, 0.64103, 0.106595)
+
+[node name="Weapon" parent="Skeleton_Minion/Rig/Skeleton3D/Fist" index="0" node_paths=PackedStringArray("state_machine")]
+state_machine = NodePath("../../../../../StateMachine")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07336, 0)
@@ -66,6 +70,7 @@ metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 [node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_timer")]
 script = ExtResource("3_kn6xq")
 idle_timer = NodePath("IdleTimer")
+can_move = true
 animation = &"enemy_animations/Unarmed_Idle"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
@@ -83,18 +88,20 @@ metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 script = ExtResource("5_wain5")
 metadata/_custom_type_script = "uid://bsrllvd6m6k0o"
 
-[node name="Punch1" type="Node" parent="StateMachine/Attack" node_paths=PackedStringArray("timer")]
+[node name="Punch1" type="Node" parent="StateMachine/Attack" node_paths=PackedStringArray("timer", "weapons")]
 script = ExtResource("7_x47kj")
 timer = NodePath("WaitTimer")
+weapons = [NodePath("../../../Skeleton_Minion/Rig/Skeleton3D/Fist/Weapon")]
 animation = &"enemy_animations/Unarmed_Melee_Attack_Punch_A"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
 [node name="WaitTimer" type="Timer" parent="StateMachine/Attack/Punch1"]
 one_shot = true
 
-[node name="Punch2" type="Node" parent="StateMachine/Attack"]
+[node name="Punch2" type="Node" parent="StateMachine/Attack" node_paths=PackedStringArray("weapons")]
 script = ExtResource("7_x47kj")
 attack_again_chance = 0.0
+weapons = [NodePath("../../../Skeleton_Minion/Rig/Skeleton3D/Fist/Weapon")]
 animation = &"enemy_animations/Unarmed_Melee_Attack_Punch_B"
 metadata/_custom_type_script = "uid://x8wi4uwnm43i"
 
@@ -156,7 +163,7 @@ max_value = 200.0
 metadata/_custom_type_script = "uid://bqolpeb84mvdr"
 
 [node name="HealthBar" parent="." instance=ExtResource("13_eejj0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.37561, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
 
 [connection signal="body_entered" from="Attack_Range" to="." method="_on_player_in_range"]
 [connection signal="body_exited" from="Attack_Range" to="." method="_on_player_moved_away"]
