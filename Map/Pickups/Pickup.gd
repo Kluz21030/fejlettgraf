@@ -18,6 +18,7 @@ func _on_area_entered(area: HurtboxComponet) -> void:
 		Events.popup_info.emit("Maximum health increased")
 	if type == &"Stamina":
 		area.owner.find_child("StaminaComponent").change_max_value(value)
+		Events.popup_info.emit("Maximum stamina increased")
 	
 	tween.kill()
 	tween = create_tween().set_ease(Tween.EASE_OUT_IN).set_parallel().set_loops(1)
