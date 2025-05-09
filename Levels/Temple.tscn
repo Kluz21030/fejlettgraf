@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://bjyeaw0u405vc"]
+[gd_scene load_steps=120 format=3 uid="uid://bjyeaw0u405vc"]
 
 [ext_resource type="ArrayMesh" uid="uid://cfamg7r2owb4c" path="res://Assets/Map/Modular Temple/Floor_Normal_Square.obj" id="1_y81li"]
 [ext_resource type="ArrayMesh" uid="uid://bvx0tv4tm121i" path="res://Assets/Map/Modular Temple/Floor_Ruined_Corner_Inner_1.obj" id="2_pwwwq"]
@@ -116,21 +116,316 @@
 [ext_resource type="ArrayMesh" uid="uid://cydl8ilwktadu" path="res://Assets/Map/Modular Temple/Wall_Arch_Straight.obj" id="114_8idiv"]
 [ext_resource type="PackedScene" uid="uid://e8mgunypswjq" path="res://Player/player.tscn" id="115_02fl5"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_02fl5"]
+sky_top_color = Color(0.410421, 0.440218, 0.576613, 1)
+sky_horizon_color = Color(0.666489, 0.666188, 0.691287, 1)
+ground_horizon_color = Color(0.666489, 0.666188, 0.691287, 1)
+
+[sub_resource type="Sky" id="Sky_8idiv"]
+sky_material = SubResource("ProceduralSkyMaterial_02fl5")
+
+[sub_resource type="Environment" id="Environment_ludsa"]
+background_mode = 2
+sky = SubResource("Sky_8idiv")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_02fl5"]
+
 [node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ludsa")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 
 [node name="temple_upper_floor" type="Node3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
 
-[node name="FloorNormalSquare" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor"]
-transform = Transform3D(15, 0, 0, 0, 3, 0, 0, 0, 15, 0, 0, 0)
-mesh = ExtResource("1_y81li")
-skeleton = NodePath("../..")
-
 [node name="FloorNormalSquare2" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor"]
 transform = Transform3D(15, 0, 0, 0, 3, 0, 0, 0, 10, 0, 0, 13.5155)
 mesh = ExtResource("1_y81li")
+skeleton = NodePath("../..")
+
+[node name="SpawnRoom" type="Node3D" parent="NavigationRegion3D/temple_upper_floor"]
+
+[node name="FloorNormalSquare" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom"]
+transform = Transform3D(15, 0, 0, 0, 3, 0, 0, 0, 15, 0, 0, 0)
+mesh = ExtResource("1_y81li")
+skeleton = NodePath("../../..")
+
+[node name="DoubleSmallWindowHighWall" type="Node3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 5.4, 0)
+
+[node name="WallStraightMiddle12" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/DoubleSmallWindowHighWall"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 2.5, -5, 5)
+mesh = ExtResource("8_oaqyw")
+skeleton = NodePath("../..")
+
+[node name="WallStraightBase" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/DoubleSmallWindowHighWall/WallStraightMiddle12"]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, -0.15, 0)
+mesh = ExtResource("15_dd0ed")
+skeleton = NodePath("../..")
+
+[node name="WallStraightMiddle13" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/DoubleSmallWindowHighWall"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 2.5, 0, 5)
+mesh = ExtResource("8_oaqyw")
+skeleton = NodePath("../..")
+
+[node name="PropFlag3" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/DoubleSmallWindowHighWall/WallStraightMiddle13"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0.2, -0.5, -0.2)
+mesh = ExtResource("88_8lqjm")
+skeleton = NodePath("../..")
+
+[node name="WallStraightMiddle14" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/DoubleSmallWindowHighWall"]
+transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 2.5, -5, 0)
+mesh = ExtResource("47_6usbv")
+skeleton = NodePath("../..")
+
+[node name="WallStraightBase" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/DoubleSmallWindowHighWall/WallStraightMiddle14"]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, -0.15, 0)
+mesh = ExtResource("33_0m36u")
+skeleton = NodePath("../..")
+
+[node name="WallStraightMiddle15" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/DoubleSmallWindowHighWall"]
+transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 2.5, 5, 0)
+mesh = ExtResource("47_6usbv")
+skeleton = NodePath("../..")
+
+[node name="WallStraightWindows2" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/DoubleSmallWindowHighWall"]
+transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 2.5, 0, 0)
+mesh = ExtResource("50_6usbv")
+skeleton = NodePath("../..")
+
+[node name="DoubleSmallWindowHighWall2" type="Node3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 5.4, 0)
+
+[node name="WallStraightMiddle12" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/DoubleSmallWindowHighWall2"]
+transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -2.5, -5, 5)
+mesh = ExtResource("8_oaqyw")
+skeleton = NodePath("../..")
+
+[node name="WallStraightBase" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/DoubleSmallWindowHighWall2/WallStraightMiddle12"]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, -0.15, 0)
+mesh = ExtResource("15_dd0ed")
+skeleton = NodePath("../..")
+
+[node name="WallStraightMiddle13" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/DoubleSmallWindowHighWall2"]
+transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -2.5, 0, 5)
+mesh = ExtResource("8_oaqyw")
+skeleton = NodePath("../..")
+
+[node name="PropFlag3" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/DoubleSmallWindowHighWall2/WallStraightMiddle13"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0.2, -0.5, -0.2)
+mesh = ExtResource("88_8lqjm")
+skeleton = NodePath("../..")
+
+[node name="WallStraightMiddle14" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/DoubleSmallWindowHighWall2"]
+transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 2.5, -5, 0)
+mesh = ExtResource("47_6usbv")
+skeleton = NodePath("../..")
+
+[node name="WallStraightBase" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/DoubleSmallWindowHighWall2/WallStraightMiddle14"]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, -0.15, 0)
+mesh = ExtResource("33_0m36u")
+skeleton = NodePath("../..")
+
+[node name="WallStraightMiddle15" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/DoubleSmallWindowHighWall2"]
+transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 2.5, 5, 0)
+mesh = ExtResource("47_6usbv")
+skeleton = NodePath("../..")
+
+[node name="WallStraightWindows2" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/DoubleSmallWindowHighWall2"]
+transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 2.5, 0, 0)
+mesh = ExtResource("50_6usbv")
+skeleton = NodePath("../..")
+
+[node name="SingleWindowCubbyHighWall" type="Node3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.4, -7.5)
+
+[node name="WallStraightCubby" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/SingleWindowCubbyHighWall"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0, -5, 2.5)
+mesh = ExtResource("35_f5cr1")
+skeleton = NodePath("../..")
+
+[node name="WallStraightBase" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/SingleWindowCubbyHighWall/WallStraightCubby"]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, -0.15, 0)
+mesh = ExtResource("33_0m36u")
+skeleton = NodePath("../..")
+
+[node name="WallStraightCubby2" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/SingleWindowCubbyHighWall"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0, 5, 2.5)
+mesh = ExtResource("47_6usbv")
+skeleton = NodePath("../..")
+
+[node name="WallStraightWindow" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/SingleWindowCubbyHighWall"]
+transform = Transform3D(-5, 0, 4.37114e-07, 0, 5, 0, -4.37114e-07, 0, -5, 0, 0, 2.5)
+mesh = ExtResource("49_rl0rf")
+skeleton = NodePath("../..")
+
+[node name="WallStraightMiddle" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/SingleWindowCubbyHighWall"]
+transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -5, -5, 2.5)
+mesh = ExtResource("8_oaqyw")
+skeleton = NodePath("../..")
+
+[node name="WallStraightBase" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/SingleWindowCubbyHighWall/WallStraightMiddle"]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, -0.15, 0)
+mesh = ExtResource("15_dd0ed")
+skeleton = NodePath("../..")
+
+[node name="WallStraightMiddle2" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/SingleWindowCubbyHighWall"]
+transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -5, 0, 2.5)
+mesh = ExtResource("8_oaqyw")
+skeleton = NodePath("../..")
+
+[node name="WallStraightMiddle3" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/SingleWindowCubbyHighWall"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 5, -5, 2.5)
+mesh = ExtResource("8_oaqyw")
+skeleton = NodePath("../..")
+
+[node name="WallStraightBase" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/SingleWindowCubbyHighWall/WallStraightMiddle3"]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, -0.15, 0)
+mesh = ExtResource("15_dd0ed")
+skeleton = NodePath("../..")
+
+[node name="WallStraightMiddle4" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/SingleWindowCubbyHighWall"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 5, 0, 2.5)
+mesh = ExtResource("8_oaqyw")
+skeleton = NodePath("../..")
+
+[node name="TowerParapetBracedCrowned" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom"]
+transform = Transform3D(5.5, 0, 0, 0, 5.5, 0, 0, 0, 5.5, 0, 15.4, 0)
+mesh = ExtResource("103_1mtyj")
+skeleton = NodePath("../..")
+
+[node name="WallArchCornerInner" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom"]
+transform = Transform3D(5, 0, 0, 0, 2.5, 0, 0, 0, 5, -5, 10.4, 5)
+mesh = ExtResource("112_m2nuc")
+skeleton = NodePath("../..")
+
+[node name="WallArchCornerInner2" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom"]
+transform = Transform3D(-2.18557e-07, 0, 5, 0, 2.5, 0, -5, 0, -2.18557e-07, 5, 10.4, 5)
+mesh = ExtResource("112_m2nuc")
+skeleton = NodePath("../..")
+
+[node name="WallArchCornerInner3" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 2.5, 0, 4.37114e-07, 0, -5, 5, 10.4, -5)
+mesh = ExtResource("112_m2nuc")
+skeleton = NodePath("../..")
+
+[node name="WallArchCornerInner4" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom"]
+transform = Transform3D(5.96244e-08, 0, -5, 0, 2.5, 0, 5, 0, 5.96244e-08, -5, 10.4, -5)
+mesh = ExtResource("112_m2nuc")
+skeleton = NodePath("../..")
+
+[node name="DoorwayHighWall" type="Node3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.5)
+
+[node name="WallStraightDoorway" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/DoorwayHighWall"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -2.5)
+mesh = ExtResource("37_1xx45")
+skeleton = NodePath("../..")
+
+[node name="WallStraightMiddle15" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom/DoorwayHighWall"]
+transform = Transform3D(5, 0, 0, 0, 5.5, 0, 0, 0, 5, 0, 10, -2.5)
+mesh = ExtResource("47_6usbv")
+skeleton = NodePath("../..")
+
+[node name="PropVase2" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.35743, -6.89754)
+mesh = ExtResource("70_frvph")
+skeleton = NodePath("../..")
+
+[node name="PropRugMoon" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/SpawnRoom"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = ExtResource("76_u7kv4")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/temple_upper_floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/temple_upper_floor/StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_02fl5")
+
+[node name="MainHall" type="Node3D" parent="NavigationRegion3D/temple_upper_floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 32.5)
+
+[node name="ArchedWall" type="Node3D" parent="NavigationRegion3D/temple_upper_floor/MainHall"]
+
+[node name="WallArchStraight2" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/MainHall/ArchedWall"]
+transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 32.5, 0, -20)
+mesh = ExtResource("114_8idiv")
+skeleton = NodePath("../../..")
+
+[node name="WallArchStraight3" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/MainHall/ArchedWall"]
+transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 22.5, 0, -20)
+mesh = ExtResource("114_8idiv")
+skeleton = NodePath("../../..")
+
+[node name="WallArchStraight4" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/MainHall/ArchedWall"]
+transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, -7.5, 0, -20)
+mesh = ExtResource("114_8idiv")
+skeleton = NodePath("../../..")
+
+[node name="WallArchStraight5" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/MainHall/ArchedWall"]
+transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, -47.5, 0, -20)
+mesh = ExtResource("114_8idiv")
+skeleton = NodePath("../../..")
+
+[node name="WallArchStraight6" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/MainHall/ArchedWall"]
+transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, -37.5, 0, -20)
+mesh = ExtResource("114_8idiv")
+skeleton = NodePath("../../..")
+
+[node name="WallStraightWindowsTall" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/MainHall/ArchedWall"]
+transform = Transform3D(-20, 0, 1.74846e-06, 0, 20, 0, -1.74846e-06, 0, -20, -22.5, -20, -14)
+mesh = ExtResource("51_xwlnw")
+skeleton = NodePath("../../..")
+
+[node name="WallStraightWindowsTall3" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/MainHall/ArchedWall"]
+transform = Transform3D(-20, 0, 1.74846e-06, 0, 20, 0, -1.74846e-06, 0, -20, 7.5, -20, -14)
+mesh = ExtResource("51_xwlnw")
+skeleton = NodePath("../../..")
+
+[node name="ArchedWall2" type="Node3D" parent="NavigationRegion3D/temple_upper_floor/MainHall"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="WallArchStraight2" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/MainHall/ArchedWall2"]
+transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 37.5, 0, -20)
+mesh = ExtResource("114_8idiv")
+skeleton = NodePath("../../..")
+
+[node name="WallArchStraight3" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/MainHall/ArchedWall2"]
+transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 47.5, 0, -20)
+mesh = ExtResource("114_8idiv")
+skeleton = NodePath("../../..")
+
+[node name="WallArchStraight4" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/MainHall/ArchedWall2"]
+transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 7.5, 0, -20)
+mesh = ExtResource("114_8idiv")
+skeleton = NodePath("../../..")
+
+[node name="WallArchStraight5" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/MainHall/ArchedWall2"]
+transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, -32.5, 0, -20)
+mesh = ExtResource("114_8idiv")
+skeleton = NodePath("../../..")
+
+[node name="WallArchStraight6" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/MainHall/ArchedWall2"]
+transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, -22.5, 0, -20)
+mesh = ExtResource("114_8idiv")
+skeleton = NodePath("../../..")
+
+[node name="WallStraightWindowsTall" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/MainHall/ArchedWall2"]
+transform = Transform3D(-20, 0, 1.74846e-06, 0, 20, 0, -1.74846e-06, 0, -20, -7.5, -20, -14)
+mesh = ExtResource("51_xwlnw")
+skeleton = NodePath("../..")
+
+[node name="WallStraightWindowsTall2" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor/MainHall/ArchedWall2"]
+transform = Transform3D(-20, 0, 1.74846e-06, 0, 20, 0, -1.74846e-06, 0, -20, 22.5, -20, -14)
+mesh = ExtResource("51_xwlnw")
 skeleton = NodePath("../..")
 
 [node name="assets" type="Node3D" parent="."]
@@ -704,3 +999,4 @@ mesh = ExtResource("114_8idiv")
 skeleton = NodePath("../..")
 
 [node name="Player" parent="." instance=ExtResource("115_02fl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.0035, 0)
