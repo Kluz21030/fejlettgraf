@@ -1,0 +1,706 @@
+[gd_scene load_steps=116 format=3 uid="uid://bjyeaw0u405vc"]
+
+[ext_resource type="ArrayMesh" uid="uid://cfamg7r2owb4c" path="res://Assets/Map/Modular Temple/Floor_Normal_Square.obj" id="1_y81li"]
+[ext_resource type="ArrayMesh" uid="uid://bvx0tv4tm121i" path="res://Assets/Map/Modular Temple/Floor_Ruined_Corner_Inner_1.obj" id="2_pwwwq"]
+[ext_resource type="ArrayMesh" uid="uid://b4bu53mn63wru" path="res://Assets/Map/Modular Temple/Floor_Ruined_Corner_Inner_2.obj" id="3_5q8sv"]
+[ext_resource type="ArrayMesh" uid="uid://cys3a3xjn55qi" path="res://Assets/Map/Modular Temple/Floor_Ruined_Corner_Outer_1.obj" id="4_lbjr0"]
+[ext_resource type="ArrayMesh" uid="uid://c750buiwartuk" path="res://Assets/Map/Modular Temple/Floor_Ruined_Corner_Outer_2.obj" id="5_1unhi"]
+[ext_resource type="ArrayMesh" uid="uid://5opu1p2a4dsr" path="res://Assets/Map/Modular Temple/Floor_Ruined_Straight_1.obj" id="6_lbjr0"]
+[ext_resource type="ArrayMesh" uid="uid://dkymop5ffvy1m" path="res://Assets/Map/Modular Temple/Floor_Ruined_Straight_2.obj" id="7_1unhi"]
+[ext_resource type="ArrayMesh" uid="uid://b0icqgnpuvvq1" path="res://Assets/Map/Modular Temple/Wall_Curved_Small_Middle.obj" id="8_oaqyw"]
+[ext_resource type="ArrayMesh" uid="uid://cmkbncugxv6fy" path="res://Assets/Map/Modular Temple/Wall_Curved_Small_Window.obj" id="9_xwoft"]
+[ext_resource type="ArrayMesh" uid="uid://ddgo45dcp1jm4" path="res://Assets/Map/Modular Temple/Wall_Curved_Small_Window_Tall.obj" id="10_s3kjw"]
+[ext_resource type="ArrayMesh" uid="uid://cclyiv0eori6w" path="res://Assets/Map/Modular Temple/Wall_Curved_Large_Middle.obj" id="11_es62g"]
+[ext_resource type="ArrayMesh" uid="uid://3louum4lxob7" path="res://Assets/Map/Modular Temple/Wall_Curved_Large_Base.obj" id="12_ydlgg"]
+[ext_resource type="ArrayMesh" uid="uid://be5qjp1f1lk0u" path="res://Assets/Map/Modular Temple/Wall_Curved_Large_Top.obj" id="13_an4pd"]
+[ext_resource type="ArrayMesh" uid="uid://d1gnl0j0ypaf4" path="res://Assets/Map/Modular Temple/Wall_Curved_Large_Coping.obj" id="14_p4nyc"]
+[ext_resource type="ArrayMesh" uid="uid://10rd8b7w7kp7" path="res://Assets/Map/Modular Temple/Wall_Curved_Small_Base.obj" id="15_dd0ed"]
+[ext_resource type="ArrayMesh" uid="uid://kfkwapc88dnn" path="res://Assets/Map/Modular Temple/Wall_Curved_Small_Coping.obj" id="16_tmr60"]
+[ext_resource type="ArrayMesh" uid="uid://c2peene1ky8xm" path="res://Assets/Map/Modular Temple/Wall_Curved_Small_Top.obj" id="17_bptjc"]
+[ext_resource type="ArrayMesh" uid="uid://dickomkrnstr4" path="res://Assets/Map/Modular Temple/Wall_End_Middle.obj" id="18_s3kjw"]
+[ext_resource type="ArrayMesh" uid="uid://em8qhc468s3y" path="res://Assets/Map/Modular Temple/Wall_End_Top.obj" id="19_es62g"]
+[ext_resource type="ArrayMesh" uid="uid://m6fvm1nbrp6m" path="res://Assets/Map/Modular Temple/Wall_End_Coping.obj" id="20_ydlgg"]
+[ext_resource type="ArrayMesh" uid="uid://34c2m8wlgkff" path="res://Assets/Map/Modular Temple/Wall_End_Base.obj" id="21_an4pd"]
+[ext_resource type="ArrayMesh" uid="uid://bysq55g61v6h" path="res://Assets/Map/Modular Temple/Wall_Ruined_Corner_Inner_1.obj" id="22_tmr60"]
+[ext_resource type="ArrayMesh" uid="uid://5qv3e1tlpya2" path="res://Assets/Map/Modular Temple/Wall_Ruined_Corner_Inner_2.obj" id="23_bptjc"]
+[ext_resource type="ArrayMesh" uid="uid://ct5m1b5bfdir0" path="res://Assets/Map/Modular Temple/Wall_Ruined_Corner_Outer_1.obj" id="24_21mky"]
+[ext_resource type="ArrayMesh" uid="uid://brh5fkt0oqy7h" path="res://Assets/Map/Modular Temple/Wall_Ruined_Corner_Outer_2.obj" id="25_wqj67"]
+[ext_resource type="ArrayMesh" uid="uid://c1pbhkl57a7sv" path="res://Assets/Map/Modular Temple/Wall_Ruined_Full_1.obj" id="26_nomvl"]
+[ext_resource type="ArrayMesh" uid="uid://c2vxeal2l8nka" path="res://Assets/Map/Modular Temple/Wall_Ruined_Full_2.obj" id="27_el8ub"]
+[ext_resource type="ArrayMesh" uid="uid://dqqjpjsnr4lby" path="res://Assets/Map/Modular Temple/Wall_Ruined_Full_Cracked_1.obj" id="28_icf0n"]
+[ext_resource type="ArrayMesh" uid="uid://urv17gs3g8jy" path="res://Assets/Map/Modular Temple/Wall_Ruined_Full_Cracked_2.obj" id="29_l4vty"]
+[ext_resource type="ArrayMesh" uid="uid://8j11b4aepfr" path="res://Assets/Map/Modular Temple/Wall_Ruined_Half_1.obj" id="30_l4vty"]
+[ext_resource type="ArrayMesh" uid="uid://bu2blqvbyelaw" path="res://Assets/Map/Modular Temple/Wall_Ruined_Half_2.obj" id="31_bbktd"]
+[ext_resource type="ArrayMesh" uid="uid://ck2qd7l882hoq" path="res://Assets/Map/Modular Temple/Wall_Straight_Arch_Top.obj" id="32_vrdkp"]
+[ext_resource type="ArrayMesh" uid="uid://d4d4cqlivnbvv" path="res://Assets/Map/Modular Temple/Wall_Straight_Base.obj" id="33_0m36u"]
+[ext_resource type="ArrayMesh" uid="uid://6vrhahu853sx" path="res://Assets/Map/Modular Temple/Wall_Straight_Coping.obj" id="34_3notj"]
+[ext_resource type="ArrayMesh" uid="uid://ce3r8ewjd08sw" path="res://Assets/Map/Modular Temple/Wall_Straight_Cubby.obj" id="35_f5cr1"]
+[ext_resource type="ArrayMesh" uid="uid://pjdk5s1dkoha" path="res://Assets/Map/Modular Temple/Wall_Straight_Door.obj" id="36_iqhqv"]
+[ext_resource type="ArrayMesh" uid="uid://dv74e0tou3ig7" path="res://Assets/Map/Modular Temple/Wall_Straight_Doorway.obj" id="37_1xx45"]
+[ext_resource type="ArrayMesh" uid="uid://dhtqnlccbk2mj" path="res://Assets/Map/Modular Temple/Wall_Straight_Doorway_Large.obj" id="38_iqhqv"]
+[ext_resource type="ArrayMesh" uid="uid://cpml0oc053dcf" path="res://Assets/Map/Modular Temple/Wall_Straight_Doorway_Large_Extension.obj" id="39_1xx45"]
+[ext_resource type="ArrayMesh" uid="uid://c11yghcl0cyqe" path="res://Assets/Map/Modular Temple/Wall_Straight_Doorway_Large_Pocket.obj" id="40_aeby1"]
+[ext_resource type="ArrayMesh" uid="uid://xuiutfu7u7q8" path="res://Assets/Map/Modular Temple/Wall_Straight_Door_Eclipse.obj" id="41_cq6f3"]
+[ext_resource type="ArrayMesh" uid="uid://csd0mcu7k7qm8" path="res://Assets/Map/Modular Temple/Wall_Straight_Door_Large.obj" id="42_tmot1"]
+[ext_resource type="ArrayMesh" uid="uid://ltikyqded0fj" path="res://Assets/Map/Modular Temple/Wall_Straight_Door_Large_Pocket.obj" id="43_7tg26"]
+[ext_resource type="ArrayMesh" uid="uid://bcvkuq2hqfecb" path="res://Assets/Map/Modular Temple/Wall_Straight_Door_Moon.obj" id="44_4exs0"]
+[ext_resource type="ArrayMesh" uid="uid://cegtgpq1psrhp" path="res://Assets/Map/Modular Temple/Wall_Straight_Door_Stars.obj" id="45_t8apb"]
+[ext_resource type="ArrayMesh" uid="uid://cmyat7ukn8e7k" path="res://Assets/Map/Modular Temple/Wall_Straight_Door_Sun.obj" id="46_rl0rf"]
+[ext_resource type="ArrayMesh" uid="uid://g7qgafpl7411" path="res://Assets/Map/Modular Temple/Wall_Straight_Middle.obj" id="47_6usbv"]
+[ext_resource type="ArrayMesh" uid="uid://cu777gkc4xapj" path="res://Assets/Map/Modular Temple/Wall_Straight_Top.obj" id="48_tmot1"]
+[ext_resource type="ArrayMesh" uid="uid://115dxg1wkt8t" path="res://Assets/Map/Modular Temple/Wall_Straight_Window.obj" id="49_rl0rf"]
+[ext_resource type="ArrayMesh" uid="uid://cf71b00fr8lrb" path="res://Assets/Map/Modular Temple/Wall_Straight_Windows.obj" id="50_6usbv"]
+[ext_resource type="ArrayMesh" uid="uid://cimmf0c7vbto" path="res://Assets/Map/Modular Temple/Wall_Straight_Windows_Tall.obj" id="51_xwlnw"]
+[ext_resource type="ArrayMesh" uid="uid://pwg3h70l806o" path="res://Assets/Map/Modular Temple/Wall_Straight_Window_Tall.obj" id="52_a6dgd"]
+[ext_resource type="ArrayMesh" uid="uid://bqisnlj5cfii" path="res://Assets/Map/Modular Temple/Puzzle_Steps_Conduit.obj" id="53_d08sk"]
+[ext_resource type="ArrayMesh" uid="uid://bjewgn8s0hw7w" path="res://Assets/Map/Modular Temple/Puzzle_Sliding_Platform_1x3.obj" id="54_y8k83"]
+[ext_resource type="ArrayMesh" uid="uid://b0vov8544v87s" path="res://Assets/Map/Modular Temple/Puzzle_Sliding_Platform_1x2.obj" id="55_u63s1"]
+[ext_resource type="ArrayMesh" uid="uid://cbbr8q8xo62ws" path="res://Assets/Map/Modular Temple/Puzzle_Sliding_Platform_1x1.obj" id="56_mivks"]
+[ext_resource type="ArrayMesh" uid="uid://dwr1wyk20b340" path="res://Assets/Map/Modular Temple/Puzzle_Sliding_Mirror.obj" id="57_y8k83"]
+[ext_resource type="ArrayMesh" uid="uid://bqdjqw8buckr2" path="res://Assets/Map/Modular Temple/Puzzle_Sliding_Emitter.obj" id="58_u63s1"]
+[ext_resource type="ArrayMesh" uid="uid://dha1earom6wlb" path="res://Assets/Map/Modular Temple/Puzzle_Sliding_Base.obj" id="59_mivks"]
+[ext_resource type="ArrayMesh" uid="uid://bnjra471rvpp1" path="res://Assets/Map/Modular Temple/Puzzle_Floor_Wall_Conduit_Connector_Base.obj" id="60_j438u"]
+[ext_resource type="ArrayMesh" uid="uid://b4rbnj4qi4btv" path="res://Assets/Map/Modular Temple/Puzzle_Floor_Wall_Conduit_Connector.obj" id="61_l373h"]
+[ext_resource type="ArrayMesh" uid="uid://b1vbc5rc3ta7e" path="res://Assets/Map/Modular Temple/Puzzle_Floor_Conduit_Standard_TJoint.obj" id="62_724t1"]
+[ext_resource type="ArrayMesh" uid="uid://dxpaan6uoe5id" path="res://Assets/Map/Modular Temple/Puzzle_Floor_Conduit_Standard_Straight.obj" id="63_7kjlg"]
+[ext_resource type="ArrayMesh" uid="uid://dhbjk72kwx3ta" path="res://Assets/Map/Modular Temple/Puzzle_Floor_Conduit_Standard_End.obj" id="64_t1req"]
+[ext_resource type="ArrayMesh" uid="uid://5l7ru0ylwuda" path="res://Assets/Map/Modular Temple/Puzzle_Floor_Conduit_Standard_Cross.obj" id="65_qu4si"]
+[ext_resource type="ArrayMesh" uid="uid://butex0017kiwl" path="res://Assets/Map/Modular Temple/Puzzle_Floor_Conduit_Standard_Corner.obj" id="66_wyarg"]
+[ext_resource type="ArrayMesh" uid="uid://btdnon2xohjac" path="res://Assets/Map/Modular Temple/Puzzle_Control_Rising_Switch.obj" id="67_frvph"]
+[ext_resource type="ArrayMesh" uid="uid://dne2wm6r3uau0" path="res://Assets/Map/Modular Temple/Puzzle_Control_Pressure_Plate.obj" id="68_7kjlg"]
+[ext_resource type="ArrayMesh" uid="uid://qdhsi6tnt6b7" path="res://Assets/Map/Modular Temple/Prop_Vase_3.obj" id="69_wyarg"]
+[ext_resource type="ArrayMesh" uid="uid://s402ck6jwh36" path="res://Assets/Map/Modular Temple/Prop_Vase_2.obj" id="70_frvph"]
+[ext_resource type="ArrayMesh" uid="uid://bowr4lqdwfvlg" path="res://Assets/Map/Modular Temple/Prop_Vase_1.obj" id="71_ql3xe"]
+[ext_resource type="ArrayMesh" uid="uid://rbs0a5u3igib" path="res://Assets/Map/Modular Temple/Prop_Vase.obj" id="72_frvph"]
+[ext_resource type="ArrayMesh" uid="uid://bu1sqplo658a2" path="res://Assets/Map/Modular Temple/Prop_Rug_Sun.obj" id="73_uiw10"]
+[ext_resource type="ArrayMesh" uid="uid://clgl5a6si8xlr" path="res://Assets/Map/Modular Temple/Prop_Rug_Stars.obj" id="74_mr1tt"]
+[ext_resource type="ArrayMesh" uid="uid://dqshu5d8fm71g" path="res://Assets/Map/Modular Temple/Prop_Rug_Side.obj" id="75_wdi2n"]
+[ext_resource type="ArrayMesh" uid="uid://dtaqgd0hfhsqq" path="res://Assets/Map/Modular Temple/Prop_Rug_Moon.obj" id="76_u7kv4"]
+[ext_resource type="ArrayMesh" uid="uid://cf50wblh5gog8" path="res://Assets/Map/Modular Temple/Prop_Rug_Middle.obj" id="77_08qw2"]
+[ext_resource type="ArrayMesh" uid="uid://cmux4w7le0csc" path="res://Assets/Map/Modular Temple/Prop_Rug_Eclipse.obj" id="78_y3tet"]
+[ext_resource type="ArrayMesh" uid="uid://c2h4gh7r1vp55" path="res://Assets/Map/Modular Temple/Prop_Rug_Corner_Outer.obj" id="79_44qym"]
+[ext_resource type="ArrayMesh" uid="uid://cx154gss6xye7" path="res://Assets/Map/Modular Temple/Prop_Rug_Corner_Inner.obj" id="80_cgei8"]
+[ext_resource type="ArrayMesh" uid="uid://bagi7miegi71t" path="res://Assets/Map/Modular Temple/Prop_Rubble_1.obj" id="81_kyixh"]
+[ext_resource type="ArrayMesh" uid="uid://b6hryiq4jfmmn" path="res://Assets/Map/Modular Temple/Prop_Rubble_2.obj" id="82_mund5"]
+[ext_resource type="ArrayMesh" uid="uid://b22rklaua8l7a" path="res://Assets/Map/Modular Temple/Prop_Flag_Sun.obj" id="83_rxtx1"]
+[ext_resource type="ArrayMesh" uid="uid://bjytbg6niclqf" path="res://Assets/Map/Modular Temple/Prop_Flag_Stand_Top.obj" id="84_5j5od"]
+[ext_resource type="ArrayMesh" uid="uid://bgll33ptbjhpb" path="res://Assets/Map/Modular Temple/Prop_Flag_Stand_Extension.obj" id="85_xy34e"]
+[ext_resource type="ArrayMesh" uid="uid://cp3aa08bpyjoh" path="res://Assets/Map/Modular Temple/Prop_Flag_Moon.obj" id="86_eyatt"]
+[ext_resource type="ArrayMesh" uid="uid://wfd2e1lh4ii3" path="res://Assets/Map/Modular Temple/Prop_Flag_Eclipse.obj" id="87_ab17u"]
+[ext_resource type="ArrayMesh" uid="uid://dh5ym3b4mfs4n" path="res://Assets/Map/Modular Temple/Prop_Flag_3.obj" id="88_8lqjm"]
+[ext_resource type="ArrayMesh" uid="uid://dj1e7d1m8kq27" path="res://Assets/Map/Modular Temple/Prop_Flag_2.obj" id="89_dq3py"]
+[ext_resource type="ArrayMesh" uid="uid://drdfcu31nehi4" path="res://Assets/Map/Modular Temple/Prop_Flag_1.obj" id="90_1mtyj"]
+[ext_resource type="ArrayMesh" uid="uid://t4ricmwtsdke" path="res://Assets/Map/Modular Temple/Floor_Curved_Large.obj" id="91_rxtx1"]
+[ext_resource type="ArrayMesh" uid="uid://diptgurpkp6r5" path="res://Assets/Map/Modular Temple/Floor_Curved_Large_Outer.obj" id="92_5j5od"]
+[ext_resource type="ArrayMesh" uid="uid://bhhsjetg544th" path="res://Assets/Map/Modular Temple/Floor_Curved_Small.obj" id="93_xy34e"]
+[ext_resource type="ArrayMesh" uid="uid://cu088mt0mcnh7" path="res://Assets/Map/Modular Temple/Floor_Curved_Small_Outer.obj" id="94_eyatt"]
+[ext_resource type="ArrayMesh" uid="uid://chmi87clb5sjb" path="res://Assets/Map/Modular Temple/Floor_Bridge_Ramp.obj" id="95_ab17u"]
+[ext_resource type="ArrayMesh" uid="uid://b7uk1lrihmv3t" path="res://Assets/Map/Modular Temple/Balcony_Railing_Tower.obj" id="96_8lqjm"]
+[ext_resource type="ArrayMesh" uid="uid://cun6ib2atidkq" path="res://Assets/Map/Modular Temple/Balcony_Railing_Straight.obj" id="97_dq3py"]
+[ext_resource type="ArrayMesh" uid="uid://cxsn3gmj8w1fx" path="res://Assets/Map/Modular Temple/Balcony_Railing_End.obj" id="98_1mtyj"]
+[ext_resource type="ArrayMesh" uid="uid://bqdpoh6iqn4jj" path="res://Assets/Map/Modular Temple/Balcony_Railing_Curved_Small.obj" id="99_benkt"]
+[ext_resource type="ArrayMesh" uid="uid://dj21fnp103ei" path="res://Assets/Map/Modular Temple/Balcony_Railing_Bridge_Ramp.obj" id="100_nfcio"]
+[ext_resource type="ArrayMesh" uid="uid://cb1ealogl2can" path="res://Assets/Map/Modular Temple/Tower_Steps.obj" id="101_5j5od"]
+[ext_resource type="ArrayMesh" uid="uid://dt60xg28dipc6" path="res://Assets/Map/Modular Temple/Tower_Parapet_Simple_Crowned.obj" id="102_dq3py"]
+[ext_resource type="ArrayMesh" uid="uid://7tdkna3fx6jt" path="res://Assets/Map/Modular Temple/Tower_Parapet_Braced_Crowned.obj" id="103_1mtyj"]
+[ext_resource type="ArrayMesh" uid="uid://ehox8dinluap" path="res://Assets/Map/Modular Temple/Tower_Landing.obj" id="104_benkt"]
+[ext_resource type="ArrayMesh" uid="uid://cfryj3ig64nel" path="res://Assets/Map/Modular Temple/Stairs_Under_Ramp_Straight.obj" id="105_nfcio"]
+[ext_resource type="ArrayMesh" uid="uid://b8tmuoppexjb3" path="res://Assets/Map/Modular Temple/Stairs_Under_Ramp_Curved.obj" id="106_k7ub3"]
+[ext_resource type="ArrayMesh" uid="uid://be1xofgsabro1" path="res://Assets/Map/Modular Temple/Stairs_Steps_Straight.obj" id="107_1mtyj"]
+[ext_resource type="ArrayMesh" uid="uid://bbhb6mkptryvr" path="res://Assets/Map/Modular Temple/Stairs_Steps_Curved.obj" id="108_benkt"]
+[ext_resource type="ArrayMesh" uid="uid://14be4tunlwsn" path="res://Assets/Map/Modular Temple/Stairs_Newel_Middle.obj" id="109_aoq3u"]
+[ext_resource type="ArrayMesh" uid="uid://drhprrd16qg43" path="res://Assets/Map/Modular Temple/Stairs_Newel_Base.obj" id="110_ko8qk"]
+[ext_resource type="ArrayMesh" uid="uid://vy83iu5nfjgy" path="res://Assets/Map/Modular Temple/Stairs_Newel_Top.obj" id="111_0octl"]
+[ext_resource type="ArrayMesh" uid="uid://cmc3ivr8ees7r" path="res://Assets/Map/Modular Temple/Wall_Arch_Corner_Inner.obj" id="112_m2nuc"]
+[ext_resource type="ArrayMesh" uid="uid://uwtrk0r14ood" path="res://Assets/Map/Modular Temple/Wall_Arch_Corner_Outer.obj" id="113_02fl5"]
+[ext_resource type="ArrayMesh" uid="uid://cydl8ilwktadu" path="res://Assets/Map/Modular Temple/Wall_Arch_Straight.obj" id="114_8idiv"]
+[ext_resource type="PackedScene" uid="uid://e8mgunypswjq" path="res://Player/player.tscn" id="115_02fl5"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+
+[node name="temple_upper_floor" type="Node3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+
+[node name="FloorNormalSquare" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor"]
+transform = Transform3D(15, 0, 0, 0, 3, 0, 0, 0, 15, 0, 0, 0)
+mesh = ExtResource("1_y81li")
+skeleton = NodePath("../..")
+
+[node name="FloorNormalSquare2" type="MeshInstance3D" parent="NavigationRegion3D/temple_upper_floor"]
+transform = Transform3D(15, 0, 0, 0, 3, 0, 0, 0, 10, 0, 0, 13.5155)
+mesh = ExtResource("1_y81li")
+skeleton = NodePath("../..")
+
+[node name="assets" type="Node3D" parent="."]
+
+[node name="FloorNormalSquare" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.199093, 0, -37.5357)
+mesh = ExtResource("1_y81li")
+skeleton = NodePath("../..")
+
+[node name="FloorRuinedCornerInner1" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.63722, 0, -37.7806)
+mesh = ExtResource("2_pwwwq")
+
+[node name="FloorRuinedCornerInner2" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34576, 0, -37.6342)
+mesh = ExtResource("3_5q8sv")
+
+[node name="FloorRuinedCornerOuter1" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.386, 0, -37.9237)
+mesh = ExtResource("4_lbjr0")
+skeleton = NodePath("../..")
+
+[node name="FloorRuinedCornerOuter2" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.15647, 0, -38.0089)
+mesh = ExtResource("5_1unhi")
+skeleton = NodePath("../..")
+
+[node name="FloorRuinedStraight1" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4056, -1.19209e-07, -37.8667)
+mesh = ExtResource("6_lbjr0")
+skeleton = NodePath("../..")
+
+[node name="FloorRuinedStraight2" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.76252, -1.19209e-07, -37.9382)
+mesh = ExtResource("7_1unhi")
+skeleton = NodePath("../..")
+
+[node name="WallCurvedSmallMiddle" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.54407, 0, -36.5845)
+mesh = ExtResource("8_oaqyw")
+skeleton = NodePath("../..")
+
+[node name="WallCurvedSmallWindow" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.30874, 0, -36.6731)
+mesh = ExtResource("9_xwoft")
+skeleton = NodePath("../..")
+
+[node name="WallCurvedSmallWindowTall" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.23022, 0, -36.6233)
+mesh = ExtResource("10_s3kjw")
+skeleton = NodePath("../..")
+
+[node name="WallCurvedLargeMiddle" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90517, 0, -36.5219)
+mesh = ExtResource("11_es62g")
+skeleton = NodePath("../..")
+
+[node name="WallCurvedLargeBase" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.88136, -0.219926, -36.7133)
+mesh = ExtResource("12_ydlgg")
+skeleton = NodePath("../..")
+
+[node name="WallCurvedLargeTop" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97373, 0.202367, -36.5397)
+mesh = ExtResource("13_an4pd")
+skeleton = NodePath("../..")
+
+[node name="WallCurvedLargeCoping" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61751, 0.0586901, -36.8409)
+mesh = ExtResource("14_p4nyc")
+skeleton = NodePath("../..")
+
+[node name="WallCurvedSmallBase" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1555, -0.260864, -36.6185)
+mesh = ExtResource("15_dd0ed")
+skeleton = NodePath("../..")
+
+[node name="WallCurvedSmallCoping" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.98538, 0.320924, -36.9126)
+mesh = ExtResource("16_tmr60")
+skeleton = NodePath("../..")
+
+[node name="WallCurvedSmallTop" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.30547, 1.24715, -36.588)
+mesh = ExtResource("17_bptjc")
+skeleton = NodePath("../..")
+
+[node name="WallEndMiddle" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.68013, 0, -37.1959)
+mesh = ExtResource("18_s3kjw")
+skeleton = NodePath("../..")
+
+[node name="WallEndTop" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.69907, 0.146477, -37.1309)
+mesh = ExtResource("19_es62g")
+skeleton = NodePath("../..")
+
+[node name="WallEndCoping" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.29493, 0, -36.8076)
+mesh = ExtResource("20_ydlgg")
+skeleton = NodePath("../..")
+
+[node name="WallEndBase" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.66722, 0, -37.1913)
+mesh = ExtResource("21_an4pd")
+skeleton = NodePath("../..")
+
+[node name="WallRuinedCornerInner1" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.275395, 0, -37.1973)
+mesh = ExtResource("22_tmr60")
+skeleton = NodePath("../..")
+
+[node name="WallRuinedCornerInner2" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02234, 0, -37.336)
+mesh = ExtResource("23_bptjc")
+skeleton = NodePath("../..")
+
+[node name="WallRuinedCornerOuter1" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03854, 0, -38.2275)
+mesh = ExtResource("24_21mky")
+skeleton = NodePath("../..")
+
+[node name="WallRuinedCornerOuter2" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79133, 0, -38.2278)
+mesh = ExtResource("25_wqj67")
+skeleton = NodePath("../..")
+
+[node name="WallRuinedFull1" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47743, 0, -37.3346)
+mesh = ExtResource("26_nomvl")
+skeleton = NodePath("../..")
+
+[node name="WallRuinedFull2" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.77804, -1.19209e-07, -37.3829)
+mesh = ExtResource("27_el8ub")
+skeleton = NodePath("../..")
+
+[node name="WallRuinedFullCracked1" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.418605, 0, -36.1972)
+mesh = ExtResource("28_icf0n")
+skeleton = NodePath("../..")
+
+[node name="WallRuinedFullCracked2" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17346, 0, -35.9932)
+mesh = ExtResource("29_l4vty")
+skeleton = NodePath("../..")
+
+[node name="WallRuinedHalf1" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57314, 0, -38.1304)
+mesh = ExtResource("30_l4vty")
+skeleton = NodePath("../..")
+
+[node name="WallRuinedHalf2" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.72807, 0, -38.0717)
+mesh = ExtResource("31_bbktd")
+skeleton = NodePath("../..")
+
+[node name="WallStraightArchTop" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.611916, 1.25788, -36.1739)
+mesh = ExtResource("32_vrdkp")
+skeleton = NodePath("../..")
+
+[node name="WallStraightBase" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.91232, 0, -37.9849)
+mesh = ExtResource("33_0m36u")
+skeleton = NodePath("../..")
+
+[node name="WallStraightCoping" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99317, 0.419469, -37.326)
+mesh = ExtResource("34_3notj")
+skeleton = NodePath("../..")
+
+[node name="WallStraightCubby" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.60309, 0, -36.0898)
+mesh = ExtResource("35_f5cr1")
+skeleton = NodePath("../..")
+
+[node name="WallStraightDoor" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.71111, 0, -37.9824)
+mesh = ExtResource("36_iqhqv")
+skeleton = NodePath("../..")
+
+[node name="WallStraightDoorway" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.59227, 0, -36.8482)
+mesh = ExtResource("37_1xx45")
+skeleton = NodePath("../..")
+
+[node name="WallStraightDoorwayLarge" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.22428, -2.38419e-07, -34.5036)
+mesh = ExtResource("38_iqhqv")
+skeleton = NodePath("../..")
+
+[node name="WallStraightDoorwayLargeExtension" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2947, 0, -33.369)
+mesh = ExtResource("39_1xx45")
+skeleton = NodePath("../..")
+
+[node name="WallStraightDoorwayLargePocket" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9844, 0, -34.3896)
+mesh = ExtResource("40_aeby1")
+skeleton = NodePath("../..")
+
+[node name="WallStraightDoorEclipse" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.04045, -2.38419e-07, -37.9665)
+mesh = ExtResource("41_cq6f3")
+skeleton = NodePath("../..")
+
+[node name="WallStraightDoorLarge" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.16112, 0, -36.5476)
+mesh = ExtResource("42_tmot1")
+skeleton = NodePath("../..")
+
+[node name="WallStraightDoorLargePocket" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1567, 0, -36.5943)
+mesh = ExtResource("43_7tg26")
+skeleton = NodePath("../..")
+
+[node name="WallStraightDoorMoon" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.46703, 0, -37.9122)
+mesh = ExtResource("44_4exs0")
+skeleton = NodePath("../..")
+
+[node name="WallStraightDoorStars" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7187, 0, -37.9507)
+mesh = ExtResource("45_t8apb")
+skeleton = NodePath("../..")
+
+[node name="WallStraightDoorSun" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9837, 0, -37.987)
+mesh = ExtResource("46_rl0rf")
+skeleton = NodePath("../..")
+
+[node name="WallStraightMiddle" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85271, 0, -36.1011)
+mesh = ExtResource("47_6usbv")
+skeleton = NodePath("../..")
+
+[node name="WallStraightTop" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.92286, 0.486534, -37.0868)
+mesh = ExtResource("48_tmot1")
+skeleton = NodePath("../..")
+
+[node name="WallStraightWindow" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0661364, 0, -34.4207)
+mesh = ExtResource("49_rl0rf")
+skeleton = NodePath("../..")
+
+[node name="WallStraightWindows" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60105, 0, -34.5556)
+mesh = ExtResource("50_6usbv")
+skeleton = NodePath("../..")
+
+[node name="WallStraightWindowsTall" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.66932, 4.76837e-07, -34.5552)
+mesh = ExtResource("51_xwlnw")
+skeleton = NodePath("../..")
+
+[node name="WallStraightWindowTall" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.97139, 0, -34.585)
+mesh = ExtResource("52_a6dgd")
+skeleton = NodePath("../..")
+
+[node name="PuzzleStepsConduit" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34174, 0, -39.1722)
+mesh = ExtResource("53_d08sk")
+skeleton = NodePath("../..")
+
+[node name="PuzzleSlidingPlatform1x3" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35819, 0, -38.5923)
+mesh = ExtResource("54_y8k83")
+skeleton = NodePath("../..")
+
+[node name="PuzzleSlidingPlatform1x2" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.71384, 0, -38.5412)
+mesh = ExtResource("55_u63s1")
+skeleton = NodePath("../..")
+
+[node name="PuzzleSlidingPlatform1x1" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8809, 0, -38.5212)
+mesh = ExtResource("56_mivks")
+skeleton = NodePath("../..")
+
+[node name="PuzzleSlidingMirror" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.91096, 0, -38.7335)
+mesh = ExtResource("57_y8k83")
+skeleton = NodePath("../..")
+
+[node name="PuzzleSlidingEmitter" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.72719, 0, -38.5976)
+mesh = ExtResource("58_u63s1")
+skeleton = NodePath("../..")
+
+[node name="PuzzleSlidingBase" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.60295, 0, -38.6126)
+mesh = ExtResource("59_mivks")
+skeleton = NodePath("../..")
+
+[node name="PuzzleFloorWallConduitConnectorBase" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.65366, 1.19209e-07, -40.1322)
+mesh = ExtResource("60_j438u")
+skeleton = NodePath("../..")
+
+[node name="PuzzleFloorWallConduitConnector" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.70794, 0, -40.1552)
+mesh = ExtResource("61_l373h")
+skeleton = NodePath("../..")
+
+[node name="PuzzleFloorConduitStandardTJoint" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.94609, 2.38419e-07, -39.8681)
+mesh = ExtResource("62_724t1")
+skeleton = NodePath("../..")
+
+[node name="PuzzleFloorConduitStandardStraight" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.70682, 0, -39.8247)
+mesh = ExtResource("63_7kjlg")
+skeleton = NodePath("../..")
+
+[node name="PuzzleFloorConduitStandardEnd" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42423, 0, -39.8926)
+mesh = ExtResource("64_t1req")
+skeleton = NodePath("../..")
+
+[node name="PuzzleFloorConduitStandardCross" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11129, -2.38419e-07, -39.8275)
+mesh = ExtResource("65_qu4si")
+skeleton = NodePath("../..")
+
+[node name="PuzzleFloorConduitStandardCorner" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155915, 0, -39.9227)
+mesh = ExtResource("66_wyarg")
+skeleton = NodePath("../..")
+
+[node name="PuzzleControlRisingSwitch" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53009, 0, -38.6503)
+mesh = ExtResource("67_frvph")
+skeleton = NodePath("../..")
+
+[node name="PuzzleControlPressurePlate" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.59026, 0, -39.4399)
+mesh = ExtResource("68_7kjlg")
+skeleton = NodePath("../..")
+
+[node name="PropVase3" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.66229, 0, -39.5557)
+mesh = ExtResource("69_wyarg")
+skeleton = NodePath("../..")
+
+[node name="PropVase2" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.6791, 1.19209e-07, -40.1396)
+mesh = ExtResource("70_frvph")
+skeleton = NodePath("../..")
+
+[node name="PropVase1" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.70358, 1.19209e-07, -40.6567)
+mesh = ExtResource("71_ql3xe")
+skeleton = NodePath("../..")
+
+[node name="PropVase" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.69226, 0, -41.0067)
+mesh = ExtResource("72_frvph")
+skeleton = NodePath("../..")
+
+[node name="PropRugSun" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7738, 0, -38.4145)
+mesh = ExtResource("73_uiw10")
+skeleton = NodePath("../..")
+
+[node name="PropRugStars" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.775, 0, -39.5118)
+mesh = ExtResource("74_mr1tt")
+skeleton = NodePath("../..")
+
+[node name="PropRugSide" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7594, 0, -39.9417)
+mesh = ExtResource("75_wdi2n")
+skeleton = NodePath("../..")
+
+[node name="PropRugMoon" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7828, 0, -41.0239)
+mesh = ExtResource("76_u7kv4")
+skeleton = NodePath("../..")
+
+[node name="PropRugMiddle" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0387, 0, -38.3868)
+mesh = ExtResource("77_08qw2")
+skeleton = NodePath("../..")
+
+[node name="PropRugEclipse" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0328, 0, -39.4548)
+mesh = ExtResource("78_y3tet")
+skeleton = NodePath("../..")
+
+[node name="PropRugCornerOuter" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3152, 0, -39.9003)
+mesh = ExtResource("79_44qym")
+skeleton = NodePath("../..")
+
+[node name="PropRugCornerInner" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8899, 0, -40.5696)
+mesh = ExtResource("80_cgei8")
+skeleton = NodePath("../..")
+
+[node name="PropRubble1" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.74452, 0, -40.4576)
+mesh = ExtResource("81_kyixh")
+skeleton = NodePath("../..")
+
+[node name="PropRubble2" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.91997, 0, -40.3743)
+mesh = ExtResource("82_mund5")
+skeleton = NodePath("../..")
+
+[node name="PropFlagSun" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5886, 0, -38.4066)
+mesh = ExtResource("83_rxtx1")
+skeleton = NodePath("../..")
+
+[node name="PropFlagStandTop" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6588, 0, -41.7287)
+mesh = ExtResource("84_5j5od")
+skeleton = NodePath("../..")
+
+[node name="PropFlagStandExtension" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8148, 0, -41.8539)
+mesh = ExtResource("85_xy34e")
+skeleton = NodePath("../..")
+
+[node name="PropFlagMoon" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5489, 0, -39.0295)
+mesh = ExtResource("86_eyatt")
+skeleton = NodePath("../..")
+
+[node name="PropFlagEclipse" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4941, 0, -39.6496)
+mesh = ExtResource("87_ab17u")
+skeleton = NodePath("../..")
+
+[node name="PropFlag3" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4593, 0, -38.8257)
+mesh = ExtResource("88_8lqjm")
+skeleton = NodePath("../..")
+
+[node name="PropFlag2" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5733, 0, -40.3291)
+mesh = ExtResource("89_dq3py")
+skeleton = NodePath("../..")
+
+[node name="PropFlag1" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5596, 0, -40.9297)
+mesh = ExtResource("90_1mtyj")
+skeleton = NodePath("../..")
+
+[node name="FloorCurvedLarge" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.85959, 0, -39.8731)
+mesh = ExtResource("91_rxtx1")
+skeleton = NodePath("../..")
+
+[node name="FloorCurvedLargeOuter" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35818, 0, -39.1556)
+mesh = ExtResource("92_5j5od")
+skeleton = NodePath("../..")
+
+[node name="FloorCurvedSmall" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.53325, 0, -40.1814)
+mesh = ExtResource("93_xy34e")
+skeleton = NodePath("../..")
+
+[node name="FloorCurvedSmallOuter" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13697, 0, -40.5265)
+mesh = ExtResource("94_eyatt")
+skeleton = NodePath("../..")
+
+[node name="FloorBridgeRamp" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5476, 0, -36.4848)
+mesh = ExtResource("95_ab17u")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingTower" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0159, 0, -37.6403)
+mesh = ExtResource("96_8lqjm")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingStraight" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6893, 0, -39.3087)
+mesh = ExtResource("97_dq3py")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingEnd" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7668, 0, -38.5356)
+mesh = ExtResource("98_1mtyj")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingCurvedSmall" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2089, 0, -38.3134)
+mesh = ExtResource("99_benkt")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingBridgeRamp" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2969, 0, -36.4238)
+mesh = ExtResource("100_nfcio")
+skeleton = NodePath("../..")
+
+[node name="TowerSteps" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.28421, 0, -38.0795)
+mesh = ExtResource("101_5j5od")
+skeleton = NodePath("../..")
+
+[node name="TowerParapetSimpleCrowned" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3463, 0, -38.3876)
+mesh = ExtResource("102_dq3py")
+skeleton = NodePath("../..")
+
+[node name="TowerParapetBracedCrowned" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.4786, 0, -34.6171)
+mesh = ExtResource("103_1mtyj")
+skeleton = NodePath("../..")
+
+[node name="TowerLanding" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.90901, 0, -39.0044)
+mesh = ExtResource("104_benkt")
+skeleton = NodePath("../..")
+
+[node name="StairsUnderRampStraight" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.0765, 0, -40.1162)
+mesh = ExtResource("105_nfcio")
+skeleton = NodePath("../..")
+
+[node name="StairsUnderRampCurved" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3847, 0, -39.9937)
+mesh = ExtResource("106_k7ub3")
+skeleton = NodePath("../..")
+
+[node name="StairsStepsStraight" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28452, 0, -40.676)
+mesh = ExtResource("107_1mtyj")
+skeleton = NodePath("../..")
+
+[node name="StairsStepsCurved" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -43)
+mesh = ExtResource("108_benkt")
+skeleton = NodePath("../..")
+
+[node name="StairsNewelMiddle" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.232603, 0, -41.7208)
+mesh = ExtResource("109_aoq3u")
+skeleton = NodePath("../..")
+
+[node name="StairsNewelBase" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.894687, 0, -41.8098)
+mesh = ExtResource("110_ko8qk")
+skeleton = NodePath("../..")
+
+[node name="StairsNewelTop" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.336535, 0, -42.3152)
+mesh = ExtResource("111_0octl")
+skeleton = NodePath("../..")
+
+[node name="WallArchCornerInner" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.48731, 0, -34.6435)
+mesh = ExtResource("112_m2nuc")
+skeleton = NodePath("../..")
+
+[node name="WallArchCornerOuter" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.55877, 0, -35.193)
+mesh = ExtResource("113_02fl5")
+skeleton = NodePath("../..")
+
+[node name="WallArchStraight" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2119, 0, -35.1016)
+mesh = ExtResource("114_8idiv")
+skeleton = NodePath("../..")
+
+[node name="Player" parent="." instance=ExtResource("115_02fl5")]
