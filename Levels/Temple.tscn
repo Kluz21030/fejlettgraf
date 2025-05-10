@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=3 uid="uid://bjyeaw0u405vc"]
+[gd_scene load_steps=130 format=3 uid="uid://bjyeaw0u405vc"]
 
 [ext_resource type="ArrayMesh" uid="uid://cfamg7r2owb4c" path="res://Assets/Map/Modular Temple/Floor_Normal_Square.obj" id="1_y81li"]
 [ext_resource type="ArrayMesh" uid="uid://bvx0tv4tm121i" path="res://Assets/Map/Modular Temple/Floor_Ruined_Corner_Inner_1.obj" id="2_pwwwq"]
@@ -48,6 +48,7 @@
 [ext_resource type="ArrayMesh" uid="uid://bcvkuq2hqfecb" path="res://Assets/Map/Modular Temple/Wall_Straight_Door_Moon.obj" id="44_4exs0"]
 [ext_resource type="ArrayMesh" uid="uid://cegtgpq1psrhp" path="res://Assets/Map/Modular Temple/Wall_Straight_Door_Stars.obj" id="45_t8apb"]
 [ext_resource type="ArrayMesh" uid="uid://cmyat7ukn8e7k" path="res://Assets/Map/Modular Temple/Wall_Straight_Door_Sun.obj" id="46_rl0rf"]
+[ext_resource type="PackedScene" uid="uid://ba4n4yxp3rplt" path="res://Assets/Map/HalloweenPack/crypt.gltf" id="47_5dxip"]
 [ext_resource type="ArrayMesh" uid="uid://g7qgafpl7411" path="res://Assets/Map/Modular Temple/Wall_Straight_Middle.obj" id="47_6usbv"]
 [ext_resource type="ArrayMesh" uid="uid://cu777gkc4xapj" path="res://Assets/Map/Modular Temple/Wall_Straight_Top.obj" id="48_tmot1"]
 [ext_resource type="ArrayMesh" uid="uid://115dxg1wkt8t" path="res://Assets/Map/Modular Temple/Wall_Straight_Window.obj" id="49_rl0rf"]
@@ -1373,6 +1374,11 @@ skeleton = NodePath("../..")
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 48.1216, 0, -10.0707)
 mesh = ExtResource("78_y3tet")
 skeleton = NodePath("../..")
+
+[node name="Cemetery" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="crypt2" parent="NavigationRegion3D/Cemetery" instance=ExtResource("47_5dxip")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -57.5, 0, -48.699)
 
 [node name="assets" type="Node3D" parent="."]
 
