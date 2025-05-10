@@ -1,4 +1,4 @@
-[gd_scene load_steps=127 format=3 uid="uid://bjyeaw0u405vc"]
+[gd_scene load_steps=129 format=3 uid="uid://bjyeaw0u405vc"]
 
 [ext_resource type="ArrayMesh" uid="uid://cfamg7r2owb4c" path="res://Assets/Map/Modular Temple/Floor_Normal_Square.obj" id="1_y81li"]
 [ext_resource type="ArrayMesh" uid="uid://bvx0tv4tm121i" path="res://Assets/Map/Modular Temple/Floor_Ruined_Corner_Inner_1.obj" id="2_pwwwq"]
@@ -31,6 +31,8 @@
 [ext_resource type="ArrayMesh" uid="uid://urv17gs3g8jy" path="res://Assets/Map/Modular Temple/Wall_Ruined_Full_Cracked_2.obj" id="29_l4vty"]
 [ext_resource type="ArrayMesh" uid="uid://8j11b4aepfr" path="res://Assets/Map/Modular Temple/Wall_Ruined_Half_1.obj" id="30_l4vty"]
 [ext_resource type="ArrayMesh" uid="uid://bu2blqvbyelaw" path="res://Assets/Map/Modular Temple/Wall_Ruined_Half_2.obj" id="31_bbktd"]
+[ext_resource type="ArrayMesh" uid="uid://ed7ddi2rs7ee" path="res://Assets/Map/Modular Temple/Floor_Tower_Balcony.obj" id="32_celij"]
+[ext_resource type="ArrayMesh" uid="uid://b86vtt62nr8vr" path="res://Assets/Map/Modular Temple/Puzzle_Floor_Conduit_Rotating_Platform_End.obj" id="32_dxjaa"]
 [ext_resource type="ArrayMesh" uid="uid://ck2qd7l882hoq" path="res://Assets/Map/Modular Temple/Wall_Straight_Arch_Top.obj" id="32_vrdkp"]
 [ext_resource type="ArrayMesh" uid="uid://d4d4cqlivnbvv" path="res://Assets/Map/Modular Temple/Wall_Straight_Base.obj" id="33_0m36u"]
 [ext_resource type="ArrayMesh" uid="uid://6vrhahu853sx" path="res://Assets/Map/Modular Temple/Wall_Straight_Coping.obj" id="34_3notj"]
@@ -683,6 +685,214 @@ transform = Transform3D(30, 0, 0, 0, 6, 0, 0, 0, 50, 0, 0, 0)
 mesh = ExtResource("1_y81li")
 skeleton = NodePath("../../..")
 
+[node name="FloorBridgeRamp" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(2, 0, 0, 0, 3, 0, 0, 0, 4, -11.8, 0, 22)
+mesh = ExtResource("95_ab17u")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingBridgeRamp" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony/FloorBridgeRamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.9)
+mesh = ExtResource("100_nfcio")
+skeleton = NodePath("../..")
+
+[node name="FloorBridgeRamp2" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(2, 0, 0, 0, 3, 0, 0, 0, 4, -11.8, 0, -22)
+mesh = ExtResource("95_ab17u")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingBridgeRamp" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony/FloorBridgeRamp2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
+mesh = ExtResource("100_nfcio")
+skeleton = NodePath("../..")
+
+[node name="FloorBridgeRamp3" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(2, 0, 0, 0, 3, 0, 0, 0, 4, -11.8, 0, 0)
+mesh = ExtResource("95_ab17u")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingBridgeRamp" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony/FloorBridgeRamp3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
+mesh = ExtResource("100_nfcio")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingBridgeRamp2" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony/FloorBridgeRamp3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.9)
+mesh = ExtResource("100_nfcio")
+skeleton = NodePath("../..")
+
+[node name="FloorTowerBalcony" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(2.05061, 0, -2.05061, 0, 3, 0, 2.05061, 0, 2.05061, -16.5, 3.00246, 0)
+mesh = ExtResource("32_celij")
+
+[node name="BalconyRailingTower" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony/FloorTowerBalcony"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0738955, 0, -0.0738964)
+mesh = ExtResource("96_8lqjm")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingStraight" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony/FloorTowerBalcony"]
+transform = Transform3D(-0.16137, 0, 0.983795, 0, 1, 0, -0.885415, 0, -0.1793, -0.0844612, 0, 1.01591)
+mesh = ExtResource("97_dq3py")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingStraight2" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony/FloorTowerBalcony"]
+transform = Transform3D(0.884809, 0, -0.182956, 0, 1, 0, 0.164661, 0, 0.983121, -0.844755, 0, -0.913595)
+mesh = ExtResource("97_dq3py")
+skeleton = NodePath("../..")
+
+[node name="FloorNormalSquare" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(16, 0, 0, 0, 3, 0, 0, 0, 4, -24.797, 3, -22)
+mesh = ExtResource("1_y81li")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingEnd" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -33.9979, 3.00266, 20.3397)
+mesh = ExtResource("98_1mtyj")
+
+[node name="BalconyRailingEnd2" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(-3, 0, -2.62268e-07, 0, 3, 0, 2.62268e-07, 0, -3, -32.4874, 3.00266, 21.8387)
+mesh = ExtResource("98_1mtyj")
+
+[node name="FloorNormalSquare3" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(16, 0, 0, 0, 3, 0, 0, 0, 4, -24.797, 3, 22)
+mesh = ExtResource("1_y81li")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingStraight" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -29.352, 3.002, 18.839)
+mesh = ExtResource("97_dq3py")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingStraight2" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -26.2195, 3.002, 18.839)
+mesh = ExtResource("97_dq3py")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingStraight3" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -23.09, 3.002, 18.839)
+mesh = ExtResource("97_dq3py")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingStraight4" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.96, 3.002, 18.839)
+mesh = ExtResource("97_dq3py")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingEnd3" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -16.8911, 3.00266, 18.8358)
+mesh = ExtResource("98_1mtyj")
+
+[node name="BalconyRailingEnd4" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(3.57746e-08, 0, -3, 0, 3, 0, 3, 0, 3.57746e-08, -30.9549, 3.00266, -20.3431)
+mesh = ExtResource("98_1mtyj")
+
+[node name="BalconyRailingEnd5" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(-3, 0, -4.52987e-07, 0, 3, 0, 4.52987e-07, 0, -3, -32.4874, 3.00266, -18.8412)
+mesh = ExtResource("98_1mtyj")
+
+[node name="BalconyRailingStraight5" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -29.352, 3.002, -21.8379)
+mesh = ExtResource("97_dq3py")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingStraight6" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -26.2195, 3.002, -21.8379)
+mesh = ExtResource("97_dq3py")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingStraight7" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -23.09, 3.002, -21.8379)
+mesh = ExtResource("97_dq3py")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingStraight8" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.96, 3.002, -21.8379)
+mesh = ExtResource("97_dq3py")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingEnd6" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -16.8911, 3.00266, -21.8379)
+mesh = ExtResource("98_1mtyj")
+
+[node name="BalconyRailingEnd7" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(3.57746e-08, 0, -3, 0, 3, 0, 3, 0, 3.57746e-08, -13.1969, 0, 19.6825)
+mesh = ExtResource("98_1mtyj")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingEnd8" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -16.1975, 0, 2.36973)
+mesh = ExtResource("98_1mtyj")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingEnd9" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(3.57746e-08, 0, -3, 0, 3, 0, 3, 0, 3.57746e-08, -13.1969, 0, 19.6825)
+mesh = ExtResource("98_1mtyj")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingEnd10" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -16.1975, 0, 2.36973)
+mesh = ExtResource("98_1mtyj")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingStraight9" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -16.2, 0, 5.50628)
+mesh = ExtResource("97_dq3py")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingStraight10" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -16.2, 0, 8.65025)
+mesh = ExtResource("97_dq3py")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingStraight11" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -16.2, 0, 11.0324)
+mesh = ExtResource("97_dq3py")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingStraight12" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -16.2, 0, 16.5606)
+mesh = ExtResource("97_dq3py")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingStraight13" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -16.2, 0, 13.4542)
+mesh = ExtResource("97_dq3py")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingEnd11" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(3.57746e-08, 0, -3, 0, 3, 0, 3, 0, 3.57746e-08, -13.1969, 0, -2.36922)
+mesh = ExtResource("98_1mtyj")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingEnd12" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -16.1975, 0, -19.682)
+mesh = ExtResource("98_1mtyj")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingStraight14" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -16.2, 0, -16.5454)
+mesh = ExtResource("97_dq3py")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingStraight15" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -16.2, 0, -13.4015)
+mesh = ExtResource("97_dq3py")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingStraight16" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -16.2, 0, -11.0193)
+mesh = ExtResource("97_dq3py")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingStraight17" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -16.2, 0, -5.49109)
+mesh = ExtResource("97_dq3py")
+skeleton = NodePath("../..")
+
+[node name="BalconyRailingStraight18" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -16.2, 0, -8.59752)
+mesh = ExtResource("97_dq3py")
+skeleton = NodePath("../..")
+
 [node name="assets" type="Node3D" parent="."]
 
 [node name="FloorNormalSquare" type="MeshInstance3D" parent="assets"]
@@ -1252,6 +1462,14 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2119, 0, -35.1016)
 mesh = ExtResource("114_8idiv")
 skeleton = NodePath("../..")
+
+[node name="PuzzleFloorConduitRotatingPlatformEnd" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.96917, 0, -41.3673)
+mesh = ExtResource("32_dxjaa")
+
+[node name="FloorTowerBalcony" type="MeshInstance3D" parent="assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.17438, 0, -42.5848)
+mesh = ExtResource("32_celij")
 
 [node name="Player" parent="." instance=ExtResource("115_02fl5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.0035, 0)
