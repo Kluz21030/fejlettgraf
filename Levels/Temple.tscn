@@ -583,7 +583,7 @@ mesh = ExtResource("47_6usbv")
 skeleton = NodePath("../..")
 
 [node name="WallRuinedFull3" type="MeshInstance3D" parent="NavigationRegion3D/Temple/MainHall/ArchedWall2"]
-transform = Transform3D(10, 0, 0, 0, 20, 0, 0, 0, 10, -60, 0, -30)
+transform = Transform3D(11, 0, 0, 0, 20, 0, 0, 0, 10, -60.6163, 0, -30)
 mesh = ExtResource("47_6usbv")
 skeleton = NodePath("../..")
 
@@ -609,6 +609,11 @@ skeleton = NodePath("../..")
 [node name="WallRuinedFullCracked5" type="MeshInstance3D" parent="NavigationRegion3D/Temple/MainHall/ArchedWall2"]
 transform = Transform3D(8.74228e-07, 20, 1.74846e-06, 20, -8.74228e-07, 0, 7.64274e-14, 1.74846e-06, -20, 52.5, 10, -14)
 mesh = ExtResource("28_icf0n")
+skeleton = NodePath("../..")
+
+[node name="WallStraightDoorway" type="MeshInstance3D" parent="NavigationRegion3D/Temple/MainHall/ArchedWall2"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -50, 0, -30)
+mesh = ExtResource("37_1xx45")
 skeleton = NodePath("../..")
 
 [node name="MainEnterance" type="Node3D" parent="NavigationRegion3D/Temple/MainHall"]
@@ -684,6 +689,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32.5)
 transform = Transform3D(30, 0, 0, 0, 6, 0, 0, 0, 50, 0, 0, 0)
 mesh = ExtResource("1_y81li")
 skeleton = NodePath("../../..")
+
+[node name="PropRugSide" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony/FloorNormalSquare2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("75_wdi2n")
+skeleton = NodePath("../..")
+
+[node name="PropRugSide2" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony/FloorNormalSquare2"]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 0)
+mesh = ExtResource("75_wdi2n")
+skeleton = NodePath("../..")
 
 [node name="FloorBridgeRamp" type="MeshInstance3D" parent="NavigationRegion3D/Temple/Balcony"]
 transform = Transform3D(2, 0, 0, 0, 3, 0, 0, 0, 4, -11.8, 0, 22)
@@ -892,6 +907,120 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -16.2, 0, -8.59752)
 mesh = ExtResource("97_dq3py")
 skeleton = NodePath("../..")
+
+[node name="1stFloorSideRoom" type="Node3D" parent="NavigationRegion3D/Temple"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 70)
+
+[node name="FloorNormalSquare2" type="MeshInstance3D" parent="NavigationRegion3D/Temple/1stFloorSideRoom"]
+transform = Transform3D(25, 0, 0, 0, 6, 0, 0, 0, 25, 0, 0, 0)
+mesh = ExtResource("1_y81li")
+skeleton = NodePath("../../..")
+
+[node name="FloorNormalSquare3" type="MeshInstance3D" parent="NavigationRegion3D/Temple/1stFloorSideRoom"]
+transform = Transform3D(25, 0, 0, 0, 6, 0, 0, 0, 25, 0, 19.96, 0)
+mesh = ExtResource("1_y81li")
+skeleton = NodePath("../../..")
+
+[node name="WallRuinedFull2" type="MeshInstance3D" parent="NavigationRegion3D/Temple/1stFloorSideRoom"]
+transform = Transform3D(-1.74846e-07, 0, 2, 0, 4, 0, -4, 0, -8.74228e-08, 11.5, 0, 0)
+mesh = ExtResource("27_el8ub")
+skeleton = NodePath("../..")
+
+[node name="WallStraightCubby" type="MeshInstance3D" parent="NavigationRegion3D/Temple/1stFloorSideRoom"]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 8.30215)
+mesh = ExtResource("35_f5cr1")
+skeleton = NodePath("../..")
+
+[node name="WallRuinedFull1" type="MeshInstance3D" parent="NavigationRegion3D/Temple/1stFloorSideRoom"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -27.5, -20, -34)
+mesh = ExtResource("26_nomvl")
+skeleton = NodePath("../..")
+
+[node name="WallRuinedFull3" type="MeshInstance3D" parent="NavigationRegion3D/Temple/1stFloorSideRoom"]
+transform = Transform3D(-1.09278e-06, 0, -10, 0, 20, 0, 25, 0, -4.37114e-07, -8.06203, 0, 0)
+mesh = ExtResource("47_6usbv")
+skeleton = NodePath("../..")
+
+[node name="WallRuinedFull4" type="MeshInstance3D" parent="NavigationRegion3D/Temple/1stFloorSideRoom"]
+transform = Transform3D(10, 0, 0, 0, 20, 0, 0, 0, 10, -7.95354, 0, 7.49512)
+mesh = ExtResource("47_6usbv")
+skeleton = NodePath("../..")
+
+[node name="WallRuinedFull5" type="MeshInstance3D" parent="NavigationRegion3D/Temple/1stFloorSideRoom"]
+transform = Transform3D(10, 0, 0, 0, 20, 0, 0, 0, 10, 8.25997, 0, 7.49512)
+mesh = ExtResource("47_6usbv")
+skeleton = NodePath("../..")
+
+[node name="WallRuinedFull7" type="MeshInstance3D" parent="NavigationRegion3D/Temple/1stFloorSideRoom"]
+transform = Transform3D(-4.37114e-07, 0, 2, 0, 20, 0, -10, 0, -8.74228e-08, 11.4804, 0, 6.93909)
+mesh = ExtResource("47_6usbv")
+skeleton = NodePath("../..")
+
+[node name="WallRuinedFull9" type="MeshInstance3D" parent="NavigationRegion3D/Temple/1stFloorSideRoom"]
+transform = Transform3D(-4.37114e-07, 0, 2, 0, 16, 0, -10, 0, -8.74228e-08, 11.488, 3.9177, 0.125237)
+mesh = ExtResource("47_6usbv")
+skeleton = NodePath("../..")
+
+[node name="WallRuinedFull8" type="MeshInstance3D" parent="NavigationRegion3D/Temple/1stFloorSideRoom"]
+transform = Transform3D(-4.37114e-07, 0, 2, 0, 20, 0, -10, 0, -8.74228e-08, 11.4804, 0, -6.7532)
+mesh = ExtResource("47_6usbv")
+skeleton = NodePath("../..")
+
+[node name="WallRuinedFull6" type="MeshInstance3D" parent="NavigationRegion3D/Temple/1stFloorSideRoom"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -0.424871, 7.80881, 7.49512)
+mesh = ExtResource("47_6usbv")
+skeleton = NodePath("../..")
+
+[node name="1stFloorSecretRoom1" type="Node3D" parent="NavigationRegion3D/Temple"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 70)
+
+[node name="FloorNormalSquare2" type="MeshInstance3D" parent="NavigationRegion3D/Temple/1stFloorSecretRoom1"]
+transform = Transform3D(15, 0, 0, 0, 6, 0, 0, 0, 20, 0, 0, -2.38597)
+mesh = ExtResource("1_y81li")
+skeleton = NodePath("../../..")
+
+[node name="FloorNormalSquare3" type="MeshInstance3D" parent="NavigationRegion3D/Temple/1stFloorSecretRoom1"]
+transform = Transform3D(15, 0, 0, 0, 6, 0, 0, 0, 20, 0, 19.96, -2.38597)
+mesh = ExtResource("1_y81li")
+skeleton = NodePath("../../..")
+
+[node name="WallRuinedFull7" type="MeshInstance3D" parent="NavigationRegion3D/Temple/1stFloorSecretRoom1"]
+transform = Transform3D(13, 0, 0, 0, 20, 0, 0, 0, 2, 1.15166, 0, 6.76526)
+mesh = ExtResource("47_6usbv")
+skeleton = NodePath("../..")
+
+[node name="WallStraightDoorStars" type="MeshInstance3D" parent="NavigationRegion3D/Temple/1stFloorSecretRoom1/WallRuinedFull7"]
+transform = Transform3D(0.32, 0, 0, 0, 0.2, 0, 0, 0, 3, -0.0864614, 0, -11.1946)
+mesh = ExtResource("45_t8apb")
+skeleton = NodePath("../..")
+
+[node name="WallRuinedFull9" type="MeshInstance3D" parent="NavigationRegion3D/Temple/1stFloorSecretRoom1"]
+transform = Transform3D(13, 0, 0, 0, 15, 0, 0, 0, 10, 1.152, 6.75824, -17.5)
+mesh = ExtResource("47_6usbv")
+skeleton = NodePath("../..")
+
+[node name="WallRuinedFull8" type="MeshInstance3D" parent="NavigationRegion3D/Temple/1stFloorSecretRoom1"]
+transform = Transform3D(-8.74228e-07, 0, 2, 0, 20, 0, -20, 0, -8.74228e-08, 6.28859, 0, -2.29053)
+mesh = ExtResource("47_6usbv")
+skeleton = NodePath("../..")
+
+[node name="WallStraightDoorway" type="MeshInstance3D" parent="NavigationRegion3D/Temple/1stFloorSecretRoom1"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 10, 0, 0, -17.501)
+mesh = ExtResource("37_1xx45")
+skeleton = NodePath("../..")
+
+[node name="WallRuinedFull10" type="MeshInstance3D" parent="NavigationRegion3D/Temple/1stFloorSecretRoom1"]
+transform = Transform3D(6, 0, 0, 0, 15, 0, 0, 0, 10, 4.77457, 0, -17.5)
+mesh = ExtResource("47_6usbv")
+skeleton = NodePath("../..")
+
+[node name="1stFloorMainRoom" type="Node3D" parent="NavigationRegion3D/Temple"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 32.5)
+
+[node name="FloorNormalSquare2" type="MeshInstance3D" parent="NavigationRegion3D/Temple/1stFloorMainRoom"]
+transform = Transform3D(30, 0, 0, 0, 6, 0, 0, 0, 50, 0, 0, 0)
+mesh = ExtResource("1_y81li")
+skeleton = NodePath("../../..")
 
 [node name="assets" type="Node3D" parent="."]
 
@@ -1472,7 +1601,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.17438, 0, -42.5848)
 mesh = ExtResource("32_celij")
 
 [node name="Player" parent="." instance=ExtResource("115_02fl5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.0035, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.0035, 69.1902)
 
 [node name="PillarLargeBeam" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.42761, 0, -43.9535)
