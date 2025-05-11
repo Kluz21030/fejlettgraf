@@ -21,6 +21,8 @@ func _on_hit(area: Area3D) -> void:
 		attack.damage = damage
 		area.damage(attack)
 		already_hit.append(area)
+	if area is SecretWall:
+		area.destroy()
 
 func reset_hit_list() -> void:
 	already_hit = []

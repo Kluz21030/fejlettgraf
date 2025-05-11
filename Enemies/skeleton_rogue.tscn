@@ -300,7 +300,7 @@ shape = SubResource("CylinderShape3D_pvpdn")
 debug_color = Color(1, 1, 0, 0.784314)
 
 [node name="Attack_Range" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 1, 0)
 collision_layer = 0
 collision_mask = 2
 monitorable = false
@@ -338,7 +338,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../Skeleton_Rogue/Rig/Skeleton3D")
 
 [node name="Skeleton_Dagger" parent="DaggerMainhand" node_paths=PackedStringArray("state_machine") instance=ExtResource("17_gqg5d")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1.25, 0, -1.88745e-07, 0, 1.25, 0, 1.88745e-07, 0, -1.25, 0, 0, 0)
 collision_layer = 0
 collision_mask = 2
 monitoring = true
@@ -352,6 +352,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../Skeleton_Rogue/Rig/Skeleton3D")
 
 [node name="Skeleton_Dagger" parent="DaggerOffhand" node_paths=PackedStringArray("state_machine") instance=ExtResource("17_gqg5d")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 collision_layer = 0
 collision_mask = 2
 monitoring = true

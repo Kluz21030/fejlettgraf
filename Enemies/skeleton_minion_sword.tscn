@@ -38,6 +38,7 @@ skin = NodePath("Skeleton_Minion")
 transform = Transform3D(-1.53513e-07, -0.149894, -0.988701, -0.999999, -5.36442e-07, 1.19665e-06, -1.10337e-06, 0.988701, -0.149894, -0.49106, 0.64103, 0.106595)
 
 [node name="Weapon" parent="Skeleton_Minion/Rig/Skeleton3D/Sword" index="0" node_paths=PackedStringArray("state_machine")]
+transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, 0, 0, 0)
 weapon_name = &"Skeleton"
 state_machine = NodePath("../../../../../StateMachine")
 
@@ -122,7 +123,7 @@ debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="Attack_Range" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1, 0)
 collision_layer = 0
 collision_mask = 2
 monitorable = false

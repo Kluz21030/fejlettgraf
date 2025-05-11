@@ -1,8 +1,13 @@
 extends State
 
 @export var impulse: int = 8
+@export var health_component: ResourceComponent
+@export var fall_damage: float
+@export var fall_damage_theshold: float
 
 @onready var buffer: Timer = get_child(0)
+
+var enter_height: float
 
 func enter(previous_state_path:String, data: Dictionary = {}) -> void:
 	animation_player.animation_finished.connect(_on_animation_finished)
@@ -12,6 +17,7 @@ func enter(previous_state_path:String, data: Dictionary = {}) -> void:
 	body.velocity.y += impulse
 	animation_player.play(animation)
 	buffer.start(0.05)
+	enter_height = body.global_position.y
 
 func exit() -> void:
 	animation_player.animation_finished.disconnect(_on_animation_finished)
@@ -29,6 +35,9 @@ func update(_delta: float) -> void:
 		if not body.velocity.is_equal_approx(Vector3.ZERO):
 			finished.emit("Run")
 		else:
+			var fall_distance: float = enter_height - body.global_position.y
+			if fall_distance >= fall_damage_theshold:
+				health_component.take_damage(fall_distance * fall_damage)
 			animation_player.play(&"player_animations/Jump_Land", 0.2)
 
 func physics_update(_delta: float) -> void:
