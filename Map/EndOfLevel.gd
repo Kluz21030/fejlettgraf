@@ -11,4 +11,5 @@ func _on_area_entered(area: Area3D) -> void:
 	Events.eol_reached.emit("Enter: %s?" % next_level_name)
 
 func _on_accept() -> void:
+	monitoring = false
 	Events.transition_to_next_level.emit(next_level)

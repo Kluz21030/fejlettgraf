@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://chr4qtb54rs7m"]
+[gd_scene load_steps=13 format=3 uid="uid://chr4qtb54rs7m"]
 
+[ext_resource type="Script" uid="uid://co64tv35pa3m8" path="res://Levels/Level.gd" id="1_3jyeb"]
 [ext_resource type="PackedScene" uid="uid://e8mgunypswjq" path="res://Player/player.tscn" id="1_bmk2s"]
 [ext_resource type="PackedScene" uid="uid://bwx1hmpd76y63" path="res://Enemies/skeleton_minion_sword.tscn" id="2_vnnrm"]
 [ext_resource type="PackedScene" uid="uid://bp8xr8iv5asfq" path="res://Enemies/skeleton_minion_unarmed.tscn" id="3_fomxa"]
@@ -28,8 +29,10 @@ sky = SubResource("Sky_gq0tu")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="NavigationRegion3D" type="NavigationRegion3D"]
+[node name="NavigationRegion3D" type="NavigationRegion3D" node_paths=PackedStringArray("spawn_point") groups=["Level"]]
 navigation_mesh = SubResource("NavigationMesh_2m3mq")
+script = ExtResource("1_3jyeb")
+spawn_point = NodePath("Node3D")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -68,3 +71,6 @@ value = 500
 
 [node name="Pickup" parent="." instance=ExtResource("7_gq5jp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19396, -12.4397)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7866, 9.9094, 7.76763)
