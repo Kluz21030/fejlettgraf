@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://bi6f2u81ey1r8"]
+
+[ext_resource type="Script" uid="uid://co64tv35pa3m8" path="res://Levels/Level.gd" id="1_twdth"]
+[ext_resource type="PackedScene" uid="uid://dv4a6yjpomh6q" path="res://Assets/Map/Dungeon/stairs_long.gltf" id="2_su42g"]
+[ext_resource type="PackedScene" uid="uid://cpdjodwxwrqrq" path="res://Assets/Map/Dungeon/wall_doorway.gltf" id="3_uh34n"]
+[ext_resource type="PackedScene" uid="uid://6nlo4yi678ee" path="res://Assets/Map/Dungeon/floor_foundation_front.gltf" id="4_y6ji2"]
+
+[node name="Crypts" type="Node3D"]
+script = ExtResource("1_twdth")
+
+[node name="stairs_long2" parent="." instance=ExtResource("2_su42g")]
+
+[node name="wall_doorway2" parent="." instance=ExtResource("3_uh34n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.97071, -3.21794)
+
+[node name="floor_foundation_front2" parent="." instance=ExtResource("4_y6ji2")]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -0.054, -0.014605, -1.94896)
