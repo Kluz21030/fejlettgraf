@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bi6f2u81ey1r8"]
+[gd_scene load_steps=19 format=3 uid="uid://bi6f2u81ey1r8"]
 
 [ext_resource type="Script" uid="uid://co64tv35pa3m8" path="res://Levels/Level.gd" id="1_twdth"]
 [ext_resource type="PackedScene" uid="uid://dv4a6yjpomh6q" path="res://Assets/Map/Dungeon/stairs_long.gltf" id="2_su42g"]
@@ -8,6 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://dg0qoei7l172x" path="res://Assets/Map/Dungeon/wall_corner_small.gltf" id="6_vi20a"]
 [ext_resource type="PackedScene" uid="uid://bohk488gxxic2" path="res://Assets/Map/Dungeon/wall_arched.gltf" id="7_kjp6u"]
 [ext_resource type="PackedScene" uid="uid://y5ndy8ji401y" path="res://Assets/Map/Dungeon/wall.gltf" id="8_ths7o"]
+[ext_resource type="PackedScene" uid="uid://bmtlflscb7jjn" path="res://Assets/Map/Dungeon/wall_archedwindow_gated.gltf" id="9_7xtpx"]
+[ext_resource type="PackedScene" uid="uid://6plgjcaonap1" path="res://Assets/Map/Dungeon/wall_corner.gltf" id="9_x58k1"]
+[ext_resource type="PackedScene" uid="uid://cof2qtpba4bad" path="res://Assets/Map/Dungeon/wall_cracked.gltf" id="11_4j578"]
+[ext_resource type="PackedScene" uid="uid://bxifiacxf1ugk" path="res://Assets/Map/Dungeon/wall_Tsplit.gltf" id="12_lhen2"]
+[ext_resource type="PackedScene" uid="uid://dbpumhrm1oo5o" path="res://Assets/Map/Dungeon/floor_dirt_small_B.gltf" id="13_ss62o"]
+[ext_resource type="PackedScene" uid="uid://bt54h7qiiq67i" path="res://Assets/Map/Dungeon/floor_dirt_small_C.gltf" id="14_6duiq"]
+[ext_resource type="PackedScene" uid="uid://bh3gb1yrsr1q1" path="res://Assets/Map/Dungeon/floor_dirt_small_weeds.gltf" id="15_6duiq"]
+[ext_resource type="PackedScene" uid="uid://crruwrnx0oskl" path="res://Assets/Map/Dungeon/floor_dirt_small_D.gltf" id="16_lfqqv"]
+[ext_resource type="PackedScene" uid="uid://bf663e0d7x1mw" path="res://Map/Pickups/StaminaPickup.tscn" id="17_8gsn1"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ths7o"]
 
@@ -63,7 +72,7 @@ transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 
 transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -4.15, 5.95, 9.82513)
 
 [node name="wall10" parent="NavigationRegion3D/Enterance" instance=ExtResource("8_ths7o")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 5.95, 14.217)
+transform = Transform3D(1.994, 0, 0, 0, -1.5, 0, 0, 0, 1.5, 0, 11.5008, 14.217)
 
 [node name="wall4" parent="NavigationRegion3D/Enterance" instance=ExtResource("8_ths7o")]
 transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 4.15, 5.95, 3.86963)
@@ -84,7 +93,53 @@ transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 
 transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 4.15, 0, 9.82513)
 
 [node name="wall11" parent="NavigationRegion3D/Enterance" instance=ExtResource("8_ths7o")]
-transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -4.15, 0, 15.7737)
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -4.15, 0, 15.7844)
 
-[node name="wall12" parent="NavigationRegion3D/Enterance" instance=ExtResource("8_ths7o")]
-transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 4.15, 0, 15.7737)
+[node name="wall_archedwindow_gated2" parent="NavigationRegion3D/Enterance" instance=ExtResource("9_7xtpx")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 4.15, 0, 15.784)
+
+[node name="Crypt" type="Node3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 34.987)
+
+[node name="wall_corner3" parent="NavigationRegion3D/Crypt" instance=ExtResource("9_x58k1")]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, -4.15, 0, -13.239)
+
+[node name="SecretRoom" type="Node3D" parent="NavigationRegion3D/Crypt"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3102, 0, -19.0097)
+
+[node name="wall_corner2" parent="NavigationRegion3D/Crypt/SecretRoom" instance=ExtResource("9_x58k1")]
+transform = Transform3D(-1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, -6.16019, 0, 5.77074)
+
+[node name="wall_corner4" parent="NavigationRegion3D/Crypt/SecretRoom" instance=ExtResource("9_x58k1")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 5.81481, 0, -6.13607)
+
+[node name="wall_corner5" parent="NavigationRegion3D/Crypt/SecretRoom" instance=ExtResource("9_x58k1")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -6.15959, 0, -6.13607)
+
+[node name="wall_cracked2" parent="NavigationRegion3D/Crypt/SecretRoom" instance=ExtResource("11_4j578")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.175579, 0, 5.77067)
+
+[node name="wall_Tsplit2" parent="NavigationRegion3D/Crypt/SecretRoom" instance=ExtResource("12_lhen2")]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 5.81485, 0, 5.77067)
+
+[node name="wall" parent="NavigationRegion3D/Crypt/SecretRoom" instance=ExtResource("8_ths7o")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 5.81481, 0, -0.167692)
+
+[node name="wall2" parent="NavigationRegion3D/Crypt/SecretRoom" instance=ExtResource("8_ths7o")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.170106, 0, -6.13633)
+
+[node name="floor_dirt_small_B2" parent="NavigationRegion3D/Crypt/SecretRoom" instance=ExtResource("13_ss62o")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 2.62474, 0, 2.92649)
+
+[node name="floor_dirt_small_C2" parent="NavigationRegion3D/Crypt/SecretRoom" instance=ExtResource("14_6duiq")]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -2.60683, 0, -2.93976)
+
+[node name="floor_dirt_small_weeds2" parent="NavigationRegion3D/Crypt/SecretRoom" instance=ExtResource("15_6duiq")]
+transform = Transform3D(-3, 0, -2.62268e-07, 0, 3, 0, 2.62268e-07, 0, -3, -2.74184, 0, 2.96314)
+
+[node name="floor_dirt_small_D2" parent="NavigationRegion3D/Crypt/SecretRoom" instance=ExtResource("16_lfqqv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 2.59271, 0, -2.63888)
+
+[node name="Pickup" parent="NavigationRegion3D/Crypt/SecretRoom" instance=ExtResource("17_8gsn1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20889, -3.58995)
+value = 100
