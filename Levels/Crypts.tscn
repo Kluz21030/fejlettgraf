@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bi6f2u81ey1r8"]
+[gd_scene load_steps=26 format=3 uid="uid://bi6f2u81ey1r8"]
 
 [ext_resource type="Script" uid="uid://co64tv35pa3m8" path="res://Levels/Level.gd" id="1_twdth"]
 [ext_resource type="PackedScene" uid="uid://dv4a6yjpomh6q" path="res://Assets/Map/Dungeon/stairs_long.gltf" id="2_su42g"]
@@ -17,8 +17,17 @@
 [ext_resource type="PackedScene" uid="uid://bh3gb1yrsr1q1" path="res://Assets/Map/Dungeon/floor_dirt_small_weeds.gltf" id="15_6duiq"]
 [ext_resource type="PackedScene" uid="uid://crruwrnx0oskl" path="res://Assets/Map/Dungeon/floor_dirt_small_D.gltf" id="16_lfqqv"]
 [ext_resource type="PackedScene" uid="uid://bf663e0d7x1mw" path="res://Map/Pickups/StaminaPickup.tscn" id="17_8gsn1"]
+[ext_resource type="PackedScene" uid="uid://d0ligw38wm7av" path="res://Assets/Map/Dungeon/wall_Tsplit_sloped.gltf" id="18_ttlc6"]
+[ext_resource type="PackedScene" uid="uid://1iypksnuac2w" path="res://Assets/Map/Dungeon/wall_archedwindow_open.gltf" id="19_km8vv"]
+[ext_resource type="Script" uid="uid://dxrkobwdonmmp" path="res://Map/SecretWall.gd" id="20_a6g1x"]
+[ext_resource type="PackedScene" uid="uid://c75lbfsuyk61g" path="res://Assets/Map/Dungeon/floor_tile_large.gltf" id="20_neond"]
+[ext_resource type="PackedScene" uid="uid://if6s748t6yhw" path="res://Assets/Map/HalloweenPack/coffin.gltf" id="21_g3acy"]
+[ext_resource type="PackedScene" uid="uid://c16dw0qgequis" path="res://Assets/Map/HalloweenPack/coffin_decorated.gltf" id="22_6ei2b"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ths7o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_85ku6"]
+size = Vector3(3.73492, 4.03058, 0.546265)
 
 [node name="Crypts" type="Node3D"]
 script = ExtResource("1_twdth")
@@ -101,9 +110,6 @@ transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 
 [node name="Crypt" type="Node3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 34.987)
 
-[node name="wall_corner3" parent="NavigationRegion3D/Crypt" instance=ExtResource("9_x58k1")]
-transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, -4.15, 0, -13.239)
-
 [node name="SecretRoom" type="Node3D" parent="NavigationRegion3D/Crypt"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3102, 0, -19.0097)
 
@@ -143,3 +149,134 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 2.59271, 0, -2.63888)
 [node name="Pickup" parent="NavigationRegion3D/Crypt/SecretRoom" instance=ExtResource("17_8gsn1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20889, -3.58995)
 value = 100
+
+[node name="Walls" type="Node3D" parent="NavigationRegion3D/Crypt"]
+
+[node name="wall_corner3" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("9_x58k1")]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, -4.15, 0, -13.239)
+
+[node name="wall_corner4" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("9_x58k1")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -16.1278, 0, -13.239)
+
+[node name="wall_corner5" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("9_x58k1")]
+transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, -16.1278, 0, 22.6426)
+
+[node name="wall2" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("8_ths7o")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -10.1385, 0, -13.239)
+
+[node name="wall3" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("8_ths7o")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -19.2734, 0, -7.238)
+
+[node name="wall_Tsplit_sloped2" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("18_ttlc6")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -16.128, 0, -1.24422)
+
+[node name="wall_archedwindow_open2" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("19_km8vv")]
+transform = Transform3D(-6.55671e-08, 0, 5.82, 0, 1.5, 0, -1.5, 0, -2.544e-07, -17.21, 0, -7.23781)
+
+[node name="wall4" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("8_ths7o")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -19.2734, 0, -7.238)
+
+[node name="wall_archedwindow_open3" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("19_km8vv")]
+transform = Transform3D(-6.55671e-08, 0, 5.82, 0, 1.5, 0, -1.5, 0, -2.544e-07, -17.21, 0, -7.23781)
+
+[node name="wall_Tsplit_sloped3" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("18_ttlc6")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -16.128, 0, 10.7518)
+
+[node name="wall_corner7" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("9_x58k1")]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 16.128, 0, 22.6426)
+
+[node name="wall_Tsplit_sloped4" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("18_ttlc6")]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 16.128, 0, -1.24422)
+
+[node name="wall_Tsplit_sloped5" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("18_ttlc6")]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 16.128, 0, 10.7518)
+
+[node name="wall5" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("8_ths7o")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -19.2734, 0, 4.75798)
+
+[node name="wall_archedwindow_open4" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("19_km8vv")]
+transform = Transform3D(-6.55671e-08, 0, 5.82, 0, 1.5, 0, -1.5, 0, -2.544e-07, -17.21, 0, 4.75817)
+
+[node name="wall6" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("8_ths7o")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -19.2734, 0, 16.7413)
+
+[node name="wall_archedwindow_open5" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("19_km8vv")]
+transform = Transform3D(-6.55671e-08, 0, 5.82, 0, 1.5, 0, -1.5, 0, -2.544e-07, -17.21, 0, 16.7415)
+
+[node name="wall7" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("8_ths7o")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -19.2734, 0, 16.7413)
+
+[node name="wall8" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("8_ths7o")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 19.273, 0, 16.741)
+
+[node name="wall_archedwindow_open6" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("19_km8vv")]
+transform = Transform3D(-6.55671e-08, 0, 5.82, 0, 1.5, 0, -1.5, 0, -2.544e-07, 17.21, 0, 16.742)
+
+[node name="wall9" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("8_ths7o")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 19.273, 0, 4.758)
+
+[node name="SecretWall" type="Area3D" parent="NavigationRegion3D/Crypt/Walls/wall9"]
+script = ExtResource("20_a6g1x")
+metadata/_custom_type_script = "uid://dxrkobwdonmmp"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Crypt/Walls/wall9/SecretWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0108948, 1.99275, -0.00128174)
+shape = SubResource("BoxShape3D_85ku6")
+
+[node name="wall_archedwindow_open7" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("19_km8vv")]
+transform = Transform3D(-6.55671e-08, 0, 5.82, 0, 1.5, 0, -1.5, 0, -2.544e-07, 17.21, 0, 4.758)
+
+[node name="wall10" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("8_ths7o")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 19.273, 0, -7.238)
+
+[node name="wall_archedwindow_open8" parent="NavigationRegion3D/Crypt/Walls" instance=ExtResource("19_km8vv")]
+transform = Transform3D(-6.55671e-08, 0, 5.82, 0, 1.5, 0, -1.5, 0, -2.544e-07, 17.21, 0, -7.238)
+
+[node name="Floor" type="Node3D" parent="NavigationRegion3D/Crypt"]
+
+[node name="floor_tile_large2" parent="NavigationRegion3D/Crypt/Floor" instance=ExtResource("20_neond")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -7.22964)
+
+[node name="floor_tile_large11" parent="NavigationRegion3D/Crypt/Floor" instance=ExtResource("20_neond")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -19.2012)
+
+[node name="floor_tile_large3" parent="NavigationRegion3D/Crypt/Floor" instance=ExtResource("20_neond")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -11.9819, 0, -7.22964)
+
+[node name="floor_tile_large4" parent="NavigationRegion3D/Crypt/Floor" instance=ExtResource("20_neond")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 11.982, 0, -7.23)
+
+[node name="floor_tile_large5" parent="NavigationRegion3D/Crypt/Floor" instance=ExtResource("20_neond")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 4.75989)
+
+[node name="floor_tile_large6" parent="NavigationRegion3D/Crypt/Floor" instance=ExtResource("20_neond")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -11.9819, 0, 4.75989)
+
+[node name="floor_tile_large7" parent="NavigationRegion3D/Crypt/Floor" instance=ExtResource("20_neond")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 11.982, 0, 4.75953)
+
+[node name="floor_tile_large8" parent="NavigationRegion3D/Crypt/Floor" instance=ExtResource("20_neond")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 16.7526)
+
+[node name="floor_tile_large9" parent="NavigationRegion3D/Crypt/Floor" instance=ExtResource("20_neond")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -11.9819, 0, 16.7526)
+
+[node name="floor_tile_large10" parent="NavigationRegion3D/Crypt/Floor" instance=ExtResource("20_neond")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 11.982, 0, 16.7522)
+
+[node name="Props" type="Node3D" parent="NavigationRegion3D/Crypt"]
+
+[node name="coffin2" parent="NavigationRegion3D/Crypt/Props" instance=ExtResource("21_g3acy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.22, 1.56871, -7.238)
+
+[node name="coffin4" parent="NavigationRegion3D/Crypt/Props" instance=ExtResource("21_g3acy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.22, 1.569, -7.238)
+
+[node name="coffin_decorated2" parent="NavigationRegion3D/Crypt/Props" instance=ExtResource("22_6ei2b")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.22, 1.569, 4.758)
+
+[node name="coffin_decorated3" parent="NavigationRegion3D/Crypt/Props" instance=ExtResource("22_6ei2b")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.22, 1.569, 16.742)
+
+[node name="coffin3" parent="NavigationRegion3D/Crypt/Props" instance=ExtResource("21_g3acy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.22, 1.569, 16.742)
