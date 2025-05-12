@@ -1,17 +1,90 @@
-[gd_scene load_steps=5 format=3 uid="uid://bi6f2u81ey1r8"]
+[gd_scene load_steps=10 format=3 uid="uid://bi6f2u81ey1r8"]
 
 [ext_resource type="Script" uid="uid://co64tv35pa3m8" path="res://Levels/Level.gd" id="1_twdth"]
 [ext_resource type="PackedScene" uid="uid://dv4a6yjpomh6q" path="res://Assets/Map/Dungeon/stairs_long.gltf" id="2_su42g"]
 [ext_resource type="PackedScene" uid="uid://cpdjodwxwrqrq" path="res://Assets/Map/Dungeon/wall_doorway.gltf" id="3_uh34n"]
 [ext_resource type="PackedScene" uid="uid://6nlo4yi678ee" path="res://Assets/Map/Dungeon/floor_foundation_front.gltf" id="4_y6ji2"]
+[ext_resource type="PackedScene" uid="uid://e8mgunypswjq" path="res://Player/player.tscn" id="5_dgkrv"]
+[ext_resource type="PackedScene" uid="uid://dg0qoei7l172x" path="res://Assets/Map/Dungeon/wall_corner_small.gltf" id="6_vi20a"]
+[ext_resource type="PackedScene" uid="uid://bohk488gxxic2" path="res://Assets/Map/Dungeon/wall_arched.gltf" id="7_kjp6u"]
+[ext_resource type="PackedScene" uid="uid://y5ndy8ji401y" path="res://Assets/Map/Dungeon/wall.gltf" id="8_ths7o"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ths7o"]
 
 [node name="Crypts" type="Node3D"]
 script = ExtResource("1_twdth")
 
-[node name="stairs_long2" parent="." instance=ExtResource("2_su42g")]
+[node name="Player" parent="." instance=ExtResource("5_dgkrv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.13861, -3.10696)
 
-[node name="wall_doorway2" parent="." instance=ExtResource("3_uh34n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.97071, -3.21794)
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="floor_foundation_front2" parent="." instance=ExtResource("4_y6ji2")]
-transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -0.054, -0.014605, -1.94896)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_ths7o")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+
+[node name="Enterance" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="stairs_long2" parent="NavigationRegion3D/Enterance" instance=ExtResource("2_su42g")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="wall_doorway2" parent="NavigationRegion3D/Enterance" instance=ExtResource("3_uh34n")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 5.95, -6.557)
+
+[node name="floor_foundation_front2" parent="NavigationRegion3D/Enterance" instance=ExtResource("4_y6ji2")]
+transform = Transform3D(-4.45016, 0, -5.28485e-07, 0, 2.98664, 0, 6.71956e-07, 0, -3.5, 0, -0.015, -3.32748)
+
+[node name="wall_corner_small2" parent="NavigationRegion3D/Enterance" instance=ExtResource("6_vi20a")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 4.15, 5.95, -6.556)
+
+[node name="wall_corner_small3" parent="NavigationRegion3D/Enterance" instance=ExtResource("6_vi20a")]
+transform = Transform3D(-1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4.15, 5.95, -6.556)
+
+[node name="wall_corner_small4" parent="NavigationRegion3D/Enterance" instance=ExtResource("6_vi20a")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, -1.5, 4.15, 5.95, 14.2174)
+
+[node name="wall_corner_small5" parent="NavigationRegion3D/Enterance" instance=ExtResource("6_vi20a")]
+transform = Transform3D(-1.5, 0, 0, 0, 1.5, 1.31134e-07, 0, 1.31134e-07, -1.5, -4.15, 5.95, 14.2174)
+
+[node name="wall_arched2" parent="NavigationRegion3D/Enterance" instance=ExtResource("7_kjp6u")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -4.15, 5.95, -2.104)
+
+[node name="wall_arched3" parent="NavigationRegion3D/Enterance" instance=ExtResource("7_kjp6u")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 4.15, 5.95, -2.104)
+
+[node name="wall_arched4" parent="NavigationRegion3D/Enterance" instance=ExtResource("7_kjp6u")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 4.15, 5.95, -2.104)
+
+[node name="wall2" parent="NavigationRegion3D/Enterance" instance=ExtResource("8_ths7o")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -4.15, 5.95, 3.86963)
+
+[node name="wall3" parent="NavigationRegion3D/Enterance" instance=ExtResource("8_ths7o")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -4.15, 5.95, 9.82513)
+
+[node name="wall10" parent="NavigationRegion3D/Enterance" instance=ExtResource("8_ths7o")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 5.95, 14.217)
+
+[node name="wall4" parent="NavigationRegion3D/Enterance" instance=ExtResource("8_ths7o")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 4.15, 5.95, 3.86963)
+
+[node name="wall5" parent="NavigationRegion3D/Enterance" instance=ExtResource("8_ths7o")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 4.15, 5.95, 9.82513)
+
+[node name="wall6" parent="NavigationRegion3D/Enterance" instance=ExtResource("8_ths7o")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -4.15, 0, 3.86963)
+
+[node name="wall7" parent="NavigationRegion3D/Enterance" instance=ExtResource("8_ths7o")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -4.15, 0, 9.82513)
+
+[node name="wall8" parent="NavigationRegion3D/Enterance" instance=ExtResource("8_ths7o")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 4.15, 0, 3.86963)
+
+[node name="wall9" parent="NavigationRegion3D/Enterance" instance=ExtResource("8_ths7o")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 4.15, 0, 9.82513)
+
+[node name="wall11" parent="NavigationRegion3D/Enterance" instance=ExtResource("8_ths7o")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -4.15, 0, 15.7737)
+
+[node name="wall12" parent="NavigationRegion3D/Enterance" instance=ExtResource("8_ths7o")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 4.15, 0, 15.7737)

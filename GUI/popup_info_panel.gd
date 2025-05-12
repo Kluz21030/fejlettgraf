@@ -10,18 +10,24 @@ func _ready():
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("accept"):
-		if tween and tween.is_valid():
-			tween.kill()
-		tween = create_tween().set_trans(Tween.TRANS_BACK)
-		tween.tween_property(self, "scale", Vector2(0.05, 0.05), 0.3)
-		await tween.finished
-		self.modulate.a = 0.0
+		Events.choice_accepted.emit()
+		disappear()
 
 func _on_popup_info(text: String) -> void:
 	label.text = text
+	appear()
+
+func appear() -> void:
 	self.modulate.a = 1.0
 	if tween and tween.is_valid():
 		tween.kill()
 	tween = create_tween().set_trans(Tween.TRANS_BACK)
 	tween.tween_property(self, "scale", Vector2(1, 1), 0.3)
-	
+
+func disappear() -> void:
+	if tween and tween.is_valid():
+		tween.kill()
+		tween = create_tween().set_trans(Tween.TRANS_BACK)
+		tween.tween_property(self, "scale", Vector2(0.05, 0.05), 0.3)
+		await tween.finished
+		self.modulate.a = 0.0
