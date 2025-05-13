@@ -27,7 +27,7 @@ func appear() -> void:
 func disappear() -> void:
 	if tween and tween.is_valid():
 		tween.kill()
-		tween = create_tween().set_trans(Tween.TRANS_BACK)
-		tween.tween_property(self, "scale", Vector2(0.05, 0.05), 0.3)
-		await tween.finished
-		self.modulate.a = 0.0
+	tween = create_tween().set_trans(Tween.TRANS_BACK)
+	tween.tween_property(self, "scale", Vector2(0.05, 0.05), 0.3)
+	await tween.finished
+	self.modulate.a = 0.0
