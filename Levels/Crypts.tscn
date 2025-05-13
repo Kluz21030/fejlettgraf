@@ -1,4 +1,4 @@
-[gd_scene load_steps=343 format=3 uid="uid://bi6f2u81ey1r8"]
+[gd_scene load_steps=346 format=3 uid="uid://bi6f2u81ey1r8"]
 
 [ext_resource type="Script" uid="uid://co64tv35pa3m8" path="res://Levels/Level.gd" id="1_twdth"]
 [ext_resource type="PackedScene" uid="uid://dv4a6yjpomh6q" path="res://Assets/Map/Dungeon/stairs_long.gltf" id="2_su42g"]
@@ -25,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://dac3sd81l3dte" path="res://Assets/Map/Dungeon/wall_broken.gltf" id="21_85ku6"]
 [ext_resource type="PackedScene" uid="uid://if6s748t6yhw" path="res://Assets/Map/HalloweenPack/coffin.gltf" id="21_g3acy"]
 [ext_resource type="PackedScene" uid="uid://c16dw0qgequis" path="res://Assets/Map/HalloweenPack/coffin_decorated.gltf" id="22_6ei2b"]
+[ext_resource type="PackedScene" uid="uid://dvxdb2ofto64t" path="res://Assets/Map/Dungeon/rubble_large.gltf" id="26_8omuj"]
+[ext_resource type="PackedScene" uid="uid://b6duhwc1cb28h" path="res://Assets/Map/Dungeon/rubble_half.gltf" id="27_w5hpp"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ths7o"]
 
@@ -976,6 +978,9 @@ size = Vector3(1.72566, 2.11072, 0.427216)
 [sub_resource type="BoxShape3D" id="BoxShape3D_yxyec"]
 size = Vector3(36.0415, 1, 46.6566)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xg6l0"]
+size = Vector3(8.33728, 1, 9.31067)
+
 [node name="Crypts" type="Node3D"]
 script = ExtResource("1_twdth")
 
@@ -983,6 +988,7 @@ script = ExtResource("1_twdth")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.13861, -3.10696)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.3009, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("WorldBoundaryShape3D_ths7o")
@@ -2405,6 +2411,219 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.22
 
 [node name="coffin3" parent="NavigationRegion3D/Crypt/Props" instance=ExtResource("21_g3acy")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.22, 1.569, 16.742)
+
+[node name="Tunnel" type="Node3D" parent="NavigationRegion3D"]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -2.83766, -0.264323, 65.4781)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Tunnel"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Tunnel/StaticBody3D"]
+transform = Transform3D(0.937428, -0.348179, 0, 0.348179, 0.937428, 0, -7.10543e-15, 1.77636e-15, 1, -0.224976, -0.703127, 2.33554)
+shape = SubResource("BoxShape3D_xg6l0")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="NavigationRegion3D/Tunnel/StaticBody3D"]
+transform = Transform3D(0.869754, -0.493487, 0, 0.493487, 0.869754, 0, -7.10543e-15, 1.77636e-15, 1, -7.69351, -4.18872, 2.33554)
+shape = SubResource("BoxShape3D_xg6l0")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="NavigationRegion3D/Tunnel/StaticBody3D"]
+transform = Transform3D(0.824172, -0.56597, -0.0204519, 0.565947, 0.824408, -0.007444, 0.0210739, -0.00543959, 0.999763, -14.6478, -8.53447, 0.703368)
+shape = SubResource("BoxShape3D_xg6l0")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="NavigationRegion3D/Tunnel/StaticBody3D"]
+transform = Transform3D(0.83963, -0.459442, -0.289716, 0.428329, 0.888062, -0.166973, 0.334, 0.0161016, 0.942436, -18.9657, -11.2293, -3.67425)
+shape = SubResource("BoxShape3D_xg6l0")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="NavigationRegion3D/Tunnel/StaticBody3D"]
+transform = Transform3D(0.380861, 0, -0.924632, 0, 1, 0, 0.924633, 0, 0.380861, -21.5257, -12.8246, -3.82264)
+shape = SubResource("BoxShape3D_xg6l0")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="NavigationRegion3D/Tunnel/StaticBody3D"]
+transform = Transform3D(0.354356, 0, -0.93511, 0, 1, 0, 0.935111, 0, 0.354356, -24.5949, -12.7316, -11.274)
+shape = SubResource("BoxShape3D_xg6l0")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="NavigationRegion3D/Tunnel/StaticBody3D"]
+transform = Transform3D(0.020227, 0, -0.999795, 0, 1, 0, 0.999796, 0, 0.0202269, -24.6603, -12.7315, -14.5052)
+shape = SubResource("BoxShape3D_xg6l0")
+
+[node name="rubble_large2" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(1.11085, -0.573157, 0, 0.573157, 1.11085, 0, 0, 0, 1.25, -5.03075, -2.18566, -3.02258e-14)
+
+[node name="rubble_large6" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(-1.25, 1.88745e-07, 0, -1.88745e-07, -1.25, 0, 0, 0, 1.25, -3.17428, 3.7744, -0.472887)
+
+[node name="rubble_large7" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(-1.25, 1.88745e-07, 0, -1.88745e-07, -1.25, 0, 0, 0, 1.25, -3.17428, 3.7744, 6.26823)
+
+[node name="rubble_large8" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(-0.988963, 0.764495, 0, -0.764495, -0.988963, 0, 0, 0, 1.25, -12.0784, 1.62189, 6.26823)
+
+[node name="rubble_large15" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(-0.951996, 0.764495, -0.267863, -0.735919, -0.988963, -0.207065, -0.338566, -1.49012e-08, 1.20328, -18.7554, -1.84103, 5.03691)
+
+[node name="rubble_large29" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(-0.562258, 0.416866, -1.03566, -0.434641, -1.14984, -0.226858, -1.02833, 0.25807, 0.662153, -23.5027, -5.23477, 0.665259)
+
+[node name="rubble_large30" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(-0.562258, -0.300986, -1.07507, -0.434641, -1.04973, 0.521207, -1.02833, 0.608257, 0.367518, -26.5661, -5.72404, -4.29365)
+
+[node name="rubble_large34" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.170994, 0.0599329, -1.2368, 0.0205352, -1.2485, -0.0576608, -1.23808, -0.0124305, -0.171773, -27.6215, -5.40166, -9.92077)
+
+[node name="rubble_large41" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.170994, -0.463269, -1.14832, 0.0205352, -1.158, 0.470232, -1.23808, -0.0831901, -0.150798, -27.0681, -5.3352, -13.9275)
+
+[node name="rubble_large38" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.170994, 0.0599329, -1.2368, 0.0205352, -1.2485, -0.0576608, -1.23808, -0.0124305, -0.171773, -21.1392, -5.05266, -13.7196)
+
+[node name="rubble_large9" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(-0.956368, 0.783833, -0.182939, -0.769875, -0.973707, -0.147265, -0.234848, 0, 1.22774, -12.016, 1.81041, -1.02397)
+
+[node name="rubble_large14" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(-0.819434, 0.89638, -0.295857, -0.831925, -0.870921, -0.334511, -0.446013, -0.0223834, 1.16751, -19.0452, -3.50995, -2.72542)
+
+[node name="rubble_large28" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(-0.297917, 0.614278, -1.0471, -0.395634, -1.06843, -0.514229, -1.1477, 0.208855, 0.449066, -22.0294, -5.54236, -7.64375)
+
+[node name="rubble_large5" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(1.11085, -0.573157, 0, 0.573157, 1.11085, 0, 0, 0, 1.25, -4.80577, -2.6217, 5.77784)
+
+[node name="rubble_large12" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(1.10778, -0.573157, -0.0825942, 0.57157, 1.11085, -0.0426155, 0.0929402, 0, 1.24654, -11.4272, -6.03811, 5.51271)
+
+[node name="rubble_large17" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.916469, -0.573157, -0.627755, 0.472863, 1.11085, -0.323897, 0.706389, 0, 1.03127, -17.6855, -9.26714, 4.26605)
+
+[node name="rubble_large24" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.327529, -0.037639, -1.20574, 0.0450732, 1.2489, -0.0267425, 1.20548, -0.03647, 0.328598, -25.5238, -12.3498, -2.78918)
+
+[node name="rubble_large35" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(-0.105567, -0.037639, -1.24497, 0.0331773, 1.2489, -0.0405712, 1.24509, -0.03647, -0.104475, -27.806, -12.5995, -8.98256)
+
+[node name="rubble_large37" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(-5.46392e-08, -0.041444, -1.24931, 0, 1.24931, -0.041444, 1.25, -1.81157e-09, -5.46092e-08, -27.4292, -12.7178, -13.4255)
+
+[node name="rubble_large26" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.737918, -0.262336, -0.974247, 0.411088, 1.18045, -0.00649263, 0.921404, -0.316568, 0.783135, -22.0064, -12.0959, 1.58868)
+
+[node name="rubble_large27" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.737918, -0.262336, -0.974247, 0.411088, 1.18045, -0.00649263, 0.921404, -0.316568, 0.783135, -22.0064, -12.0959, 1.58868)
+
+[node name="rubble_large25" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.369575, -0.037639, -1.19352, 0.0459825, 1.2489, -0.0251468, 1.19323, -0.03647, 0.370635, -19.5248, -12.2831, -7.2115)
+
+[node name="rubble_large36" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(-5.46392e-08, 0.0262216, -1.24973, 2.22045e-16, 1.24972, 0.0262216, 1.25, 1.14618e-09, -5.46272e-08, -21.3355, -12.5084, -13.0575)
+
+[node name="rubble_large13" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(1.10099, -0.573157, -0.147705, 0.568068, 1.11085, -0.0762102, 0.166207, 0, 1.2389, -11.3974, -6.02272, -1.56105)
+
+[node name="rubble_large16" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.934405, -0.660337, -0.503331, 0.609281, 1.06011, -0.2597, 0.564061, -0.0512045, 1.11432, -15.7881, -9.21264, -3.49797)
+
+[node name="rubble_large3" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.278641, 4.1651, -0.381591)
+
+[node name="rubble_large42" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.874256, 0, 0.485466, 0.485466, -4.37114e-08, -0.874256, 2.12204e-08, 1, -3.82149e-08, 0.852256, -0.58547, 0.267963)
+
+[node name="rubble_large45" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.874256, 0, 0.485466, 0.485466, -4.37114e-08, -0.874256, 2.12204e-08, 1, -3.82149e-08, -3.5694, -2.48445, 0.267963)
+
+[node name="rubble_large46" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.831909, -0.268795, 0.485466, 0.461951, -0.14926, -0.874256, 0.307456, 0.951562, -2.14627e-08, -9.219, -5.4418, -0.174564)
+
+[node name="rubble_large49" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.691407, -0.491859, 0.529179, 0.454578, -0.273125, -0.847798, 0.561529, 0.826727, 0.0347479, -13.4128, -8.13964, -1.24378)
+
+[node name="rubble_large51" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.691407, -0.533531, 0.487135, 0.454578, -0.202799, -0.867313, 0.561529, 0.821107, 0.102315, -16.8348, -10.7665, -5.10093)
+
+[node name="rubble_large52" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.691407, -0.533531, 0.487135, 0.454578, -0.202799, -0.867313, 0.561529, 0.821107, 0.102315, -18.3264, -11.3335, -2.80524)
+
+[node name="rubble_large53" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.315332, -0.947205, -0.0580381, 0.0813706, 0.0879206, -0.992799, 0.945486, 0.308339, 0.104799, -20.8448, -12.9667, -7.49477)
+
+[node name="rubble_large54" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(-4.37114e-08, -0.997053, -0.076719, 0, 0.076719, -0.997053, 1, -4.35826e-08, -3.35349e-09, -21.6493, -13.1801, -13.0318)
+
+[node name="rubble_large55" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(-4.37114e-08, -0.997053, -0.076719, 0, 0.076719, -0.997053, 1, -4.35826e-08, -3.35349e-09, -21.5418, -13.1884, -14.6033)
+
+[node name="rubble_large10" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -6.3312, 4.1651, -0.381591)
+
+[node name="rubble_large19" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.817296, 0, 0.576218, 0.576218, -4.37114e-08, -0.817296, 2.51873e-08, 1, -3.57251e-08, -11.3749, 2.63888, -0.00147824)
+
+[node name="rubble_large20" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.992968, -0.181169, 0.71163, 0.700073, -0.12773, -1.00936, 0.221669, 1.21494, -3.11063e-08, -13.961, 0.815545, -0.854327)
+
+[node name="rubble_large23" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.876413, -0.500708, 0.71163, 0.617898, -0.353015, -1.00936, 0.61264, 1.07233, -2.81209e-08, -18.8686, -2.64446, -2.16045)
+
+[node name="rubble_large31" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.529888, -1.11532, 0.0225049, 0.150727, 0.0468948, -1.22487, 1.10532, 0.528288, 0.156241, -20.7118, -5.10876, -6.22581)
+
+[node name="rubble_large39" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(-0.407093, -1.1643, 0.0624564, 0.0199318, -0.0730932, -1.23267, 1.16581, -0.405318, 0.0428846, -21.9641, -4.61242, -13.4521)
+
+[node name="rubble_large4" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.278641, 4.1651, 5.1552)
+
+[node name="rubble_large43" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.886825, 0, -0.462105, 0.462105, -4.37114e-08, 0.886825, -2.01992e-08, -1, -3.87644e-08, 0.542113, -0.531931, 5.15521)
+
+[node name="rubble_large44" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.886825, 0, -0.462105, 0.462105, -4.37114e-08, 0.886825, -2.01992e-08, -1, -3.87644e-08, -4.42836, -2.85604, 5.15521)
+
+[node name="rubble_large47" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.886825, 0, -0.462105, 0.462105, -4.37114e-08, 0.886825, -2.01992e-08, -1, -3.87644e-08, -10.3122, -5.92197, 5.15521)
+
+[node name="rubble_large48" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.797642, 0.394838, -0.455929, 0.509391, -0.0362611, 0.859771, 0.322938, -0.918035, -0.23005, -16.1146, -9.04305, 3.80139)
+
+[node name="rubble_large50" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.797642, 0.394838, -0.455929, 0.509391, -0.0362611, 0.859771, 0.322938, -0.918035, -0.23005, -20.4976, -11.8421, 2.02686)
+
+[node name="rubble_large56" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.60512, 0.794337, 0.0534777, -0.0193089, -0.052509, 0.998434, 0.795901, -0.605204, -0.0164364, -24.5832, -12.69, -3.88049)
+
+[node name="rubble_large59" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.60512, 0.794337, 0.0534777, -0.0193089, -0.052509, 0.998434, 0.795901, -0.605204, -0.0164364, -24.9875, -12.6086, -0.253742)
+
+[node name="rubble_large57" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.0370069, 0.997883, 0.0534777, 0.0144671, -0.0540438, 0.998434, 0.999211, -0.0361752, -0.0164364, -26.823, -12.6724, -10.0996)
+
+[node name="rubble_large58" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(-4.37114e-08, 0.998441, -0.0558216, 0, 0.0558216, 0.998441, 1, 4.36432e-08, -2.44004e-09, -26.9586, -12.72, -14.0013)
+
+[node name="rubble_large11" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5.98035, 4.1651, 5.1552)
+
+[node name="rubble_large18" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.784008, 0, -0.620751, 0.620751, -4.37114e-08, 0.784008, -2.71339e-08, -1, -3.42701e-08, -11.5098, 3.1131, 5.41809)
+
+[node name="rubble_large21" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.777576, 0.100217, -0.620751, 0.615659, 0.0793483, 0.784008, 0.127826, -0.991797, -2.54616e-08, -16.5065, -0.843119, 5.35999)
+
+[node name="rubble_large22" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.717363, 0.31632, -0.620751, 0.567984, 0.250452, 0.784008, 0.403465, -0.914995, -9.5181e-09, -21.4388, -4.74835, 3.35157)
+
+[node name="rubble_large32" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.632558, 0.767194, -0.106229, 0.1659, -0.000240766, 0.986143, 0.756537, -0.641416, -0.127429, -26.0974, -5.26929, -2.77075)
+
+[node name="rubble_large33" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.0839363, 1.24629, -0.0469911, 0.0597399, 0.0430256, 1.24783, 1.24575, -0.0860364, -0.0566736, -28.1454, -6.36363, -9.09304)
+
+[node name="rubble_large40" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.0839363, 1.24629, -0.0469911, 0.0597399, 0.0430256, 1.24783, 1.24575, -0.0860364, -0.0566736, -28.5767, -5.18103, -14.7502)
+
+[node name="rubble_half2" parent="NavigationRegion3D/Tunnel" instance=ExtResource("27_w5hpp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.10856, 0, -0.0106463)
+
+[node name="rubble_half3" parent="NavigationRegion3D/Tunnel" instance=ExtResource("27_w5hpp")]
+transform = Transform3D(-1.25, 0, -1.88745e-07, 0, 1.25, 0, 1.88745e-07, 0, -1.25, 3.53313, -0.441703, 4.51527)
 
 [editable path="NavigationRegion3D/Enterance/stairs_long2"]
 [editable path="NavigationRegion3D/Crypt/SecretRoom1/SecretWall"]
