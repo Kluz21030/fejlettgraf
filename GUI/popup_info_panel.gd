@@ -10,7 +10,6 @@ func _ready():
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("accept"):
-		Events.choice_accepted.emit()
 		disappear()
 
 func _on_popup_info(text: String) -> void:
