@@ -1,4 +1,4 @@
-[gd_scene load_steps=346 format=3 uid="uid://bi6f2u81ey1r8"]
+[gd_scene load_steps=351 format=3 uid="uid://bi6f2u81ey1r8"]
 
 [ext_resource type="Script" uid="uid://co64tv35pa3m8" path="res://Levels/Level.gd" id="1_twdth"]
 [ext_resource type="PackedScene" uid="uid://dv4a6yjpomh6q" path="res://Assets/Map/Dungeon/stairs_long.gltf" id="2_su42g"]
@@ -27,6 +27,11 @@
 [ext_resource type="PackedScene" uid="uid://c16dw0qgequis" path="res://Assets/Map/HalloweenPack/coffin_decorated.gltf" id="22_6ei2b"]
 [ext_resource type="PackedScene" uid="uid://dvxdb2ofto64t" path="res://Assets/Map/Dungeon/rubble_large.gltf" id="26_8omuj"]
 [ext_resource type="PackedScene" uid="uid://b6duhwc1cb28h" path="res://Assets/Map/Dungeon/rubble_half.gltf" id="27_w5hpp"]
+[ext_resource type="PackedScene" uid="uid://emcwljuo2a6r" path="res://Assets/Map/Dungeon/wall_open_scaffold.gltf" id="28_f00ab"]
+[ext_resource type="PackedScene" uid="uid://bpx08hs731j0n" path="res://Assets/Map/Dungeon/wall_scaffold.gltf" id="29_56hgl"]
+[ext_resource type="PackedScene" uid="uid://c07nl4g8xt0p" path="res://Assets/Map/Dungeon/wall_corner_scaffold.gltf" id="30_k308o"]
+[ext_resource type="PackedScene" uid="uid://x2sllwgulk8v" path="res://Assets/Map/Dungeon/floor_dirt_large_rocky.gltf" id="31_6wv07"]
+[ext_resource type="PackedScene" uid="uid://04m84copd5bl" path="res://Assets/Map/Dungeon/floor_dirt_small_A.gltf" id="32_x0ol8"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ths7o"]
 
@@ -2478,6 +2483,9 @@ transform = Transform3D(0.170994, 0.0599329, -1.2368, 0.0205352, -1.2485, -0.057
 [node name="rubble_large9" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
 transform = Transform3D(-0.956368, 0.783833, -0.182939, -0.769875, -0.973707, -0.147265, -0.234848, 0, 1.22774, -12.016, 1.81041, -1.02397)
 
+[node name="rubble_large60" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(-0.956368, 0.783833, -0.182939, -0.769875, -0.973707, -0.147265, -0.234848, 0, 1.22774, -13.9811, 0.22851, -1.50652)
+
 [node name="rubble_large14" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
 transform = Transform3D(-0.819434, 0.89638, -0.295857, -0.831925, -0.870921, -0.334511, -0.446013, -0.0223834, 1.16751, -19.0452, -3.50995, -2.72542)
 
@@ -2502,6 +2510,9 @@ transform = Transform3D(-0.105567, -0.037639, -1.24497, 0.0331773, 1.2489, -0.04
 [node name="rubble_large37" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
 transform = Transform3D(-5.46392e-08, -0.041444, -1.24931, 0, 1.24931, -0.041444, 1.25, -1.81157e-09, -5.46092e-08, -27.4292, -12.7178, -13.4255)
 
+[node name="rubble_large62" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(-0.041409, 1.24403, 0.114753, 1.24825, 0.0459254, -0.0474394, -0.0514291, 0.113021, -1.24381, -30.2087, -12.432, -16.9106)
+
 [node name="rubble_large26" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
 transform = Transform3D(0.737918, -0.262336, -0.974247, 0.411088, 1.18045, -0.00649263, 0.921404, -0.316568, 0.783135, -22.0064, -12.0959, 1.58868)
 
@@ -2513,6 +2524,9 @@ transform = Transform3D(0.369575, -0.037639, -1.19352, 0.0459825, 1.2489, -0.025
 
 [node name="rubble_large36" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
 transform = Transform3D(-5.46392e-08, 0.0262216, -1.24973, 2.22045e-16, 1.24972, 0.0262216, 1.25, 1.14618e-09, -5.46272e-08, -21.3355, -12.5084, -13.0575)
+
+[node name="rubble_large61" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(0.140289, -1.24206, -0.00959143, 1.24197, 0.140409, -0.0170355, 0.0180047, -0.00761807, 1.24985, -18.257, -9.55545, -16.4074)
 
 [node name="rubble_large13" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
 transform = Transform3D(1.10099, -0.573157, -0.147705, 0.568068, 1.11085, -0.0762102, 0.166207, 0, 1.2389, -11.3974, -6.02272, -1.56105)
@@ -2548,7 +2562,7 @@ transform = Transform3D(0.315332, -0.947205, -0.0580381, 0.0813706, 0.0879206, -
 transform = Transform3D(-4.37114e-08, -0.997053, -0.076719, 0, 0.076719, -0.997053, 1, -4.35826e-08, -3.35349e-09, -21.6493, -13.1801, -13.0318)
 
 [node name="rubble_large55" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
-transform = Transform3D(-4.37114e-08, -0.997053, -0.076719, 0, 0.076719, -0.997053, 1, -4.35826e-08, -3.35349e-09, -21.5418, -13.1884, -14.6033)
+transform = Transform3D(-4.37114e-08, -0.997053, -0.076719, 0, 0.076719, -0.997053, 1, -4.35826e-08, -3.35349e-09, -21.5179, -12.8774, -14.6033)
 
 [node name="rubble_large10" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -6.3312, 4.1651, -0.381591)
@@ -2566,7 +2580,10 @@ transform = Transform3D(0.876413, -0.500708, 0.71163, 0.617898, -0.353015, -1.00
 transform = Transform3D(0.529888, -1.11532, 0.0225049, 0.150727, 0.0468948, -1.22487, 1.10532, 0.528288, 0.156241, -20.7118, -5.10876, -6.22581)
 
 [node name="rubble_large39" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
-transform = Transform3D(-0.407093, -1.1643, 0.0624564, 0.0199318, -0.0730932, -1.23267, 1.16581, -0.405318, 0.0428846, -21.9641, -4.61242, -13.4521)
+transform = Transform3D(-0.0228999, -1.2317, -0.0872997, 0.45965, 0.0725361, -1.14397, 1.14605, -0.0537056, 0.457073, -21.0726, -6.71865, -12.0735)
+
+[node name="rubble_large63" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
+transform = Transform3D(-1.21784, 0.185144, -0.117421, 0.0110835, -0.471964, -1.5159, -0.204864, -1.12614, 0.61601, -24.4203, -6.44733, -14.4639)
 
 [node name="rubble_large4" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.278641, 4.1651, 5.1552)
@@ -2617,13 +2634,50 @@ transform = Transform3D(0.632558, 0.767194, -0.106229, 0.1659, -0.000240766, 0.9
 transform = Transform3D(0.0839363, 1.24629, -0.0469911, 0.0597399, 0.0430256, 1.24783, 1.24575, -0.0860364, -0.0566736, -28.1454, -6.36363, -9.09304)
 
 [node name="rubble_large40" parent="NavigationRegion3D/Tunnel" instance=ExtResource("26_8omuj")]
-transform = Transform3D(0.0839363, 1.24629, -0.0469911, 0.0597399, 0.0430256, 1.24783, 1.24575, -0.0860364, -0.0566736, -28.5767, -5.18103, -14.7502)
+transform = Transform3D(0.0688448, 1.24629, -0.0671852, 0.381892, 0.0430256, 1.18946, 1.18824, -0.0860364, -0.378389, -28.258, -6.25661, -10.6722)
 
 [node name="rubble_half2" parent="NavigationRegion3D/Tunnel" instance=ExtResource("27_w5hpp")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.10856, 0, -0.0106463)
 
 [node name="rubble_half3" parent="NavigationRegion3D/Tunnel" instance=ExtResource("27_w5hpp")]
 transform = Transform3D(-1.25, 0, -1.88745e-07, 0, 1.25, 0, 1.88745e-07, 0, -1.25, 3.53313, -0.441703, 4.51527)
+
+[node name="Dungeon" type="Node3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.9514, -18.4899, 102.363)
+
+[node name="Walls" type="Node3D" parent="NavigationRegion3D/Dungeon"]
+
+[node name="wall_open_scaffold2" parent="NavigationRegion3D/Dungeon/Walls" instance=ExtResource("28_f00ab")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 52.2457, 0, -0.777232)
+
+[node name="wall_scaffold2" parent="NavigationRegion3D/Dungeon/Walls" instance=ExtResource("29_56hgl")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 46.366, 0, 5.166)
+
+[node name="wall_scaffold3" parent="NavigationRegion3D/Dungeon/Walls" instance=ExtResource("29_56hgl")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 46.366, 0, -6.75)
+
+[node name="wall_corner_scaffold2" parent="NavigationRegion3D/Dungeon/Walls" instance=ExtResource("30_k308o")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 52.246, 0, -6.75)
+
+[node name="wall_corner_scaffold3" parent="NavigationRegion3D/Dungeon/Walls" instance=ExtResource("30_k308o")]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 52.246, 0, 5.16584)
+
+[node name="Floor" type="Node3D" parent="NavigationRegion3D/Dungeon"]
+
+[node name="floor_dirt_large_rocky2" parent="NavigationRegion3D/Dungeon/Floor" instance=ExtResource("31_6wv07")]
+transform = Transform3D(-1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, 50.768, 0, -3.634)
+
+[node name="floor_dirt_large_rocky3" parent="NavigationRegion3D/Dungeon/Floor" instance=ExtResource("31_6wv07")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 50.7684, 0, 2.26579)
+
+[node name="floor_dirt_small_C2" parent="NavigationRegion3D/Dungeon/Floor" instance=ExtResource("14_6duiq")]
+transform = Transform3D(2.25, 0, 0, 0, 2.25, 0, 0, 0, 2.25, 45.5246, 0, -4.72751)
+
+[node name="floor_dirt_small_B2" parent="NavigationRegion3D/Dungeon/Floor" instance=ExtResource("13_ss62o")]
+transform = Transform3D(2.25, 0, 0, 0, 2.25, 0, 0, 0, 2.25, 45.525, 0, -0.256203)
+
+[node name="floor_dirt_small_A2" parent="NavigationRegion3D/Dungeon/Floor" instance=ExtResource("32_x0ol8")]
+transform = Transform3D(2.25, 0, 0, 0, 2.25, 0, 0, 0, 2.25, 45.525, 0, 4.239)
 
 [editable path="NavigationRegion3D/Enterance/stairs_long2"]
 [editable path="NavigationRegion3D/Crypt/SecretRoom1/SecretWall"]
