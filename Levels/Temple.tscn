@@ -169,7 +169,7 @@
 [ext_resource type="PackedScene" uid="uid://dnbgle8llei74" path="res://Assets/Map/HalloweenPack/tree_pine_orange_small.gltf" id="161_0wr5c"]
 [ext_resource type="PackedScene" uid="uid://dmu8jcqj84vr7" path="res://Assets/Map/HalloweenPack/post_lantern.gltf" id="162_4lwtl"]
 [ext_resource type="Script" uid="uid://c0oydatmnencr" path="res://Map/EndOfLevel.gd" id="168_wtfs8"]
-[ext_resource type="PackedScene" uid="uid://chr4qtb54rs7m" path="res://testingGround.tscn" id="169_winkj"]
+[ext_resource type="PackedScene" uid="uid://bi6f2u81ey1r8" path="res://Levels/Crypts.tscn" id="170_jleuw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_02fl5"]
 sky_top_color = Color(0.214181, 0.452067, 0.742364, 1)
@@ -7496,7 +7496,7 @@ collision_layer = 0
 collision_mask = 2
 monitorable = false
 script = ExtResource("168_wtfs8")
-next_level = ExtResource("169_winkj")
+next_level = ExtResource("170_jleuw")
 next_level_name = "Crypts"
 metadata/_custom_type_script = "uid://c0oydatmnencr"
 
