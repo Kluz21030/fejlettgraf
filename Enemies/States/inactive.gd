@@ -26,7 +26,7 @@ func _on_enemy_player_detected(body: Node3D) -> void:
 		if self.body is Boss:
 			Events.boss_engaged.emit()
 		if awaken_animation:
-			animation_player.play(awaken_animation)
+			animation_player.play(awaken_animation, -1, 1.5)
 
 func _on_animation_finished(anim_name: StringName) -> void:
 		if awaken_animation == anim_name:
