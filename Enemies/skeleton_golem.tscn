@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dv8bkvlq2mgem" path="res://Enemies/Skins/fist.tscn" id="20_qqksy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jao7y"]
-size = Vector3(1.21094, 1.18738, 2.80936)
+size = Vector3(1.21094, 1.18738, 3.98267)
 
 [sub_resource type="Animation" id="Animation_wr8vp"]
 length = 0.001
@@ -95,10 +95,10 @@ height = 4.90828
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_khavv"]
 radius = 0.956411
-height = 3.80667
+height = 4.97045
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_j2ltw"]
-radius = 15.0
+radius = 30.0776
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gdjsp"]
 radius = 5.0
@@ -200,6 +200,7 @@ script = ExtResource("3_jao7y")
 metadata/_custom_type_script = "uid://drfr2io8ka30l"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton_Golem/KickArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.586657)
 shape = SubResource("BoxShape3D_jao7y")
 
 [node name="CharacterAnimationPlayer" type="AnimationPlayer" parent="."]
@@ -363,7 +364,7 @@ shape = SubResource("CapsuleShape3D_j2ltw")
 debug_color = Color(0.996661, 0, 0.1823, 0.42)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0598179, 1.84689, 0.296438)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0598179, 2.24889, 0.296438)
 shape = SubResource("CapsuleShape3D_khavv")
 debug_color = Color(0.287334, 0.492154, 0.992914, 0.419608)
 
