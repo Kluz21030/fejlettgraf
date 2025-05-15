@@ -1452,8 +1452,9 @@ points = PackedVector3Array(0.0393402, 2.36853, 0.0393331, -0.5495, 0.0213564, -
 [sub_resource type="BoxShape3D" id="BoxShape3D_7atw3"]
 size = Vector3(3.5423, 5.08594, 1.93414)
 
-[node name="TempleLevel" type="Node3D" groups=["Level"]]
+[node name="TempleLevel" type="Node3D" node_paths=PackedStringArray("spawn_point") groups=["Level"]]
 script = ExtResource("1_jleuw")
+spawn_point = NodePath("Spawn")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, -71.4834, 7.15456, -73.7815)
@@ -7488,7 +7489,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.17438, 0, -42.5848)
 mesh = ExtResource("32_celij")
 
 [node name="Player" parent="." instance=ExtResource("115_02fl5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0154641, 20.0339, -0.929033)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, -1)
 
 [node name="EndOfLevel" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.0082, 0, -41.4982)
@@ -7504,6 +7505,9 @@ metadata/_custom_type_script = "uid://c0oydatmnencr"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.408356, 2.84521, -1.5499)
 shape = SubResource("BoxShape3D_7atw3")
 debug_color = Color(3.682e-06, 0.646538, 0.234569, 0.42)
+
+[node name="Spawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, -1)
 
 [editable path="NavigationRegion3D/Cemetery/crypt2"]
 [editable path="NavigationRegion3D/Cemetery/floor/floor_dirt_grave2"]

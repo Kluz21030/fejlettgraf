@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bd0s73t8kx3dv" path="res://Enemies/Enemy.gd" id="1_upn73"]
 [ext_resource type="Script" uid="uid://btxm2taj35ckr" path="res://Components/HurtboxComponent.gd" id="2_3n527"]
 [ext_resource type="AnimationLibrary" uid="uid://bh6h3ttcukvv4" path="res://Animations/enemy_animations.res" id="3_ldd14"]
-[ext_resource type="Script" uid="uid://bqolpeb84mvdr" path="res://Components/HealthComponent.gd" id="3_upn73"]
+[ext_resource type="Script" uid="uid://bqolpeb84mvdr" path="res://Components/ResourceComponent.gd" id="3_upn73"]
 [ext_resource type="Script" uid="uid://dhkw86bie4tyf" path="res://Animations/CharacterAnimationPlayer.gd" id="4_gqg5d"]
 [ext_resource type="Script" uid="uid://df3ofue5mg5qx" path="res://StateMachine/StateMachine.gd" id="5_qw4xf"]
 [ext_resource type="Script" uid="uid://blu31jjtqmlg2" path="res://Enemies/States/inactive.gd" id="6_qw4xf"]
@@ -68,7 +68,7 @@ radius = 1.0
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3n527"]
 radius = 0.434533
 
-[node name="SkeletonRogue" type="CharacterBody3D" node_paths=PackedStringArray("skin", "animation_player")]
+[node name="SkeletonRogue" type="CharacterBody3D" node_paths=PackedStringArray("skin", "animation_player") groups=["Enemy"]]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_upn73")

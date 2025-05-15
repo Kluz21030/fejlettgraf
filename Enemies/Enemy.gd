@@ -2,6 +2,7 @@ class_name Enemy extends CharacterBody3D
 
 var _gravity: float = -18
 var _last_movement_direction: Vector3
+var _initial_position: Vector3
 
 var player: Player
 var player_in_range: bool
@@ -18,7 +19,7 @@ var move_direction: Vector3
 
 
 func _ready() -> void:
-	pass
+	_initial_position = global_position
 
 func _physics_process(delta: float) -> void:
 	if not state_machine.current_state.can_move:
@@ -52,3 +53,12 @@ func _on_player_moved_away(body: Node3D) -> void:
 func _on_player_in_range(body: Node3D) -> void:
 	if body is Player:
 		player_in_range = true
+
+func reset() -> void:
+	if state_machine.current_state.name != "Death":
+		state_machine.current_state.finished.emit("Inactive")
+		global_position = _initial_position
+		player = null
+		
+		for resource in find_children("*", "ResourceComponent"):
+			resource.reset()

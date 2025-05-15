@@ -21,7 +21,6 @@ config/features=PackedStringArray("4.4")
 [autoload]
 
 Events="*res://Singletons/EventBus.gd"
-Transition="*res://Levels/Transition.tscn"
 
 [display]
 
@@ -32,6 +31,7 @@ window/stretch/mode="canvas_items"
 PlayerCamera=""
 Level=""
 Player=""
+Enemy=""
 
 [input]
 

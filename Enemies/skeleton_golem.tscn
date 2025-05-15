@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://blu31jjtqmlg2" path="res://Enemies/States/inactive.gd" id="7_j2ltw"]
 [ext_resource type="Script" uid="uid://btxm2taj35ckr" path="res://Components/HurtboxComponent.gd" id="7_khavv"]
 [ext_resource type="Script" uid="uid://i4s21u7qc1ps" path="res://Enemies/States/jump_attack.gd" id="8_gdjsp"]
-[ext_resource type="Script" uid="uid://bqolpeb84mvdr" path="res://Components/HealthComponent.gd" id="9_1vmrx"]
+[ext_resource type="Script" uid="uid://bqolpeb84mvdr" path="res://Components/ResourceComponent.gd" id="9_1vmrx"]
 [ext_resource type="Script" uid="uid://coorp2yquxr32" path="res://StateMachine/RandomizedStateWrapper.gd" id="10_ivkhs"]
 [ext_resource type="Script" uid="uid://bsrllvd6m6k0o" path="res://StateMachine/SequentialStateWrapper.gd" id="11_jsrkh"]
 [ext_resource type="Script" uid="uid://5whkmrn8bivx" path="res://StateMachine/ChooseOneStateWrapper.gd" id="12_ohwb7"]
@@ -103,7 +103,7 @@ radius = 30.0776
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gdjsp"]
 radius = 5.0
 
-[node name="Golem" type="CharacterBody3D" node_paths=PackedStringArray("skin", "animation_player")]
+[node name="Golem" type="CharacterBody3D" node_paths=PackedStringArray("skin", "animation_player") groups=["Enemy"]]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_j7csq")

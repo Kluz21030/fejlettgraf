@@ -17,9 +17,13 @@ class_name Player extends CharacterBody3D
 
 var _camera_input_direction: Vector2 = Vector2.ZERO
 var _last_movement_direction: Vector3 = Vector3.BACK
+var _initial_position: Vector3
 var _input_direction: Vector2
 var _move_direction: Vector3
 var _gravity: float = -18
+
+func _ready() -> void:
+	_initial_position = global_position
 
 func _input(event: InputEvent) -> void:
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED and event.is_action_pressed("left_click"):
@@ -57,3 +61,13 @@ func _physics_process(delta: float) -> void:
 	skin.rotation.y = lerp_angle(skin.rotation.y, target_rotation, rotate_speed * delta)
 	
 	move_and_slide()
+
+func _on_died(_body: CharacterBody3D) -> void:
+	state_machine.current_state.finished.emit("Death")
+	Events.player_died.emit()
+
+func reset() -> void:
+	global_position = _initial_position
+	state_machine._transition_to_next_state("Idle")
+	for resource in find_children("*", "ResourceComponent"):
+		resource.reset()

@@ -15,3 +15,6 @@ func appear() -> void:
 	timer.start()
 	await timer.timeout
 	Events.death_popup_finished.emit()
+	await Events.transition_fade_finished
+	self_modulate.a = 0.0
+	label.self_modulate.a = 0.0

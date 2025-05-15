@@ -11,3 +11,6 @@ signal choice_accepted
 signal transition_to_next_level(next_level: PackedScene)
 signal player_died
 signal death_popup_finished
+signal start_transition_fade(out: bool)
+signal transition_fade_finished
+signal reset

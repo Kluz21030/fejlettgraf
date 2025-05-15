@@ -21,7 +21,6 @@ var current_value: float:
 		current_value = clampf(value, 0, max_value)
 		if resource_name == &"Health" and current_value == 0 and previous_val != 0:
 			died.emit(owner)
-			Events.player_died.emit()
 		if owner is Player:
 			Events.player_resource_changed.emit(resource_name, current_value, max_value)
 		if owner is Boss:
@@ -45,3 +44,6 @@ func change_max_value(max_value: int, heal: bool = true) -> void:
 	self.max_value += max_value
 	if heal:
 		current_value = self.max_value
+
+func reset() -> void:
+	current_value = max_value

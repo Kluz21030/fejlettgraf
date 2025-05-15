@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://icv7yjfe32nh" path="res://Enemies/States/death.gd" id="8_5uvi3"]
 [ext_resource type="Script" uid="uid://btxm2taj35ckr" path="res://Components/HurtboxComponent.gd" id="10_e1fe3"]
 [ext_resource type="Script" uid="uid://cohdy2fhq8lmq" path="res://Enemies/States/interrupted.gd" id="11_eejj0"]
-[ext_resource type="Script" uid="uid://bqolpeb84mvdr" path="res://Components/HealthComponent.gd" id="11_nep66"]
+[ext_resource type="Script" uid="uid://bqolpeb84mvdr" path="res://Components/ResourceComponent.gd" id="11_nep66"]
 [ext_resource type="PackedScene" uid="uid://m8bu81jwjueo" path="res://GUI/enemy_health_bar.tscn" id="13_eejj0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ial4x"]
@@ -27,7 +27,7 @@ radius = 1.0
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kj3gg"]
 radius = 0.434533
 
-[node name="SkeletonMinionUnarmed" type="CharacterBody3D" node_paths=PackedStringArray("skin")]
+[node name="SkeletonMinionUnarmed" type="CharacterBody3D" node_paths=PackedStringArray("skin") groups=["Enemy"]]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_nep66")

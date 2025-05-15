@@ -38,7 +38,8 @@ func update(_delta: float) -> void:
 			var fall_distance: float = enter_height - body.global_position.y
 			if fall_distance >= fall_damage_theshold:
 				health_component.take_damage(fall_distance * fall_damage)
-			animation_player.play(&"player_animations/Jump_Land", 0.2)
+			if health_component.current_value != 0:
+				animation_player.play(&"player_animations/Jump_Land", 0.2)
 
 func physics_update(_delta: float) -> void:
 	pass
