@@ -15,7 +15,7 @@ warnings/check_invalid_track_paths=false
 [application]
 
 config/name="fejlettgraf"
-run/main_scene="uid://chr4qtb54rs7m"
+run/main_scene="uid://bjyeaw0u405vc"
 config/features=PackedStringArray("4.4")
 
 [autoload]

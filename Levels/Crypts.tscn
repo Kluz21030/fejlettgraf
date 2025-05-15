@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://dv4a6yjpomh6q" path="res://Assets/Map/Dungeon/stairs_long.gltf" id="2_su42g"]
 [ext_resource type="PackedScene" uid="uid://cpdjodwxwrqrq" path="res://Assets/Map/Dungeon/wall_doorway.gltf" id="3_uh34n"]
 [ext_resource type="PackedScene" uid="uid://6nlo4yi678ee" path="res://Assets/Map/Dungeon/floor_foundation_front.gltf" id="4_y6ji2"]
-[ext_resource type="PackedScene" uid="uid://e8mgunypswjq" path="res://Player/player.tscn" id="5_dgkrv"]
 [ext_resource type="PackedScene" uid="uid://dg0qoei7l172x" path="res://Assets/Map/Dungeon/wall_corner_small.gltf" id="6_vi20a"]
 [ext_resource type="PackedScene" uid="uid://bohk488gxxic2" path="res://Assets/Map/Dungeon/wall_arched.gltf" id="7_kjp6u"]
 [ext_resource type="PackedScene" uid="uid://y5ndy8ji401y" path="res://Assets/Map/Dungeon/wall.gltf" id="8_ths7o"]
@@ -47,6 +46,7 @@
 [ext_resource type="Script" uid="uid://c0oydatmnencr" path="res://Map/EndOfLevel.gd" id="43_dlpgt"]
 [ext_resource type="PackedScene" uid="uid://d16i8ywnwx7fn" path="res://Assets/Map/Dungeon/floor_tile_extralarge_grates.gltf" id="44_jt803"]
 [ext_resource type="PackedScene" uid="uid://be6yrg3ouh4iv" path="res://Enemies/skeleton_rogue.tscn" id="46_kjkjd"]
+[ext_resource type="PackedScene" uid="uid://dvqp6irvta3s0" path="res://Levels/RitualHall.tscn" id="46_xg6l0"]
 [ext_resource type="PackedScene" uid="uid://bwx1hmpd76y63" path="res://Enemies/skeleton_minion_sword.tscn" id="47_ndsuw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ndsuw"]
@@ -1107,14 +1107,12 @@ size = Vector3(23.3581, 1, 50.8255)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ckkfr"]
 size = Vector3(3.0639, 4.12512, 1.84363)
 
-[node name="Crypts" type="Node3D"]
+[node name="Crypts" type="Node3D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_twdth")
+spawn_point = NodePath("Spawn")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6okiw")
-
-[node name="Player" parent="." instance=ExtResource("5_dgkrv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.13861, -3.10696)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_ndsuw")
@@ -3896,6 +3894,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.14577, 1.98506, -17.2504)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("43_dlpgt")
+next_level = ExtResource("46_xg6l0")
 next_level_name = "Ritual Hall"
 metadata/_custom_type_script = "uid://c0oydatmnencr"
 
@@ -3945,6 +3944,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.9234, -18.2074, 112.328)
 
 [node name="SkeletonRogue3" parent="Enemies" instance=ExtResource("46_kjkjd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.2302, -18.2074, 91.1623)
+
+[node name="Spawn" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 6.16792, -2.31572)
 
 [editable path="NavigationRegion3D/Enterance/stairs_long2"]
 [editable path="NavigationRegion3D/Crypt/SecretRoom1/SecretWall"]
