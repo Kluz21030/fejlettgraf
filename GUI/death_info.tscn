@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhmu2qb04pt4g"]
+
+[ext_resource type="Script" uid="uid://jd7b5tlg21mb" path="res://GUI/death_info.gd" id="1_ryn2x"]
+
+[sub_resource type="Gradient" id="Gradient_3adwp"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.123377, 0.519481, 0.863636)
+colors = PackedColorArray(0.294118, 0.196078, 0.156863, 0, 0.294118, 0.219608, 0.156863, 0.85098, 0.294118, 0.196078, 0.156863, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ryn2x"]
+gradient = SubResource("Gradient_3adwp")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3adwp"]
+font_size = 82
+font_color = Color(0.772549, 0, 0, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_color = Color(0.341176, 0, 0, 1)
+
+[node name="DeathInfo" type="TextureRect" node_paths=PackedStringArray("label", "timer")]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_ryn2x")
+script = ExtResource("1_ryn2x")
+label = NodePath("CenterContainer/Label")
+timer = NodePath("Timer")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(400, 120)
+layout_mode = 2
+text = "you died"
+label_settings = SubResource("LabelSettings_3adwp")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true

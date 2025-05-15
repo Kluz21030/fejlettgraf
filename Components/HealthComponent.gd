@@ -17,9 +17,11 @@ signal died(owner: CharacterBody3D)
 
 var current_value: float:
 	set(value):
+		var previous_val: float = current_value
 		current_value = clampf(value, 0, max_value)
-		if resource_name == &"Health" and current_value == 0:
+		if resource_name == &"Health" and current_value == 0 and previous_val != 0:
 			died.emit(owner)
+			Events.player_died.emit()
 		if owner is Player:
 			Events.player_resource_changed.emit(resource_name, current_value, max_value)
 		if owner is Boss:

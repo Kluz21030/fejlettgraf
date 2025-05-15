@@ -9,3 +9,5 @@ signal popup_info(text: String)
 signal eol_reached(text: String)
 signal choice_accepted
 signal transition_to_next_level(next_level: PackedScene)
+signal player_died
+signal death_popup_finished

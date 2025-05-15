@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://1u5a6g7d3ef"]
+[gd_scene load_steps=6 format=3 uid="uid://1u5a6g7d3ef"]
 
 [ext_resource type="PackedScene" uid="uid://bj248ifviyxd7" path="res://GUI/golerm_hp_bar.tscn" id="1_3w8el"]
 [ext_resource type="PackedScene" uid="uid://xgqyd34boq05" path="res://GUI/resource_bar.tscn" id="1_5qcxp"]
 [ext_resource type="PackedScene" uid="uid://bkb8kjhta7ugq" path="res://GUI/popup_info_panel.tscn" id="2_v44ap"]
 [ext_resource type="PackedScene" uid="uid://bvailmxtnusjo" path="res://GUI/popup_info_panel_choice.tscn" id="3_88ec2"]
+[ext_resource type="PackedScene" uid="uid://dhmu2qb04pt4g" path="res://GUI/death_info.tscn" id="5_vwkww"]
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -74,3 +75,5 @@ size_flags_vertical = 3
 
 [node name="BossHPBar" parent="VBoxContainer/LowerHalf/CenterContainer2" instance=ExtResource("1_3w8el")]
 layout_mode = 2
+
+[node name="DeathInfo" parent="." instance=ExtResource("5_vwkww")]
