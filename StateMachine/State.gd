@@ -28,4 +28,5 @@ func physics_update(_delta: float) -> void:
 	pass
 
 func interrupt(interrupt_state_name: String = "") -> void:
-	finished.emit(interrupt_state_name if not interrupt_state_name.is_empty() else "Interrupted")
+	if interruptable:
+		finished.emit(interrupt_state_name if not interrupt_state_name.is_empty() else "Interrupted")

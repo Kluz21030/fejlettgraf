@@ -73,4 +73,4 @@ value = 500
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19396, -12.4397)
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7866, 9.9094, 7.76763)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.7059, 9.9094, 7.76763)

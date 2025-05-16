@@ -1298,6 +1298,7 @@ transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 
 
 [node name="floor_tile_large4" parent="NavigationRegion3D/Crypt/SecretRoom1" instance=ExtResource("20_neond")]
 transform = Transform3D(3, 0, 0, 0, -3, 2.62268e-07, 0, -2.62268e-07, -3, 0.412819, 6.06587, -0.321321)
+visible = false
 
 [node name="SecretRoom2" type="Node3D" parent="NavigationRegion3D/Crypt"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0552, 0, -6.91719)

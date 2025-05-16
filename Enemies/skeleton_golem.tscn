@@ -382,11 +382,10 @@ debug_color = Color(1, 1, 0, 0.784314)
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("9_1vmrx")
 resource_name = &"Health"
-max_value = 1000.0
+max_value = 10000.0
 metadata/_custom_type_script = "uid://bqolpeb84mvdr"
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="Attack_Range" type="Area3D" parent="."]
@@ -402,7 +401,7 @@ debug_color = Color(0.0690156, 0.646427, 0.18664, 0.42)
 [node name="Stomp" parent="." instance=ExtResource("18_wr8vp")]
 collision_layer = 0
 collision_mask = 2
-damage = 50
+damage = 300
 
 [node name="GolemAxe" type="BoneAttachment3D" parent="."]
 transform = Transform3D(-0.4391, 0.188337, -2.45392, -2.42792, 0.374993, 0.463228, 0.402978, 2.46453, 0.117041, -1.89845, 2.71051, 1.28958)

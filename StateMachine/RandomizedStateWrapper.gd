@@ -24,7 +24,6 @@ func enter(previous_state_path: String, data: Dictionary = {}) -> void:
 	current_sub_state.enter(previous_state_path, data)
 
 func exit() -> void:
-	print("attack")
 	if current_sub_state:
 		current_sub_state.exit()
 

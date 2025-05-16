@@ -30,5 +30,6 @@ func reset() -> void:
 	for enemy in get_tree().get_nodes_in_group("Enemy"):
 		enemy.reset()
 	var player: Player = get_tree().get_first_node_in_group(&"Player")
+	player.global_position = spawn_point.global_position
 	player.reset()
 	Events.start_transition_fade.emit()

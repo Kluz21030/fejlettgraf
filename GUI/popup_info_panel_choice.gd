@@ -17,10 +17,9 @@ func _input(event: InputEvent) -> void:
 		tween.tween_property(self, "scale", Vector2(0.05, 0.05), 0.3)
 		await tween.finished
 		self.modulate.a = 0.0
+		set_process_input(false)
 		if event.is_action_pressed("accept"):
 			Events.choice_accepted.emit()
-		else:
-			set_process_input(false)
 
 func _on_popup_info(text: String) -> void:
 	set_process_input(true)

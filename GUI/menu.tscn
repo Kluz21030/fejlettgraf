@@ -12,11 +12,21 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 0)
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("control_node")]
 script = ExtResource("1_cnjlq")
 first_level = ExtResource("2_tvy18")
+control_node = NodePath("Control")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -24,16 +34,17 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_cnjlq")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="CenterContainer"]
+[node name="Button" type="Button" parent="Control/CenterContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "Start"
 
-[connection signal="pressed" from="CenterContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/Button" to="." method="_on_button_pressed"]

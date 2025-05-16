@@ -84,8 +84,9 @@ data = PackedVector3Array(0.3541, 2.7726, 0.7, -0.4789, 2.7628, 0.7, -0.5508, 2.
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ninat"]
 
-[node name="RitualHall" type="Node3D"]
+[node name="RitualHall" type="Node3D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_qrr20")
+spawn_point = NodePath("Spawn")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qbke2")
@@ -3747,9 +3748,6 @@ transform = Transform3D(3, 0, 0, 0, -1.31134e-07, 3, 0, -3, -1.31134e-07, 0, 0, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Pillars/BrokenPillar/pillar_broken_gltf3/pillar_broken/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_byl2c")
 
-[node name="Player" parent="." instance=ExtResource("1_8qmm3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.922576, -105.262)
-
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
@@ -3779,6 +3777,11 @@ value = 150
 [node name="StaminaPickup" parent="Pickups" instance=ExtResource("16_byl2c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.85734, -87.2695)
 value = 150
+
+[node name="Spawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36176, -105.746)
+
+[node name="Player" parent="." instance=ExtResource("1_8qmm3")]
 
 [editable path="NavigationRegion3D/Pillars/Pillar1/pillar_broken_gltf"]
 [editable path="NavigationRegion3D/Pillars/Pillar1/pillar_broken_gltf2"]

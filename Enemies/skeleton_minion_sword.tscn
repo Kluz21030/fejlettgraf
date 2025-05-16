@@ -119,7 +119,6 @@ debug_color = Color(1, 1, 0, 0.784314)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 target_desired_distance = 2.0
-debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="Attack_Range" type="Area3D" parent="."]
@@ -147,7 +146,7 @@ shape = SubResource("CapsuleShape3D_3f22u")
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("9_4msrm")
 resource_name = &"Health"
-max_value = 200.0
+max_value = 600.0
 metadata/_custom_type_script = "uid://bqolpeb84mvdr"
 
 [node name="HealthBar" parent="." instance=ExtResource("13_j0qpp")]

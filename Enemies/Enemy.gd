@@ -56,7 +56,8 @@ func _on_player_in_range(body: Node3D) -> void:
 
 func reset() -> void:
 	if state_machine.current_state.name != "Death":
-		state_machine.current_state.finished.emit("Inactive")
+		if state_machine.current_state.name != "Inactive":
+			state_machine.current_state.finished.emit("Inactive")
 		global_position = _initial_position
 		player = null
 		

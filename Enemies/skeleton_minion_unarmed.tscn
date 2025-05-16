@@ -47,6 +47,7 @@ state_machine = NodePath("../../../../../StateMachine")
 transform = Transform3D(-1.53513e-07, -0.149894, -0.988701, -0.999999, -5.36442e-07, 1.19665e-06, -1.10337e-06, 0.988701, -0.149894, -0.49106, 0.64103, 0.106595)
 
 [node name="Weapon" parent="Skeleton_Minion/Rig/Skeleton3D/Fist" index="0" node_paths=PackedStringArray("state_machine")]
+base_damage = 75
 state_machine = NodePath("../../../../../StateMachine")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -131,7 +132,6 @@ debug_color = Color(1, 1, 0, 0.784314)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 target_desired_distance = 2.0
-debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="Attack_Range" type="Area3D" parent="."]
@@ -159,7 +159,7 @@ shape = SubResource("CapsuleShape3D_kj3gg")
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("11_nep66")
 resource_name = &"Health"
-max_value = 200.0
+max_value = 400.0
 metadata/_custom_type_script = "uid://bqolpeb84mvdr"
 
 [node name="HealthBar" parent="." instance=ExtResource("13_eejj0")]

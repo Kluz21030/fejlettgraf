@@ -10,6 +10,7 @@ func enter(previous_state_path: String, data: Dictionary = {}) -> void:
 
 func exit() -> void:
 	detection_area.body_entered.disconnect(_on_enemy_player_detected)
+	animation_player.animation_finished.disconnect(_on_animation_finished)
 
 func handle_input(_event: InputEvent) -> void:
 	pass
