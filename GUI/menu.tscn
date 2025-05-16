@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bevk2s4q2t4k8"]
+
+[ext_resource type="Script" uid="uid://bh63jwd2ei2sa" path="res://GUI/menu.gd" id="1_cnjlq"]
+[ext_resource type="PackedScene" uid="uid://bjyeaw0u405vc" path="res://Levels/Temple.tscn" id="2_tvy18"]
+
+[sub_resource type="Gradient" id="Gradient_anp14"]
+colors = PackedColorArray(0.301105, 1.04684e-06, 6.73831e-07, 1, 0.767024, 4.90934e-06, 4.81307e-07, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cnjlq"]
+gradient = SubResource("Gradient_anp14")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_cnjlq")
+first_level = ExtResource("2_tvy18")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_cnjlq")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CenterContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Start"
+
+[connection signal="pressed" from="CenterContainer/Button" to="." method="_on_button_pressed"]
